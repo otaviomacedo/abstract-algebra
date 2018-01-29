@@ -1,8 +1,9 @@
 \documentclass{article}
-\usepackage{amsfonts}
-\usepackage{enumitem}
 \usepackage[utf8]{inputenc}
-
+\usepackage{euler}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{enumitem}
 \title{A Book of Abtract Algebra - solutions to exercises}
 
 
@@ -100,7 +101,7 @@ Table \ref{tab:binary-operations} list all the operations for the set $\{a, b\}$
     \item Inverses: $\{O_7, O_{10}\}$.
 \end{enumerate}
 
-\subsection{Set D}
+\subsection*{Set D}
 \begin{enumerate}
     \item Let $a, b, c \in A^*$. Then:
         $$(ab)c = (a_1\ldots a_mb_1\ldots b_n)c_1\ldots c_p = a_1\ldots a_m(b_1\ldots b_nc_1\ldots c_p) = a(bc)$$
@@ -108,5 +109,74 @@ Table \ref{tab:binary-operations} list all the operations for the set $\{a, b\}$
     \item Let $a\lambda = \lambda a = a$. So $\lambda$ is the identity for this operation.
 \end{enumerate}
 
+\section*{Chapter 3}
+
+\subsection*{Set A}
+
+\begin{enumerate}
+    \item $x * y = x + y + k$. Same thing as the example in Set B of Chapter 2, but with a generic constant $k$ instead of the fixed constant 1.
+    \item $x * y = \frac{xy}{2}$, on the set $\{x \in \mathbb{R}, x \ne 0\}$.
+    \begin{description}
+        \item [Commutative] 
+            $$\frac{xy}{2} = \frac{yx}{2}$$
+        \item [Associative]
+        $$(x * y) * z = \frac{xy}{2} * z = \frac{\frac{xy}{2}z}{2} = \frac{xyz}{4}$$
+        $$x * (y * z) = \frac{x(y * z)}{2} = \frac{x\frac{yz}{2}}{2} = \frac{xyz}{4}$$
+        \item [Identity] $x * e = x \Rightarrow \frac{xe}{2} = x \Rightarrow e = 2$
+        \item [Inverse] $x * x' = 2 \Rightarrow \frac{xx'}{2} = 2 \Rightarrow xx' = 4 \Rightarrow x' = \frac{4}{x}$
+    \end{description}
+    \item $x * y = x + y + xy$, on the set $\{x \in \mathbb{R}, x \ne -1\}$
+    \begin{description}
+        \item [Commutative] $x + y + xy = y + x + yx$
+        \item [Associative]
+        $$(x * y) * z = (x + y + xy) * z = (x + y + xy) + x + (x + y + xy)z = x + y + z + xy + yz + xyz$$
+        $$x * (y * z) = x * (y + z + yz) = x + (y + z + yz) + x(y + z + yz) = x + y + z + xy + yz + xyz$$
+        \item [Identity] $x * e = x \Rightarrow x + e + xe = x \Rightarrow x + e + xe - x = 0 \Rightarrow x(1 + e - 1) + e = 0 \Rightarrow xe + e = 0 \Rightarrow e = 0$
+        \item [Inverse] $x * x' = 0 \Rightarrow x + x'+ xx' = 0 \Rightarrow x = -x'(1 + x) \Rightarrow x' = \frac{x}{1+x}$
+    \end{description}
+    \item $x * y = \frac{x + y}{xy + 1}$, on the set $\{x \in \mathbb{R}, -1 < x < 1\}$.
+    \begin{description}
+        \item [Commutative]
+            $$\frac{x + y}{xy + 1} = \frac{y + x}{yx + 1}$$
+        \item [Associative]
+            $$(x * y) * z = \frac{x + y}{xy + 1} * z = \frac{(\frac{x + y}{xy + 1}) + z}{(\frac{x + y}{xy + 1})z + 1} = \frac{x + y + xyz + z}{xz + yz + xy + 1}$$
+            $$x * (y * z) = x * \frac{y + z}{yz + 1} = \frac{x + (\frac{y + z}{yz + 1})}{x(\frac{y + z}{yz + 1}) + 1} = \frac{x + y + xyz + z}{xz + yz + xy + 1}$$
+        \item [Identity] $e * x = x * e = x \Rightarrow \frac{x + e}{xe + 1} = x \Rightarrow x + e = x(xe + 1) \Rightarrow e = 0$
+        \item [Inverse] $x' * x = x * x' = 0 \Rightarrow \frac{x + x'}{xx' + 1} = 0 \Rightarrow x + x' = 0 \Rightarrow x' = -x$
+    \end{description}
+\end{enumerate}
+
+\subsection*{Set B}
+\begin{enumerate}
+    \item $(a, b) * (c , d) = (ad + bc, bd)$, on the set $\{(x, y) \in \mathbb{R} \times \mathbb{R}: y \ne 0\}$: abelian group.
+    \begin{description}
+        \item [Commutative: Yes] $(ad + bc, bd) = (cb + da, bd)$
+        \item [Associative: Yes]
+            $$[(a, b) * (c, d)] * (f, g) = (ad + bc, bd) * (f, g) = (adg + bcg + bdf, bdg)$$
+            $$(a, b) * [(c, d) * (f, g)] = (a, b) * (cg + df, dg) = (adg + bcg + bdf, bdg)$$
+        \item [Identity: Yes]
+            \begin{equation*}
+                \begin{split}
+                    (a, b) * (e_1, e_2) = (a, b) & \Rightarrow (ae_2 + be_1, be_2) = (a, b) \\
+                                                 & \Rightarrow  \begin{cases}
+                                                                    be_2 = b \Rightarrow e_2 = 1 \\
+                                                                    ae_2 + be_1 = a \Rightarrow be_1 = 0 \Rightarrow e_1 = 0
+                                                                \end{cases} \\
+                                                 & \Rightarrow e = (0, 1)
+                \end{split}
+            \end{equation*}
+        \item [Inverse: Yes]
+            \begin{equation*}
+                \begin{split}
+                    (a, b) * (a', b') = (0, 1) & \Rightarrow (ab' + ba', bb') = (0, 1) \\
+                                               & \Rightarrow \begin{cases}
+                                                                bb' = 1 \Rightarrow b' = \frac{1}{b} \\
+                                                                ab' + ba' = 0 \Rightarrow \frac{a}{b} + ba' = 0 \Rightarrow a' = -\frac{a}{b^2}
+                                                             \end{cases} \\
+                                               & \Rightarrow (a, b)' = (-\frac{a}{b^2}, \frac{1}{b})
+                \end{split}
+            \end{equation*}
+    \end{description}
+\end{enumerate}
 
 \end{document}

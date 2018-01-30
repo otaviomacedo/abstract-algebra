@@ -1,9 +1,15 @@
 \documentclass{article}
+\usepackage[margin=0.5in]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage{euler}
 \usepackage{amsfonts}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{enumitem}
+\usepackage{float}
+\let\emptyset\varnothing
+
+\author{Otavio Macedo}
 \title{A Book of Abtract Algebra - solutions to exercises}
 
 
@@ -139,8 +145,8 @@ Table \ref{tab:binary-operations} list all the operations for the set $\{a, b\}$
         \item [Commutative]
             $$\frac{x + y}{xy + 1} = \frac{y + x}{yx + 1}$$
         \item [Associative]
-            $$(x * y) * z = \frac{x + y}{xy + 1} * z = \frac{(\frac{x + y}{xy + 1}) + z}{(\frac{x + y}{xy + 1})z + 1} = \frac{x + y + xyz + z}{xz + yz + xy + 1}$$
-            $$x * (y * z) = x * \frac{y + z}{yz + 1} = \frac{x + (\frac{y + z}{yz + 1})}{x(\frac{y + z}{yz + 1}) + 1} = \frac{x + y + xyz + z}{xz + yz + xy + 1}$$
+            $$(x * y) * z = \frac{x + y}{xy + 1} * z = \frac{\left(\frac{x + y}{xy + 1}\right) + z}{\left(\frac{x + y}{xy + 1}\right)z + 1} = \frac{x + y + xyz + z}{xz + yz + xy + 1}$$
+            $$x * (y * z) = x * \frac{y + z}{yz + 1} = \frac{x + \left(\frac{y + z}{yz + 1}\right)}{x\left(\frac{y + z}{yz + 1}\right) + 1} = \frac{x + y + xyz + z}{xz + yz + xy + 1}$$
         \item [Identity] $e * x = x * e = x \Rightarrow \frac{x + e}{xe + 1} = x \Rightarrow x + e = x(xe + 1) \Rightarrow e = 0$
         \item [Inverse] $x' * x = x * x' = 0 \Rightarrow \frac{x + x'}{xx' + 1} = 0 \Rightarrow x + x' = 0 \Rightarrow x' = -x$
     \end{description}
@@ -149,34 +155,143 @@ Table \ref{tab:binary-operations} list all the operations for the set $\{a, b\}$
 \subsection*{Set B}
 \begin{enumerate}
     \item $(a, b) * (c , d) = (ad + bc, bd)$, on the set $\{(x, y) \in \mathbb{R} \times \mathbb{R}: y \ne 0\}$: abelian group.
-    \begin{description}
-        \item [Commutative: Yes] $(ad + bc, bd) = (cb + da, bd)$
-        \item [Associative: Yes]
-            $$[(a, b) * (c, d)] * (f, g) = (ad + bc, bd) * (f, g) = (adg + bcg + bdf, bdg)$$
-            $$(a, b) * [(c, d) * (f, g)] = (a, b) * (cg + df, dg) = (adg + bcg + bdf, bdg)$$
-        \item [Identity: Yes]
+        \begin{description}
+            \item [Commutative: Yes] $(ad + bc, bd) = (cb + da, bd)$
+            \item [Associative: Yes]
+                $$[(a, b) * (c, d)] * (f, g) = (ad + bc, bd) * (f, g) = (adg + bcg + bdf, bdg)$$
+                $$(a, b) * [(c, d) * (f, g)] = (a, b) * (cg + df, dg) = (adg + bcg + bdf, bdg)$$
+            \item [Identity: Yes]
+                \begin{equation*}
+                    \begin{split}
+                        (e_1, e_2) * (a, b) = (a, b) * (e_1, e_2) = (a, b) & \Rightarrow (ae_2 + be_1, be_2) = (a, b) \\
+                                                                           & \Rightarrow  \begin{cases}
+                                                                                                be_2 = b \Rightarrow e_2 = 1 \\
+                                                                                                ae_2 + be_1 = a \Rightarrow be_1 = 0 \Rightarrow e_1 = 0
+                                                                                          \end{cases} \\
+                                                                           & \Rightarrow e = (0, 1)
+                    \end{split}
+                \end{equation*}
+            \item [Inverse: Yes]
+                \begin{equation*}
+                    \begin{split}
+                        (a', b') * (a, b) = (a, b) * (a', b') = (0, 1) & \Rightarrow (ab' + ba', bb') = (0, 1) \\
+                                                                       & \Rightarrow \begin{cases}
+                                                                                            bb' = 1 \Rightarrow b' = \frac{1}{b} \\
+                                                                                            ab' + ba' = 0 \Rightarrow \frac{a}{b} + ba' = 0 \Rightarrow a' = -\frac{a}{b^2}
+                                                                                     \end{cases} \\
+                                                                       & \Rightarrow (a, b)' = \left(-\frac{a}{b^2}, \frac{1}{b}\right)
+                    \end{split}
+                \end{equation*}
+        \end{description}
+    \item $(a, b) * (c, d) = (ac, bc + d)$, on the set $\{(x, y) \in \mathbb{R} \times \mathbb{R}: x \ne 0\}$: non-abelian group.
+        \begin{description}
+            \item [Commutative: No] $(ac, bc + d) \ne (ca, da + b)$
+            \item [Associative: Yes]
+                $$[(a, b) * (c, d)] * (f, g) = (ac, bc + d) * (f, g) = (acf, bcf + df + g)$$
+                $$[(a, b) * [(c, d) * (f, g)] = (a, b) * (cf, df + g) = (acf, bcf + df + g)$$
+            \item [Identity: Yes]
+                \begin{equation*}
+                    \begin{split}
+                        (a, b) * (e_1, e_2) = (a, b) & \Rightarrow (ae_1 + be_1, e_2) = (a, b) \\
+                                                    & \Rightarrow  \begin{cases}
+                                                                        ae_1 = a \Rightarrow e_1 = 1 \\
+                                                                        be_1 + e2 = b \Rightarrow b + e_2 = b \Rightarrow e_2 = 0
+                                                                   \end{cases} \\
+                                                    & \Rightarrow e = (1, 0)
+                    \end{split}
+                \end{equation*}
+                Not being commutative, we have to check the inverse order of the operands:
+                    $$(1, 0) * (a, b) = (1a + 0a, b) = (a, b)$$
+            \item [Inverse: Yes]
+                \begin{equation*}
+                    \begin{split}
+                        (a, b) * (a', b') = (1, 0) & \Rightarrow (aa' + ba', b') = (1, 0) \\
+                                                & \Rightarrow \begin{cases}
+                                                                    aa' = 1 \Rightarrow a' = \frac{1}{a} \\
+                                                                    ba' + b' = 0 \Rightarrow \frac{b}{a} + b' = 0 \Rightarrow b' = -\frac{b}{a}
+                                                                \end{cases}
+                    \end{split}
+                \end{equation*}
+                Not being commutative, we have to check the inverse order of the operands:
+                    $$\left(\frac{1}{a}, -\frac{b}{a}\right) * (a, b) = \left(\frac{1}{a}a, -\frac{b}{a}a + b\right) = (1, 0)$$
+        \end{description}
+    \item Same operation as in part 2, but on the set $\mathbb{R} \times \mathbb{R}$: not a group. There is no solution for the identity element.
+    \item $(a, b) * (c, d = (ac -bd, ad + bc)$, on the set $\mathbb{R} \times \mathbb{R}$, with the origin deleted: abelian group.
+        \begin{description}
+            \item [Commutative: Yes] $(ac - bd, ad + bc) = (ca - db, cb + da)$
+            \item [Associative: Yes]
+                $$[(a, b) * (c, d)] * (f, g) = (ac - bd, ad + bc) * (f, g) = (acf - bdf - adg - bcg, acg - bdg + adf + bcf)$$
+                $$(a, b) * [(c, d) * (f, g)] = (a, b) * (cf - dg, cg + df) = (acf - adg - bcg - bdf, acg + adf + bcf - bdg)$$
+            \item [Identity: Yes]
+                \begin{equation*}
+                    \begin{split}
+                        (e_1, e_2) * (a, b) = (a, b) * (e_1, e_2) = (a, b) & \Rightarrow (ae_1 - be_2, ae_2 + be_1) = (a, b) \\
+                                                                           & \Rightarrow  \begin{cases}
+                                                                                ae_1 - be_2 = a \Rightarrow e_1 = \frac{a + be_2}{a} \Rightarrow e_1 = 1 \\
+                                                                                be_2 + be_1 = b \Rightarrow ae_2 + b\left(\frac{a + be_2}{a}\right) = b \Rightarrow e_2 = 0
+                                                                             \end{cases} \\
+                                                                           & \Rightarrow e = (1, 0)
+                    \end{split}
+                \end{equation*}
+            \item [Inverses: Yes]
             \begin{equation*}
                 \begin{split}
-                    (a, b) * (e_1, e_2) = (a, b) & \Rightarrow (ae_2 + be_1, be_2) = (a, b) \\
-                                                 & \Rightarrow  \begin{cases}
-                                                                    be_2 = b \Rightarrow e_2 = 1 \\
-                                                                    ae_2 + be_1 = a \Rightarrow be_1 = 0 \Rightarrow e_1 = 0
-                                                                \end{cases} \\
-                                                 & \Rightarrow e = (0, 1)
-                \end{split}
-            \end{equation*}
-        \item [Inverse: Yes]
-            \begin{equation*}
-                \begin{split}
-                    (a, b) * (a', b') = (0, 1) & \Rightarrow (ab' + ba', bb') = (0, 1) \\
-                                               & \Rightarrow \begin{cases}
-                                                                bb' = 1 \Rightarrow b' = \frac{1}{b} \\
-                                                                ab' + ba' = 0 \Rightarrow \frac{a}{b} + ba' = 0 \Rightarrow a' = -\frac{a}{b^2}
-                                                             \end{cases} \\
-                                               & \Rightarrow (a, b)' = (-\frac{a}{b^2}, \frac{1}{b})
+                    (a', b') * (a, b) = (a, b) * (a', b') = (1, 0) & \Rightarrow (aa' - bb', ab' + ba') = (1, 0) \\
+                                                                   & \Rightarrow \begin{cases}
+                                                                                        ab' + ba' = 0 \Rightarrow b' = -\frac{ba'}{a} \Rightarrow b'= -\frac{ba}{a^3 + ab^2}\\
+                                                                                        aa' - bb' = 1 \Rightarrow aa' + \frac{b^2a'}{a} = 1 \Rightarrow a'= \frac{a}{a^2 + b^2}
+                                                                                 \end{cases}\\
+                                                                   & \Rightarrow (a, b)' = \left(\frac{a}{a^2 + b^2}, -\frac{ba}{a^3 + ab^2}\right)
                 \end{split}
             \end{equation*}
     \end{description}
+    \item Consider the operation of the preceding problem on the set $\mathbb{R} \times \mathbb{R}$. Is this a group? Explain.\\
+    This is not a group. The value for the identity is undefined.
 \end{enumerate}
 
+\subsection*{Set C}
+\begin{enumerate}
+    \item $e = \emptyset$, since $\emptyset + A = A + \emptyset = (A - \emptyset) \cup (\emptyset - A) = A \cup A = A$.
+    \item $A' + A = A + A' = \emptyset \Rightarrow (A - A') \cup (A'- A) = \emptyset \cup \emptyset = \emptyset$.
+    \item $P_D = \{\emptyset, \{a\}, \{b\}, \{c\}, \{a, b\}, \{a, c\}, \{b, c\}, \{a, b, c\}\}$. See table \ref{tab:powerset-op}.
+    \begin{table}[!ht]
+        \centering
+        \begin{tabular}{l|llllllll}
+        +             & $\emptyset$   & $\{a\}$       & $\{b\}$       & $\{c\}$       & $\{a, b\}$    & $\{a, c\}$    & $\{b, c\}$    & $D$ \\
+        \hline
+        $\emptyset$   & $\emptyset$   & $\{a\}$       & $\{b\}$       & $\{c\}$       & $\{a, b\}$    & $\{a, c\}$    & $\{b, c\}$    & $D$ \\
+        $\{a\}$       & $\{a\}$       & $\emptyset$   & $\{a, b\}$    & $\{a, c\}$    & $\{b\}$       & $\{c\}$       & $D$           & $\{b, c\}$    \\
+        $\{b\}$       & $\{b\}$       & $\{a, b\}$    & $\emptyset$   & $\{b, c\}$    & $\{a\}$       & $D$           & $\{c\}$       & $\{a, c\}$    \\
+        $\{c\}$       & $\{c\}$       & $\{a, c\}$    & $\{b, c\}$    & $\emptyset$   & $D$           & $\{a\}$       & $\{b\}$       & $\{a, b\}$    \\
+        $\{a, b\}$    & $\{a, b\}$    & $\{b\}$       & $\{a\}$       & $D$           & $\emptyset$   & $\{b, c\}$    & $\{a, c\}$    & $\{c\}$       \\
+        $\{a, c\}$    & $\{a, c\}$    & $\{c\}$       & $D$           & $\{a\}$       & $\{b, c\}$    & $\emptyset$   & $\{a, b\}$    & $\{b\}$       \\
+        $\{b, c\}$    & $\{b, c\}$    & $D$           & $\{c\}$       & $\{b\}$       & $\{a, c\}$    & $\{a, b\}$    & $\emptyset$   & $\{a\}$       \\
+        $D$           & $D$           & $\{b, c\}$    & $\{a, c\}$    & $\{a, b\}$    & $\{c\}$       & $\{b\}$       & $\{a\}$       & $\emptyset$  
+        \end{tabular}
+        \caption{Operation table for $\langle P_D, + \rangle$}
+        \label{tab:powerset-op}
+    \end{table}
+\end{enumerate}
+
+\subsection*{Set D}
+See Table \ref{tab:checkerboard} for the checkerboard game operation table. $I$ is the identity since $X * I = I * X= X$ for any $X \in G$, and every element has an inverse (itself).
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l|llll}
+    $*$ & $I$ & $V$ & $H$ & $D$ \\ \hline
+    $I$ & $I$ & $V$ & $H$ & $D$ \\
+    $V$ & $V$ & $I$ & $D$ & $H$ \\
+    $H$ & $H$ & $D$ & $I$ & $V$ \\
+    $D$ & $D$ & $H$ & $V$ & $I$
+    \end{tabular}
+    \caption{Operation table for $\langle G, *\rangle$}
+    \label{tab:checkerboard}
+\end{table}
+
+\subsection*{Set E}
+See Table \ref{tab:coingame-op} for the coin game operation table. $I$ is the identity, since $X * I = I * X = X$, for every $X \in G$. 
+In every line there is an entry with $I$, which means that every element has an inverse.
+$\langle G, *\rangle$ is not commutative. For instance: $M_2 * M_4 \ne M_4 * M_2$.
+
+% TODO Write the table for the coin game.
 \end{document}

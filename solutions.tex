@@ -7,7 +7,12 @@
 \usepackage{amssymb}
 \usepackage{enumitem}
 \usepackage{float}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
 \let\emptyset\varnothing
+\DeclareMathOperator{\dec}{dec}
+
 
 \author{Otavio Macedo}
 \title{A Book of Abtract Algebra - solutions to exercises}
@@ -85,19 +90,19 @@
 \end{enumerate}
 
 \subsection*{Set C}
-Table \ref{tab:binary-operations} list all the operations for the set $\{a, b\}$. 
+Table \ref{tab:binary-operations} lists all the operations for the set $\{a, b\}$. 
 
 \begin{table}[]
-    \centering
-    \caption{Operations on $\{a, b\}$}
-    \label{tab:binary-operations}
-    \begin{tabular}{ll|llllllllllllllll}
+    \centering         
+    \begin{tabular}{cc|cccccccccccccccc}
     $x$ & $y$ & $O_1$ & $O_2$ & $O_3$ & $O_4$ & $O_5$ & $O_6$ & $O_7$ & $O_8$ & $O_9$ & $O_{10}$ & $O_{11}$ & $O_{12}$ & $O_{13}$ & $O_{14}$ & $O_{15}$ & $O_{16}$ \\
     $a$ & $a$ & $a$     & $a$     & $a$     & $a$     & $a$     & $a$     & $a$     & $a$     & $b$     & $b$      & $b$      & $b$      & $b$      & $b$      & $b$      & $b$      \\
     $a$ & $b$ & $a$     & $a$     & $a$     & $a$     & $b$     & $b$     & $b$     & $b$     & $a$     & $a$      & $a$      & $a$      & $b$      & $b$      & $b$      & $b$      \\
     $b$ & $a$ & $a$     & $a$     & $b$     & $b$     & $a$     & $a$     & $b$     & $b$     & $a$     & $a$      & $b$      & $b$      & $a$      & $a$      & $b$      & $b$      \\
     $b$ & $b$ & $a$     & $b$     & $a$     & $b$     & $a$     & $b$     & $a$     & $b$     & $a$     & $b$      & $a$      & $b$      & $a$      & $b$      & $a$      & $b$     
     \end{tabular}
+    \caption{Operations on $\{a, b\}$}
+    \label{tab:binary-operations}
 \end{table}
 
 \begin{enumerate}
@@ -256,7 +261,7 @@ Table \ref{tab:binary-operations} list all the operations for the set $\{a, b\}$
     \item $P_D = \{\emptyset, \{a\}, \{b\}, \{c\}, \{a, b\}, \{a, c\}, \{b, c\}, \{a, b, c\}\}$. See table \ref{tab:powerset-op}.
     \begin{table}[!ht]
         \centering
-        \begin{tabular}{l|llllllll}
+        \begin{tabular}{c|cccccccc}
         +             & $\emptyset$   & $\{a\}$       & $\{b\}$       & $\{c\}$       & $\{a, b\}$    & $\{a, c\}$    & $\{b, c\}$    & $D$ \\
         \hline
         $\emptyset$   & $\emptyset$   & $\{a\}$       & $\{b\}$       & $\{c\}$       & $\{a, b\}$    & $\{a, c\}$    & $\{b, c\}$    & $D$ \\
@@ -277,7 +282,7 @@ Table \ref{tab:binary-operations} list all the operations for the set $\{a, b\}$
 See Table \ref{tab:checkerboard} for the checkerboard game operation table. $I$ is the identity since $X * I = I * X= X$ for any $X \in G$, and every element has an inverse (itself).
 \begin{table}[H]
     \centering
-    \begin{tabular}{l|llll}
+    \begin{tabular}{c|cccc}
     $*$ & $I$ & $V$ & $H$ & $D$ \\ \hline
     $I$ & $I$ & $V$ & $H$ & $D$ \\
     $V$ & $V$ & $I$ & $D$ & $H$ \\
@@ -293,5 +298,277 @@ See Table \ref{tab:coingame-op} for the coin game operation table. $I$ is the id
 In every line there is an entry with $I$, which means that every element has an inverse.
 $\langle G, *\rangle$ is not commutative. For instance: $M_2 * M_4 \ne M_4 * M_2$.
 
-% TODO Write the table for the coin game.
+\begin{table}[!hb]
+    \centering
+    \begin{tabular}{c|cccccccc}
+    $*$ & $I$ & $M_1$ & $M_2$ & $M_3$ & $M_4$ & $M_5$ & $M_6$ & $M_7$ \\ \hline
+    $I$ & $I$ & $M_1$ & $M_2$ & $M_3$ & $M_4$ & $M_5$ & $M_6$ & $M_7$ \\
+    $M_1$ & $M_1$ & $I$ & $M_3$ & $M_2$ & $M_5$ & $M_4$ & $M_7$ & $M_6$ \\
+    $M_2$ & $M_2$ & $M_3$ & $I$ & $M_1$ & $M_6$ & $M_7$ & $M_4$ & $M_5$ \\
+    $M_3$ & $M_3$ & $M_2$ & $M_1$ & $I$ & $M_7$ & $M_6$ & $M_5$ & $M_4$ \\
+    $M_4$ & $M_4$ & $M_6$ & $M_5$ & $M_7$ & $I$ & $M_2$ & $M_1$ & $M_3$ \\
+    $M_5$ & $M_5$ & $M_7$ & $M_4$ & $M_6$ & $M_1$ & $M_3$ & $I$ & $M_2$ \\
+    $M_6$ & $M_6$ & $M_4$ & $M_7$ & $M_5$ & $M_2$ & $I$ & $M_3$ & $M_1$ \\
+    $M_7$ & $M_7$ & $M_5$ & $M_6$ & $M_4$ & $M_3$ & $M_1$ & $M_2$ & $I$
+    \end{tabular}
+    \caption{Operation table for $\langle G, *\rangle$}
+    \label{tab:coingame-op}
+\end{table}
+
+\subsection*{Set F}
+\begin{enumerate}
+    \item \begin{equation*}
+            \begin{split}
+                (a_1, a_2, \ldots, a_n) + (b_1, b_2, \ldots, b_n) & = (a_1 + b_1, a_2 + b_2, \ldots, a_n + b_n) \\
+                                                                  & = (b_1 + a_1, b_2 + a_2, \ldots, b_n + a_n) \\
+                                                                  & = (b_1, b_2, \ldots, b_n) + (a_1, a_2, \ldots, a_n)
+            \end{split}
+        \end{equation*}
+    \item 
+        $$1 + (0 + 1) = 1 + 1 = 0 = 1 + 1 = (1 + 0) + 1$$
+        $$1 + (0 + 0) = 1 + 0 = 0 = 1 + 0 = (1 + 0) + 0$$
+        $$0 + (1 + 1) = 0 + 0 = 0 = 1 + 1 = (0 + 1) + 1$$
+        $$0 + (0 + 1) = 0 + 1 = 1 = 0 + 1 = (0 + 0) + 1$$
+        $$0 + (1 + 0) = 0 + 1 = 1 = 0 + 0 = (0 + 1) + 0$$
+        $$0 + (0 + 0) = 0 + 0 = 0 = 0 + 0 = (0 + 0) + 1$$
+    \item
+        \begin{equation*}
+            \begin{split}
+                (a_1, \ldots, a_n) + [(b_1, \ldots, b_n) + (c_1, \ldots, c_n)] & = (a_1, \ldots, a_n) + (b_1 + c_1, \ldots, b_n + c_n) \\
+                                                                               & = (a_1 + (b_1 + c_1), \ldots, a_n + (b_n + c_n)) \\
+                                                                               & = ((a_1 + b_1) + c_1, \ldots, (a_n + b_n) + c_n) \\
+                                                                               & = [(a_1, \ldots, a_n) + (b_1, \ldots, b_n)] + (c_1, \ldots, c_n)
+            \end{split}
+        \end{equation*}
+    \item The identity is $(0_1, \ldots, 0_n)$, since $(a_1, \ldots, a_n) + (0_1, \ldots, 0_n) = (a_1, \ldots, a_n) = (0_1, \ldots, 0_n) + (a_1, \ldots, a_n)$.
+    \item $(a_1, \ldots, a_n)$ is its own inverse, since $(a_1, \ldots, a_n) + (a_1, \ldots, a_n) = (a_1 + a_1, \ldots, a_n + a_n) = (0_1, \ldots, 0_n)$.
+    \item $b = -b \Rightarrow a + b = a + (-b) \Rightarrow a + b = a - b$.
+    \item $a + b = c \Rightarrow a + b - b = c - b \Rightarrow a = c - b$. Since $-b = b$, $a = b + c$.
+\end{enumerate}
+
+\subsection*{Set G}
+\begin{enumerate}
+    \item See Table \ref{tab:parity-c1}.
+        \begin{table}[!hb]
+            \centering
+            \begin{tabular}{c|c|c}
+                                        & $a_4 = a_1 + a_3$ & $a_5 = a_1 + a_2 + a_3$ \\ \hline
+            $00000$ & $0 = 0 + 0$       & $0 = 0 + 0 + 0$         \\
+            $00111$ & $1 = 0 + 1$       & $1 = 0 + 0 + 1$         \\
+            $01001$ & $0 = 0 + 0$       & $1 = 0 + 1 + 0$         \\
+            $01110$ & $1 = 0 + 1$       & $0 = 0 + 1 + 1$         \\
+            $10011$ & $1 = 1 + 0$       & $1 = 1 + 0 + 0$         \\
+            $10100$ & $0 = 1 + 1$       & $0 = 1 + 0 + 1$         \\
+            $11010$ & $1 = 1 + 0$       & $0 = 1 + 1 + 0$         \\
+            $11101$ & $0 = 1 + 1$       & $1 = 1 + 1 + 1$        
+            \end{tabular}
+            \caption{Parity-check equations for $C_1$}
+            \label{tab:parity-c1}
+        \end{table}
+    \item $a_4 = a_2$, $a_5 = a_ + a_2$, $a_6 = a_1 + a_2 + a_3$, $a_i \in \mathbb{B}$.
+        \begin{enumerate}
+            \item $C_2 = \{000000, 001001, 010111, 011110, 100011, 101010, 110100, 111101\}$.
+            \item Minimum distance: 2 (e.g., $000000$ and $001001$).
+            \item There are $2^6 = 64$ words in $\mathbb{B}^6$ and there are $8$ codewords in $C_2$.
+            To be detected, a codeword must be transformed in a non-codeword. So there are $64 - 8 = 36$ ways of doing that.
+        \end{enumerate}
+    \item $\{0000, 0101, 1011, 1110\}$, for equations $a_3 = a_1$ and $a_4 = a_1 + a_2$. Minimum distance: 2.
+    \item Let $\dec$ be the decode function. So,
+        $$\dec(11111) = 11101$$
+        $$\dec(00101) = 00111$$
+        $$\dec(11000) = 11010$$
+        $$\dec(10011) = 10011$$
+        $$\dec(10001) = 10011$$
+        $$\dec(10111) = 10011, 00111$$
+    \item If the minimum distance in a code is $m$, that means, by definition, that to transform one codeword into another, it is necessary to change at least $m$ bits.
+        Therefore, if less than $m$ bits are changed, the result is a non-codeword and, as such, can be detected.
+    \item Let us assume that there is a certain element $x \in \mathbb{B}: x \in S_t(a) \cap S_t(b)$.
+        Then the largest possible value of $d(a, b)$ is $2t = m - 1$.
+        But it takes at least $m$ errors to change one codeword into another. So, the premise is false and, therefore, $S_t(a) \cap S_t(b) \ne \emptyset$.
+    \item Let us say a codeword $w$ is transformed into a non-codeword $w'$ such that $d(w, w') \leqslant t$. Then $w' \in S_t(w)$.
+        Since $S_t(w) \cap S_t(x) = \emptyset$ for any other codeword $x$, $w'$ can be unambiguously decoded into $w$.
+    \item \emph{I am probably wrong, but here is my reasoning, anyway}: the minimum distance in $C_1$ is 2. 
+        If that is the case, ``two errors in any codeword can always be detected'' is false. 
+        For instance, errors in positions 3 and 6 of $000000$ result in $001001$, another codeword, thus undetectable.
+\end{enumerate}
+
+\section*{Chapter 4}
+\subsection*{Set A}
+\begin{enumerate}
+    \item $axb = c \Rightarrow aa^{-1}xb = a^{-1}c \Rightarrow xbb^{-1} = a^{-1}cb^{-1} \Rightarrow x = a^{-1}cb^{-1}$.
+    \item $x^2b = xa^{-1}c \Rightarrow x^{-1}xxb = x^{-1}xa^{-1}c \Rightarrow xb = a^{-1}c \Rightarrow xbb^{-1} = a^{-1}cb^{-1} \Rightarrow x = a^{-1}cb^{-1}$.
+    \item $x^2a = bxc^{-1} \Rightarrow x^2ac = bx$. But $xac = acx$, so $xacx = bx \Rightarrow xac = b \Rightarrow x = bc^{-1}a^{-1}$.
+    \item $ax^2 = b \Rightarrow ax^3 = bx$. But $x^3 = e$, so $x = b^{-1}a$.
+    \item $x^2 = a^2 \Rightarrow x^4 = a^4 \Rightarrow x^5 = a^4x$. But $x^5 = e$, so $e = a^4x \Rightarrow x = (a^4)^{-1}$.
+    \item $(xax)^3 = bx \Rightarrow xax^2ax^2ax = bx$. But $x^2a = a^{-1}x^{-1}$, so $xaa^{-1}x^{-1}a^{-1}x^{-1}x = bx \Rightarrow a^{-1} = bx \Rightarrow x = (ab^{-1})$.
+\end{enumerate}
+
+\subsection*{Set B}
+\begin{enumerate}
+    \item False. $AA = I$, but $A \ne I$.
+    \item False. $AA = I = II$, but $A \ne I$.
+    \item False. $(AB)^2 = C^2 = I$, but $A^2B^2 = ID = D$.
+    \item True. $x^2 = x \Rightarrow xxx^{-1} = xx^{-1} \Rightarrow x = e$.
+    \item False. There is no $y$ such that $y^2 = A$.
+    \item True. By the definition of groups, $x^{-1} \in G$. So $x^{-1}y = z \in G$ (groups are closed under the operation). Therefore $y = xz$. 
+\end{enumerate}
+
+\subsection*{Set C}
+\begin{enumerate}
+    \item $ab = ba \Rightarrow (ab)^{-1} = (ba)^{-1} \Rightarrow b^{-1}a^{-1} = a^{-1}b^{-1}$.
+    \item $a = b^{-1}ba \Rightarrow a = b^{-1}ab \Rightarrow ab^{-1} = b^{-1}a$.
+    \item $a(ab) = a(ba) = (ab)a$.
+    \item $a^2b^2 = aabb = abab = baba = bbaa = b^2a^2$.
+    \item $(xax^{-1})(xbx^{-1}) = xabx^{-1} = xbax^{-1} = (xbx^{-1})(xax^{-1})$.
+    \item $aba^{-1} = baa^{-1} = b \Rightarrow aba^{-1}a = ba \Rightarrow ab = ba$.
+    \item $e = ab(ab)^{-1} = ab(ba)^{-1} = aba^{-1}b^{-1}$.
+\end{enumerate}
+
+\subsection*{Set D}
+\begin{enumerate}
+    \item $ab = e \Rightarrow a = b^{-1} = ba = bb^{-1} = e$.
+    \item $a(bc) = e \Rightarrow (bc)a = e$ (from item 1). Similarly, $(ab)c = e \Rightarrow cab = e$.
+    \item If $a_1\ldots a_n = e$, then the product of all $a_i$, in any order, is equal to $e$.
+    \item $xay = a^{-1} \Rightarrow xaya = e \Rightarrow yaxa = e \Rightarrow yax = e^{-1}$.
+    \item $ab = c \Rightarrow abc = e \Rightarrow bca = e \Rightarrow bc = a$. Also, $cab = e \Rightarrow ca = b$.
+    \item $abc = (abc)^{-1} \Rightarrow abcabc = e \Rightarrow bcabca = e \Rightarrow bca = (bca)^{-1}$. Also $cabcab = e \Rightarrow cab = (cab)^{-1}$.
+    \item $abba = aea = aa = e \Rightarrow ab = (ba)^{-1}$.
+    \item $a = a^{-1} \Rightarrow aa = a^{-1}a \Rightarrow aa = e$. Conversely, $aa = e \Rightarrow aaa^{-1} = ea^{-1} \Rightarrow a = a^{-1}$.
+    \item $ab = c \Rightarrow abc = cc = e$. Conversely, $abc = e \Rightarrow abcc = ec \Rightarrow ab = c$.
+\end{enumerate}.
+
+\subsection*{Set E}
+\begin{enumerate}
+    \item Let us use the Algorithm \ref{alg:s-construction} to construct $S$.
+        \begin{algorithm}[H]
+            \caption{Construction of $S$}\label{alg:s-construction}
+            \begin{algorithmic}[1]
+                \Procedure{}{}
+                \State $S \leftarrow \emptyset$
+                \State $G' \leftarrow$ copy of $G$
+                \While{$G'$ contains at least one element which is not its own inverse} 
+                    \State{Add to $S$ one such element and its inverse}
+                    \State{Remove the pair from $G'$}
+                \EndWhile
+                \EndProcedure
+            \end{algorithmic}
+        \end{algorithm}
+        First of all, note that at each step, the algorithm removes two elements from $G'$. Since $G'$ is finite, the algorithm is guaranteed to terminate.
+        At the end of each iteration, $S$ gains two new elements. So the property that $|S|$ is even is guaranteed throughout. Finally, when the algorithm stops,
+        $G'$ does not contain any element that is its own inverse. Therefore, $S$ is complete.
+    \item From item 1, we know that $|S| = 2k$, for some $k \in \mathbb{N}$. The number of elements that are equal to their own inverses is $|G| - |S|$. There are, then,
+        two possiblities:
+        \begin{equation*}
+            |G| - |S| =
+            \begin{cases}
+                2(m - k)     & \text{if $G = 2m$, for some $m \geqslant k$}\\ 
+                2(m - k) + 1 & \text{if $G = 2m + 1$, for some $m \geqslant k$}
+            \end{cases}
+        \end{equation*}
+        Thus if the number of elements in $G$ is even, so is the number of elements in $G$ that are equal to their own inverses. Likewise, if $G$ has an ood number of elements.
+    \item If $|G|$ is even, $|G| - |S| = 2m$, for some $m \in \mathbb{N}$. But $e$ is always its own inverse. So the number of elements $x \in G$ such that $x \ne e$
+        and $x = x^{-1}$ is $2n + 1$, for some $0 \leqslant n < m$. So $2n + 1 \geqslant 1$.
+    \item Let $|S| = k$. Then $G = \{a_1, \ldots, a_k, a_{k+1}, \ldots, a_n\}$. $G$ being abelian, we can rewrite $(a_1\ldots a_n)^2$ as 
+        $$(a_1\ldots a_n)^2 = a_1a_1^{-1}\ldots a_ka_k^{-1}a_{k+1}a_{k+1}^{-1}\ldots a_{m}a_{m}^{-1} = e$$ where $m = \frac{n - k}{2}$.
+    \item $a_1\ldots a_n = a_1a_1^{-1}\ldots a_{\frac{n}{2}}^{\phantom{-1}}a_{\frac{n}{2}}^{-1} = e$.
+    \item Let's say, without loss of generality, that $a_1^{\phantom{1}} \ne a_1^{-1}$. Then $a_1\ldots a_n = a_1a_2a_2^{-1}\ldots a_{\frac{n-1}{2}}^{\phantom{-1}}a_{\frac{n-1}{2}}^{-1} = a_1$.
+\end{enumerate}
+
+\subsection*{Set F}
+\begin{enumerate}
+    \item 
+        \begin{enumerate}
+            \item $a^2 = a \Rightarrow aaa^{-1} = aa^{-1} \Rightarrow a = e$.
+            \item $ab = a \Rightarrow a^{-1}ab = a^{-1}a \Rightarrow b = e$.
+            \item $ab = b \Rightarrow abb^{-1} = bb^{-1} \Rightarrow a = e$.
+        \end{enumerate}
+    \item From exercise 4.B.6 we know that, for any two elements $x$ and $y$ in $G$ there is an element $z$ in $G$ such that $y = xz$. In table terms, this means
+        that in each row, every element appears at least once. Now let us assume that for certain $x$, $y$ in $G$ there are $z_1$, $z_2$ in $G$ such that $y = xz_1 = xz_2$.
+        Then $z_1 = z_2$. In table terms, this translates to each element in a row appearing in exactly one position.
+    \item See Table \ref{tab:group-3}.
+        \begin{table}[!hb]
+            \centering
+            \begin{tabular}{l|lll}
+            &$e$&$a$&$b$\\ \hline
+            $e$&$e$&$a$&$b$\\
+            $a$&$a$&$b$&$e$\\
+            $b$&$b$&$e$&$a$
+            \end{tabular}
+            \caption{Group with three elements}
+            \label{tab:group-3}
+        \end{table}
+    \item See Table \ref{tab:group-4-self-inverses}.
+        \begin{table}[!ht]
+            \centering
+            \begin{tabular}{l|llll}
+            &$e$&$a$&$b$&$c$\\ \hline
+            $e$&$e$&$a$&$b$&$c$\\
+            $a$&$a$&$e$&$c$&$b$\\
+            $b$&$b$&$c$&$e$&$a$\\
+            $c$&$c$&$b$&$a$&$e$
+            \end{tabular}
+            \caption{Group with four elements such that $xx = e$ for every $x \in G$}
+            \label{tab:group-4-self-inverses}
+        \end{table}
+    \item See Table \ref{tab:group-4-one-not-self-inverse}
+        \begin{table}[]
+            \centering
+            \begin{tabular}{l|llll}
+            &$e$&$a$&$b$&$c$\\ \hline
+            $e$&$e$&$a$&$b$&$c$\\
+            $a$&$a$&$b$&$c$&$e$\\
+            $b$&$b$&$c$&$e$&$a$\\
+            $c$&$c$&$e$&$a$&$b$
+            \end{tabular}
+            \caption{Group with four elements such that $xx = e$ for some $x \ne e \in G$ and $yy \ne e$ for some $y \in G$}
+            \label{tab:group-4-one-not-self-inverse}
+        \end{table}
+    \item \textbf{TODO}.
+\end{enumerate}
+
+\subsection*{Set G}
+\begin{enumerate}
+    \item Prove that $G \times H$ is a group.
+        \begin{enumerate}[label=(G\arabic*)]
+            \item 
+                $$(x_1, y_1)[(x_2y_2)(x_3y_3)] = (x_1, y_1)(x_2x_3, y_2y_3) = (x_1x_2x_3, y_1y_2y_3)$$
+                $$[(x_1, y_1)(x_2y_2)](x_3y_3) = (x_1x_2, y_1y_2)(x_3, y_3) = (x_1x_2x_3, y_1y_2y_3)$$
+            \item $e = (e_G, e_H)$, since $(x_1, y_1)(e_G, e_H) = (x_1, y_1) = (e_G, e_H)(x_1, y_1)$.
+            \item $(x, y)^{-1} = (x^{-1}, y^{-1})$, since $(x, y)(x^{-1}, y^{-1}) = (e_G, e_H) = (x^{-1}, y^{-1})(x, y)$.
+        \end{enumerate}
+    \item $\mathbb{Z}_2 \times \mathbb{Z}_3 = \{(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2)\}$. See Table \ref{tab:z2xz3} for the group operation.
+        \begin{table}[!hb]
+            \centering
+            \begin{tabular}{c|cccccc}
+            $+$      & $(0, 0)$ & $(0, 1)$ & $(0, 2)$ & $(1, 0)$ & $(1, 1)$ & $(1, 2)$ \\ \hline
+            $(0, 0)$ & $(0, 0)$ & $(0, 1)$ & $(0, 2)$ & $(1, 0)$ & $(1, 1)$ & $(1, 2)$ \\
+            $(0, 1)$ & $(0, 1)$ & $(0, 2)$ & $(0, 0)$ & $(1, 1)$ & $(1, 2)$ & $(1, 0)$ \\
+            $(0, 2)$ & $(0, 2)$ & $(0, 0)$ & $(0, 1)$ & $(0, 2)$ & $(0, 0)$ & $(1, 1)$ \\
+            $(1, 0)$ & $(1, 0)$ & $(1, 1)$ & $(1, 2)$ & $(0, 0)$ & $(0, 1)$ & $(0, 2)$ \\
+            $(1, 1)$ & $(1, 1)$ & $(1, 2)$ & $(1, 0)$ & $(0, 1)$ & $(0, 2)$ & $(0, 0)$ \\
+            $(1, 2)$ & $(1, 2)$ & $(1, 0)$ & $(1, 1)$ & $(0, 2)$ & $(0, 0)$ & $(0, 1)$
+            \end{tabular}
+            \caption{Operation table for $\mathbb{Z}_2 \times \mathbb{Z}_3$}
+            \label{tab:z2xz3}
+        \end{table}
+    \item $(g_1, h_1), (g_2, h_2) \in G \times H \Rightarrow (g_1, h_1)(g_2, h_2) = (g_1g_2, h_1h_2)$. Since $G$ and $H$ are abelian, 
+        we can flip each multiplication in the tuple, resulting in $(g_2g_1, h_2h_1) =  (g1, h_1)(g_2, h_2)$.
+    \item $(g, h)(g, h) = (gg, hh) = (e_G, e_H) = e_{G\times H}$.
+\end{enumerate}
+
+\subsection*{Set G}
+\begin{enumerate}
+    \item For $n = 1$: $(bab^{-1}) = ba^{-1}b^{-1}$. Now suppose $(bab^{-1})^{n} = ba^nb^{-1}$ for some $n \geqslant 1$. Then:
+        $$(bab^{-1})^{n + 1} = (bab^{-1})^{n}(bab^{-1}) = ba^{n}b^{-1}bab^{-1} = ba^nab^{-1} = ba^{n + 1}b^{-1}$$
+    \item For $n = 1$: $(ab)^1 = a^1b^1$. Now suppose $(ab)^n = a^nb^n$, for some $n \geqslant 1$. Then:
+        $$(ab)^{n + 1} = (ab)^n(ab) = a^nb^nab = a^nab^nb = a^{n + 1}b^{n + 1}$$
+    \item For $n = 1$: $(xa)^{2.1} = xaxa = ea = a = a^1$. Now suppose $(xa)^{2n} = a^n$ for some $n \geqslant 1$. Then:
+        $$(xa)^{2(n + 1)} = (xa)^{2n + 2} = (xa)^{2n}xaxa = a^nea = a^{n + 1}$$
+    \item $a^3 = a^2 = e \Rightarrow a^{-1} = a^2 \Rightarrow (a^{-1})^2 = a^3a = a$. So $\sqrt{a} = a^{-1}$.
+    \item $a^2 = e \Rightarrow a^2a = ea \Rightarrow a^{-1} = a^2 \Rightarrow a^3 = a$. So $\sqrt[3]{a} = a$.
+    \item If there is some $x$ such that $a^{-1} = x^3$, then $a = (a^{-1})^{-1} = (x^3)^{-1} = (xxx)^{-1} = x^{-1}x^{-1}x^{-1} = (x^{-1})^3$. Therefore, $\sqrt[3]{a} = x^{-1}$.
+    \item 
+    \item $xax = b \Rightarrow axax = ab \Rightarrow (ax)^2 = ab \Rightarrow \sqrt{ab} = ax$.
+\end{enumerate}
+
 \end{document}

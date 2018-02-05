@@ -1,13 +1,14 @@
 \documentclass{article}
 \usepackage[margin=0.5in]{geometry}
 \usepackage[utf8]{inputenc}
-\usepackage{euler}
+% \usepackage{euler}
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{enumitem}
 \usepackage{float}
 \usepackage{algorithm}
+\usepackage{ mathrsfs }
 \usepackage[noend]{algpseudocode}
 
 \let\emptyset\varnothing
@@ -320,7 +321,7 @@ $\langle G, *\rangle$ is not commutative. For instance: $M_2 * M_4 \ne M_4 * M_2
     \item \begin{equation*}
             \begin{split}
                 (a_1, a_2, \ldots, a_n) + (b_1, b_2, \ldots, b_n) & = (a_1 + b_1, a_2 + b_2, \ldots, a_n + b_n) \\
-                                                                  & = (b_1 + a_1, b_2 + a_2, \ldots, b_n + a_n) \\
+                                                                   & = (b_1 + a_1, b_2 + a_2, \ldots, b_n + a_n) \\
                                                                   & = (b_1, b_2, \ldots, b_n) + (a_1, a_2, \ldots, a_n)
             \end{split}
         \end{equation*}
@@ -569,6 +570,52 @@ $\langle G, *\rangle$ is not commutative. For instance: $M_2 * M_4 \ne M_4 * M_2
     \item If there is some $x$ such that $a^{-1} = x^3$, then $a = (a^{-1})^{-1} = (x^3)^{-1} = (xxx)^{-1} = x^{-1}x^{-1}x^{-1} = (x^{-1})^3$. Therefore, $\sqrt[3]{a} = x^{-1}$.
     \item 
     \item $xax = b \Rightarrow axax = ab \Rightarrow (ax)^2 = ab \Rightarrow \sqrt{ab} = ax$.
+\end{enumerate}
+
+\section*{Chapter 5}
+\subsection*{Set A}
+\begin{enumerate}
+    \item $G = \langle \mathbb{R}, +, \rangle$, $H = \{\log a: a \in \mathbb{Q}, a > 0\}$. $H$ is a subgroup of $G$.
+        \begin{enumerate}[label=(\roman*)]
+            \item Suppose $\log a, \log b \in H$; then $\log a + \log b = \log(ab)$. Since $ab \in \mathbb{Q}$ and $ab > 0$, $\log(ab) \in H$. So $H$ is closed under addition.
+            \item Suppose $\log a \in H$; then $-\log a = \log a^{-1} = \log \frac{1}{a}$. Since $ \frac{1}{a} \in \mathbb{Q}$ and $\frac{1}{a} > 0$, $-\log a \in H$.
+        \end{enumerate}
+    \item $G = \langle\mathbb{R}, +\rangle$, $H = \{\log n: n \in \mathbb{Z}, n > 0\}$. $H$ is \emph{not} a subgroup of $G$.
+        \begin{enumerate}[label=(\roman*)]
+            \item Suppose $\log m, \log n \in H$; then $\log m + \log n = \log(mn)$. Since $mn \in \mathbb{Z}$ and $mn > 0$, $\log(mn) \in H$.
+            \item Suppose $\log n \in H$; then $-\log n = \log\frac{1}{n}$. But $\frac{1}{n} \notin \mathbb{Z}$. So $-\log n \notin H$.
+        \end{enumerate}
+    \item $G = \langle\mathbb{R}, +\rangle$, $H = \{x \in \mathbb{R}: \tan x \in \mathbb{Q}\}$. $H$ is a subgroup of $G$.
+        \begin{enumerate}[label=(\roman*)]
+            \item Suppose $x, y \in H$; then $\tan(x + y) = \frac{\tan x + \tan y}{1 - \tan x \tan y}$, which is rational. So $x + y \in H$.
+            \item Suppose $x \in H$; then $\tan(-x) = -\tan x \in \mathbb{Q}$. So $-x \in H$.
+        \end{enumerate}
+    \item $G = \langle \mathbb{R}, \cdot \rangle$, $H = \{2^n3^m: m, n \in \mathbb{Z}\}$. $H$ is a subgroup of $G$.
+        \begin{enumerate}[label=(\roman*)]
+            \item Suppose $2^{n}3^{m}, 2^{p}3^{q} \in H$; then $2^{n}3^{m}2^{p}3^{q} = 2^{n + p}3^{m + q}$. Since $n + p, m + q \in \mathbb{Z}$,
+                $H$ is closed under multiplication. 
+            \item Suppose $2^{n}3^{m} \in H$; then $(2^{n}3^{m})^{-1} = 2^{-n}3^{-m}$. Since $-n, -m \in \mathbb{Z}$, $H$ is closed under inverses.
+        \end{enumerate}
+    \item $G = \langle \mathbb{R} \times \mathbb{R}, + \rangle$, $H = \{(x, y): y = 2x\}$. $H$ is a subgroup of $G$.
+        \begin{enumerate}[label=(\roman*)]
+            \item Suppose $(x_1, 2x_1), (x_2, 2x_2) \in H$; then $(x_1, 2x_1) + (x_2, 2x_2) = (x_1 + x_2, 2(x_1 + x_2))$. So, 
+                $H$ is closed under addition. 
+            \item Suppose $(x, 2x) \in H$; then $-(x, 2x) = (-x, -2x) = (-x, 2(-x))$. So, $H$ is closed under inverses.
+        \end{enumerate}
+    \item $G = \langle \mathbb{R} \times \mathbb{R}, + \rangle$, $H = \{(x, y): x^2 + y^2 > 0\}$. $H$ is \emph{not} a subgroup of $G$.
+        \begin{enumerate}[label=(\roman*)]
+            \item Suppose $(x, y) \in H$; then $(-x, -y)$ is also in $H$. But $(x, y) + (-x, -y) = (0, 0) \notin H$, since $0^2 + 0^2 = 0$. So, $H$ is not closed under addition. 
+        \end{enumerate}
+    \item \textbf{TODO}.
+\end{enumerate}
+
+\subsection{Set B}
+\begin{enumerate}
+    \item $G = \langle \mathscr{F}(\mathbb{R}), + \rangle$, $H = \{f \in \mathscr{F}(\mathbb{R}): f(x) = 0, \text{for every $x \in [0, 1]$}\}$. $H$ is a subgroup of $G$.
+        \begin{enumerate}[label=(\roman*)]
+            \item Suppose $f, g \in H$; then, for every $x \in [0, 1]$, $[f + g](x) = f(x) + g(x) = 0 + 0 = 0$. So, $f + g \in H$.
+            \item Suppose $f \in H$; then, for every $x \in [0, 1]$, $[-f](x) = -f(x) = 0$. So, $-f \in H$.
+        \end{enumerate}
 \end{enumerate}
 
 \end{document}

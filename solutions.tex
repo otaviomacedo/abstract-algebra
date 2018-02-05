@@ -1,7 +1,7 @@
 \documentclass{article}
-\usepackage[margin=0.5in]{geometry}
+\usepackage[margin=0.6in]{geometry}
 \usepackage[utf8]{inputenc}
-% \usepackage{euler}
+\usepackage{euler}
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -511,7 +511,7 @@ $\langle G, *\rangle$ is not commutative. For instance: $M_2 * M_4 \ne M_4 * M_2
             \caption{Group with four elements such that $xx = e$ for every $x \in G$}
             \label{tab:group-4-self-inverses}
         \end{table}
-    \item See Table \ref{tab:group-4-one-not-self-inverse}
+    \item See Table \ref{tab:group-4-one-not-self-inverse}.
         \begin{table}[]
             \centering
             \begin{tabular}{l|llll}
@@ -609,13 +609,23 @@ $\langle G, *\rangle$ is not commutative. For instance: $M_2 * M_4 \ne M_4 * M_2
     \item \textbf{TODO}.
 \end{enumerate}
 
-\subsection{Set B}
+\subsection*{Set B}
 \begin{enumerate}
     \item $G = \langle \mathscr{F}(\mathbb{R}), + \rangle$, $H = \{f \in \mathscr{F}(\mathbb{R}): f(x) = 0, \text{for every $x \in [0, 1]$}\}$. $H$ is a subgroup of $G$.
         \begin{enumerate}[label=(\roman*)]
             \item Suppose $f, g \in H$; then, for every $x \in [0, 1]$, $[f + g](x) = f(x) + g(x) = 0 + 0 = 0$. So, $f + g \in H$.
             \item Suppose $f \in H$; then, for every $x \in [0, 1]$, $[-f](x) = -f(x) = 0$. So, $-f \in H$.
         \end{enumerate}
+        \item $G = \langle \mathscr{F}(\mathbb{R}), + \rangle$, $H = \{f \in \mathscr{F}(\mathbb{R}): f(-x) = -f(x)\}$. $H$ is a subgroup of $G$.
+            \begin{enumerate}[label=(\roman*)]
+                \item Suppose $f, g \in H$; then $[f + g](-x) = f(-x) + g(-x) = -f(x) - g(x) = -(f(x) + g(x) = -[f + g](x)$. So, $f + g \in H$.
+                \item Suppose $f \in H$; then $[-f](-x) = -f(-x) = -(-f(x)) = f(x)$. So, $-f \in H$.
+            \end{enumerate}    
+        \item $G = \langle \mathscr{F}(\mathbb{R}), + \rangle$, $H = \{f \in \mathscr{F}(\mathbb{R}): \text{$f$ is periodic of period $\pi$}\}$. $H$ is a subgroup of $G$.
+            \begin{enumerate}[label=(\roman*)]
+                \item Suppose $f, g \in H$; then $[f + g](x + n\pi) = f(x + n\pi) + g(x + n\pi) = f(x) + g(x) = [f + g](x)$. So, $f + g \in H$.
+                \item Suppose $f \in H$; then $[-f](-x) = -f(x + n\pi) = -f(x) = f(x)$. So, $-f \in H$.
+            \end{enumerate}    
 \end{enumerate}
 
 \end{document}

@@ -626,6 +626,23 @@ $\langle G, *\rangle$ is not commutative. For instance: $M_2 * M_4 \ne M_4 * M_2
                 \item Suppose $f, g \in H$; then $[f + g](x + n\pi) = f(x + n\pi) + g(x + n\pi) = f(x) + g(x) = [f + g](x)$. So, $f + g \in H$.
                 \item Suppose $f \in H$; then $[-f](-x) = -f(x + n\pi) = -f(x) = f(x)$. So, $-f \in H$.
             \end{enumerate}    
+        \item $G = \langle \mathscr{C}(\mathbb{R}), +\rangle$, $H = \{f \in \mathscr{C}(\mathbb{R}): \int_0^1 f(x)dx = 0\}$.
+            \begin{enumerate}[label=(\roman*)]
+                \item Suppose $f, g \in H$; then $\int_0^1[f + g](x)dx = \int_0^1[f(x) + g(x)]dx = \int_0^1 f(x)dx + \int_0^1 g(x)dx = 0 + 0 = 0$.  So, $f + g \in H$.
+                \item Suppose $f \in H$; then $\int_0^1[-f](x)dx = -\int_0^1f(x)dx = 0$. So $-f \in H$.
+            \end{enumerate}
+        \item $G = \langle \mathscr{D}(\mathbb{R}), +\rangle$, $H = \{f \in \mathscr{D}(\mathbb{R}): df/dx \text{ is constant}\}$.
+            \begin{enumerate}[label=(\roman*)]
+                \item Suppose $f, g \in H$; then $d[f + g]/dx = df/dx + dg/dx = k$, where $k$ is a constant.  So, $f + g \in H$.
+                \item Suppose $f \in H$; then $d[-f]/dx = -df/dx$, which is also a consntant. So $-f \in H$.
+            \end{enumerate}
+        \item $G = \langle \mathscr{F}(\mathbb{R}), +\rangle$, $H = \{f \in \mathscr{F}(\mathbb{R}): f(x) \in \mathbb{Z} \text{ for every $x \in \mathbb{R}$}\}$.
+            \begin{enumerate}[label=(\roman*)]
+                \item Suppose $f, g \in H$; then $[f + g](x) = f(x) + g(x) \in \mathbb{Z}$.  So, $f + g \in H$.
+                \item Suppose $f \in H$; then $[-f](x) = -f(x) \in \mathbb{Z}$. So $-f \in H$.
+            \end{enumerate}
 \end{enumerate}
+
+\subsection*{Set C}
 
 \end{document}

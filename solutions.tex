@@ -644,5 +644,22 @@ $\langle G, *\rangle$ is not commutative. For instance: $M_2 * M_4 \ne M_4 * M_2
 \end{enumerate}
 
 \subsection*{Set C}
+\begin{enumerate}
+    \item Let $x, y \in H$; then $xy = x^{-1}y^{-1} = (yx)^{-1} = (xy)^{-1}$. So $xy \in H$. And, by the definition of $H$, $x^{-1} \in H$.
+    \item Let $x, y \in H$; then $(xy)^n = x^ny^n = ee = e$. So $xy \in H$. And $(x^{-1})^{n} = (x^n)^{-1} = e^{-1} = e$. So, $x^{-1} \in H$.
+    \item Let $x_1, x_2 \in H$; then $x_1x_2 = y_1^2y_2^2 = (y_1y_2)^2$. So $x_1x_2 \in H$. And $x_1^{-1} = (y_1^2)^{-1} = (y_1^{-1})^{2}$. So, $x_1^{-1} \in H$.
+    \item Let $x, y \in K$; then $(xy)^2 = x^2y^2 \in H$. So $xy \in K$. And $(x^{-1})^2 = (x^2)^{-1} \in H$. So, $x^{-1} \in K$.
+    \item Let $x, y \in K$; then $x^m, y^n \in H$, for some integers $m, n$. By the definition of group, we can multiply any element of $H$ by itself and the result will be in $H$. That is, $x^{km}, y^{kn} \in H$, for any integer $k > 0$. In particular, $x^{nm}, y^{mn} \in H$ and, thus, $x^{nm}y^{mn} = (xy)^{nm} \in H$. So, $x \in K$. And $(x^m)^{-1} = (x^{-1})^m \in H$. So, $x^{-1} \in K$.
+    \item Let $z_1, z_2 \in HK$; then there are $x_1, x_2 \in H$ and $y_1, y_2 \in K$ such that $z_1z_2 = x_1y_1x_2y_2 = x_1x_2y_1y_2 \in HK$. And $z_1^{-1} = (x_1y_1)^{-1} = x^{-1}y^{-1} \in HK$.
+    \item The proofs in parts 4-6 depend on being able to reorder the elements in a multiplication. If $G$ is not abelian, this is not possible.
+\end{enumerate}
+
+\subsection*{Set D}
+\begin{enumerate}
+    \item Let $x, y \in H \cap K$; then $xy \in H$ because both $x$ and $y$ are in $H$. Analogouly, $xy \in K$. So $xy \in H \cap K$. And $x^{-1} \in H$ and $x^{-1} \in K$. So $x^{-1} \in H \cap K$.
+    \item Let $x, y \in H$. Since $H$ is a group, $xy \in H$ and the operation is the same as in $K$. Similarly, $x^{-1} \in H$.
+    \item Let $a, b \in C$; then $abx = axb = xab$, for any $x \in G$. So $ab \in C$. And $(a^{-1}x)^{-1} = x^{-1}a = ax^{-1} = (xa^{-1})^{-1}$. So, $a^{-1}x = xa^{-1}$ and, thus, $a^{-1} \in C$.
+    \item Let $a, b \in C'$; then $(abx)^2 = abxabx = xabxab = (xab)^2$. So $ab \in C'$. And $((a^{-1}x)^2)^{-1} = (a^{-1}xa^{-1}x)^{-1} = x^{-1}ax^{-1}a = (x^{-1}a)^2$
+\end{enumerate}
 
 \end{document}

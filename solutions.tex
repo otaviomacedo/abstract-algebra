@@ -14,6 +14,7 @@
 \let\emptyset\varnothing
 \DeclareMathOperator{\dec}{dec}
 
+\newcommand{\angled}[1]{\langle#1\rangle}
 
 \author{Otavio Macedo}
 \title{A Book of Abtract Algebra - solutions to exercises}
@@ -657,13 +658,62 @@ $\langle G, *\rangle$ is not commutative. For instance: $M_2 * M_4 \ne M_4 * M_2
 \subsection*{Set D}
 \begin{enumerate}
     \item Let $x, y \in H \cap K$; then $xy \in H$ because both $x$ and $y$ are in $H$. Analogouly, $xy \in K$. So $xy \in H \cap K$. And $x^{-1} \in H$ and $x^{-1} \in K$. So $x^{-1} \in H \cap K$.
+    
     \item Let $x, y \in H$. Since $H$ is a group, $xy \in H$ and the operation is the same as in $K$. Similarly, $x^{-1} \in H$.
+    
     \item Let $a, b \in C$; then $abx = axb = xab$, for any $x \in G$. So $ab \in C$. And $(a^{-1}x)^{-1} = x^{-1}a = ax^{-1} = (xa^{-1})^{-1}$. So, $a^{-1}x = xa^{-1}$ and, thus, $a^{-1} \in C$.
+    
     \item Let $a, b \in C'$; then $(abx)^2 = abxabx = xabxab = (xab)^2$. So $ab \in C'$. And $((a^{-1}x)^2)^{-1} = (a^{-1}xa^{-1}x)^{-1} = x^{-1}ax^{-1}a = (x^{-1}a)^2 = ((a^{-1}x)^2)^{-1}$. So $a^{-1} \in C'$.
+    
     \item Let us consider the elements $a_ia_1, a_ia_2, \ldots, a_ia_n$ for some $a_i \in S$ and let us assume that $e \notin S$; then $a_ia_j \ne a_i$ for any $a_j \in S$. This observation, along with the fact that $G$ is a finite group, allows us to conclude that $a_ia_1 \ne a_ia_2 \ne \ldots \ne a_ia_n \ne a_i$. $S$ being closed, this would imply that $S$ has $n + 1$ elements, which is a contradiction and, therefore, $e \in S$.
 
+    Now let us assume that there is some $a_i \in S$ such that $a_i^{-1} \notin S$; then $a_ia_j \ne e$ for any $a_j \in S$. Similar to the observation above, this would imply that $S$ has $n + 1$ elements (all $a_ia_j$ plus $e$). Therefore $S$ is closed under inverses.     
+    
+    \item Let $P$ be the set of all periods of $f$ and $a, b \in P$; then $f(abx) = f(bx) = f(x)$ for any $x \in G$.
+    And $f(x) = f(aa^{-1}x) = f(a^{-1}x)$ for any $x \in G$. So $P$ is closed under multiplication and inverses.
     
     \item
+        \begin{enumerate}[label=(\alph*)]
+            \item Let $x, y \in K$ and $a \in H$; then $xya(xy)^{-1} = xyay^{-1}x^{-1} \in H$. Conversely, assuming $xya(xy)^{-1} \in H$ implies that $yay^{-1} \in H$, which implies that $a \in H$. So $xy \in K$. And $a \in H \Rightarrow xx^{-1}axx^{-1} \in H \Rightarrow x^{-1}ax \in H$. Conversely, assuming that $x^{-1}ax \in H$ implies that $xx^{-1}ax^{-1} \in H \Rightarrow a \in H$. So $x^{-1} \in H$. Thus, $K$ is closed under multiplication and inverses.
+            
+            \item Let $a, b \in H$ and $x \in K$; then $xax^{-1} \in H$ and $xbx^{-1} \in H$. Since $H$ is a group (see previous item), $xax^{-1}xb^{-1} = xabx^{-1} \in H$. The proof in the other direction is basically the same. And, since $H$ is a group, $(xax^{-1})^{-1} = xa^{-1}x^{-1} \in H$ (similar proof in the other direction). So, $H$ is closed under multiplication and inverses.
+        \end{enumerate}
+    
+    \item \begin{enumerate}[label=(\alph*)]
+        \item Let $x_1, x_2 \in G$; then $(x_1, e)(x_2, e) = (x_1x_2, e) \in G \times H$. And $(x_1, e)^{-1} = (x_1^{-1}, e) \in G \times H$. So $G \times H$ is closed under multiplication and inverses.
+
+        \item Let $x_1, x_2 \in G$; then $(x_1, x_1)(x_2, x_2) = (x_1x_1, x_2x_2) \in G \times G$. And $(x_1, x_1)^{-1} = (x_1^{-1}, x_1^{-1}) \in G \times G$. So $G \times G$ is closed under multiplication and inverses.
+    \end{enumerate}
+\end{enumerate}
+
+\subsection*{Set E}
+\begin{enumerate}
+    \item 
+        $\angled{1} = \angled{3} = \angled{7} = \angled{9} = \{1, 2, 3, 4, 5, 6, 7, 8, 9, 0\}$ \\
+        $\angled{2} = \angled{4} = \angled{6} = \{2, 4, 6, 8, 0\}$ \\
+        $\angled{5} = \{5, 0\}$ \\
+        $\angled{8} = \{8, 2, 0\}$ \\
+        $\angled{0} = \{0\}$ \\
+
+    \item 
+        $0 = 5 + 5$\\
+        $1 = 5 + 2 + 2 + 2$\\
+        $2 = 2$\\
+        $3 = 5 + 2 + 2 + 2 + 2$\\
+        $4 = 2 + 2$\\
+        $5 = 5$\\
+        $6 = 2 + 2 + 2$\\
+        $7 = 5 + 2$\\
+        $8 = 2 + 2 + 2 + 2$\\
+        $9 = 5 + 2 + 2$\\
+
+    \item $\angled{6, 9}$ is the subset of $\mathbb{Z}$ whose elements are multiples of 3 modulo 12, that is, $\{6, 9, 3, 0\}$.
+
+    \item $\angled{10, 15}$ is the subset of the integers that are multiples of 5.
+
+    \item Let's start with the following equality: $1 = 7.3 + 5.(-4)$. For any integer $n$, if we multiply by $n$ on both sides, we get $n = 7(3n) + 5(-4n)$. In other words, any $n \in \mathbb{Z}$ can be written as a sum of a certain number of $7$'s plus a sum of another number of $5$'s. In the context of the additive group of the intergers, this means that $\mathbb{Z} = \angled{7, 5}$.
+
+    \item $\mathbb{Z}_2 \times \mathbb{Z}_3 = \angled{(1, 1)}$, since we can multiply $(1, 1)$ by the integers from $1$ to $5$, obtaining $(1, 1)$, $(0, 2)$, $(1, 0)$, $(0, 1)$, $(1, 2)$, $(0, 0)$, respectively, which exhausts the whole set. Similarly, $\mathbb{Z}_3 \times \mathbb{Z}_4$ can be obtained by multiplying $(1, 1)$ by the integers from $1$ to $12$.
 \end{enumerate}
 
 \end{document}

@@ -10,6 +10,9 @@
 \usepackage{algorithm}
 \usepackage{ mathrsfs }
 \usepackage[noend]{algpseudocode}
+\usepackage[hidelinks]{hyperref}
+
+\setcounter{secnumdepth}{0}
 
 \let\emptyset\varnothing
 \DeclareMathOperator{\dec}{dec}
@@ -19,13 +22,14 @@
 \author{Otavio Macedo}
 \title{A Book of Abtract Algebra - solutions to exercises}
 
-
 \begin{document}
 
 \maketitle
 
-\section*{Chapter 2}
-\subsection*{Set A}
+\tableofcontents
+
+\section{Chapter 2}
+\subsection{Set A}
 \begin{enumerate}
 \item $a * b = \sqrt{|ab|}$ on the set $\mathbb{Q}$. This is not an operation on $\mathbb{Q}$. Square roots have two real solutions, some of them irrational. So, this operation is neither unique nor closed under $\mathbb{Q}$.
 
@@ -39,7 +43,7 @@
 
 \end{enumerate}
 
-\subsection*{Set B}
+\subsection{Set B}
 
 \begin{enumerate}
 \item $x * y = x + 2y + 4$. Commutative: no; Associative: no; Identity: no; Inverses: no.
@@ -91,7 +95,7 @@
 \end{enumerate}
 \end{enumerate}
 
-\subsection*{Set C}
+\subsection{Set C}
 Table \ref{tab:binary-operations} lists all the operations for the set $\{a, b\}$. 
 
 \begin{table}[]
@@ -114,7 +118,7 @@ Table \ref{tab:binary-operations} lists all the operations for the set $\{a, b\}
     \item Inverses: $\{O_7, O_{10}\}$.
 \end{enumerate}
 
-\subsection*{Set D}
+\subsection{Set D}
 \begin{enumerate}
     \item Let $a, b, c \in A^*$. Then:
         $$(ab)c = (a_1\ldots a_mb_1\ldots b_n)c_1\ldots c_p = a_1\ldots a_m(b_1\ldots b_nc_1\ldots c_p) = a(bc)$$
@@ -122,9 +126,9 @@ Table \ref{tab:binary-operations} lists all the operations for the set $\{a, b\}
     \item Let $a\lambda = \lambda a = a$. So $\lambda$ is the identity for this operation.
 \end{enumerate}
 
-\section*{Chapter 3}
+\section{Chapter 3}
 
-\subsection*{Set A}
+\subsection{Set A}
 
 \begin{enumerate}
     \item $x * y = x + y + k$. Same thing as the example in Set B of Chapter 2, but with a generic constant $k$ instead of the fixed constant 1.
@@ -159,7 +163,7 @@ Table \ref{tab:binary-operations} lists all the operations for the set $\{a, b\}
     \end{description}
 \end{enumerate}
 
-\subsection*{Set B}
+\subsection{Set B}
 \begin{enumerate}
     \item $(a, b) * (c , d) = (ad + bc, bd)$, on the set $\{(x, y) \in \mathbb{R} \times \mathbb{R}: y \ne 0\}$: abelian group.
         \begin{description}
@@ -256,7 +260,7 @@ Table \ref{tab:binary-operations} lists all the operations for the set $\{a, b\}
     This is not a group. The value for the identity is undefined.
 \end{enumerate}
 
-\subsection*{Set C}
+\subsection{Set C}
 \begin{enumerate}
     \item $e = \emptyset$, since $\emptyset + A = A + \emptyset = (A - \emptyset) \cup (\emptyset - A) = A \cup A = A$.
     \item $A' + A = A + A' = \emptyset \Rightarrow (A - A') \cup (A'- A) = \emptyset \cup \emptyset = \emptyset$.
@@ -280,7 +284,7 @@ Table \ref{tab:binary-operations} lists all the operations for the set $\{a, b\}
     \end{table}
 \end{enumerate}
 
-\subsection*{Set D}
+\subsection{Set D}
 See Table \ref{tab:checkerboard} for the checkerboard game operation table. $I$ is the identity since $X * I = I * X= X$ for any $X \in G$, and every element has an inverse (itself).
 \begin{table}[H]
     \centering
@@ -295,7 +299,7 @@ See Table \ref{tab:checkerboard} for the checkerboard game operation table. $I$ 
     \label{tab:checkerboard}
 \end{table}
 
-\subsection*{Set E}
+\subsection{Set E}
 See Table \ref{tab:coingame-op} for the coin game operation table. $I$ is the identity, since $X * I = I * X = X$, for every $X \in G$. 
 In every line there is an entry with $I$, which means that every element has an inverse.
 $\langle G, *\rangle$ is not commutative. For instance: $M_2 * M_4 \ne M_4 * M_2$.
@@ -317,7 +321,7 @@ $\langle G, *\rangle$ is not commutative. For instance: $M_2 * M_4 \ne M_4 * M_2
     \label{tab:coingame-op}
 \end{table}
 
-\subsection*{Set F}
+\subsection{Set F}
 \begin{enumerate}
     \item \begin{equation*}
             \begin{split}
@@ -348,7 +352,7 @@ $\langle G, *\rangle$ is not commutative. For instance: $M_2 * M_4 \ne M_4 * M_2
     \item $a + b = c \Rightarrow a + b - b = c - b \Rightarrow a = c - b$. Since $-b = b$, $a = b + c$.
 \end{enumerate}
 
-\subsection*{Set G}
+\subsection{Set G}
 \begin{enumerate}
     \item See Table \ref{tab:parity-c1}.
         \begin{table}[!hb]
@@ -394,8 +398,8 @@ $\langle G, *\rangle$ is not commutative. For instance: $M_2 * M_4 \ne M_4 * M_2
         For instance, errors in positions 3 and 6 of $000000$ result in $001001$, another codeword, thus undetectable.
 \end{enumerate}
 
-\section*{Chapter 4}
-\subsection*{Set A}
+\section{Chapter 4}
+\subsection{Set A}
 \begin{enumerate}
     \item $axb = c \Rightarrow aa^{-1}xb = a^{-1}c \Rightarrow xbb^{-1} = a^{-1}cb^{-1} \Rightarrow x = a^{-1}cb^{-1}$.
     \item $x^2b = xa^{-1}c \Rightarrow x^{-1}xxb = x^{-1}xa^{-1}c \Rightarrow xb = a^{-1}c \Rightarrow xbb^{-1} = a^{-1}cb^{-1} \Rightarrow x = a^{-1}cb^{-1}$.
@@ -405,7 +409,7 @@ $\langle G, *\rangle$ is not commutative. For instance: $M_2 * M_4 \ne M_4 * M_2
     \item $(xax)^3 = bx \Rightarrow xax^2ax^2ax = bx$. But $x^2a = a^{-1}x^{-1}$, so $xaa^{-1}x^{-1}a^{-1}x^{-1}x = bx \Rightarrow a^{-1} = bx \Rightarrow x = (ab^{-1})$.
 \end{enumerate}
 
-\subsection*{Set B}
+\subsection{Set B}
 \begin{enumerate}
     \item False. $AA = I$, but $A \ne I$.
     \item False. $AA = I = II$, but $A \ne I$.
@@ -415,7 +419,7 @@ $\langle G, *\rangle$ is not commutative. For instance: $M_2 * M_4 \ne M_4 * M_2
     \item True. By the definition of groups, $x^{-1} \in G$. So $x^{-1}y = z \in G$ (groups are closed under the operation). Therefore $y = xz$. 
 \end{enumerate}
 
-\subsection*{Set C}
+\subsection{Set C}
 \begin{enumerate}
     \item $ab = ba \Rightarrow (ab)^{-1} = (ba)^{-1} \Rightarrow b^{-1}a^{-1} = a^{-1}b^{-1}$.
     \item $a = b^{-1}ba \Rightarrow a = b^{-1}ab \Rightarrow ab^{-1} = b^{-1}a$.
@@ -426,7 +430,7 @@ $\langle G, *\rangle$ is not commutative. For instance: $M_2 * M_4 \ne M_4 * M_2
     \item $e = ab(ab)^{-1} = ab(ba)^{-1} = aba^{-1}b^{-1}$.
 \end{enumerate}
 
-\subsection*{Set D}
+\subsection{Set D}
 \begin{enumerate}
     \item $ab = e \Rightarrow a = b^{-1} = ba = bb^{-1} = e$.
     \item $a(bc) = e \Rightarrow (bc)a = e$ (from item 1). Similarly, $(ab)c = e \Rightarrow cab = e$.
@@ -439,7 +443,7 @@ $\langle G, *\rangle$ is not commutative. For instance: $M_2 * M_4 \ne M_4 * M_2
     \item $ab = c \Rightarrow abc = cc = e$. Conversely, $abc = e \Rightarrow abcc = ec \Rightarrow ab = c$.
 \end{enumerate}.
 
-\subsection*{Set E}
+\subsection{Set E}
 \begin{enumerate}
     \item Let us use the Algorithm \ref{alg:s-construction} to construct $S$.
         \begin{algorithm}[H]
@@ -476,7 +480,7 @@ $\langle G, *\rangle$ is not commutative. For instance: $M_2 * M_4 \ne M_4 * M_2
     \item Let's say, without loss of generality, that $a_1^{\phantom{1}} \ne a_1^{-1}$. Then $a_1\ldots a_n = a_1a_2a_2^{-1}\ldots a_{\frac{n-1}{2}}^{\phantom{-1}}a_{\frac{n-1}{2}}^{-1} = a_1$.
 \end{enumerate}
 
-\subsection*{Set F}
+\subsection{Set F}
 \begin{enumerate}
     \item 
         \begin{enumerate}
@@ -528,7 +532,7 @@ $\langle G, *\rangle$ is not commutative. For instance: $M_2 * M_4 \ne M_4 * M_2
     \item \textbf{TODO}.
 \end{enumerate}
 
-\subsection*{Set G}
+\subsection{Set G}
 \begin{enumerate}
     \item Prove that $G \times H$ is a group.
         \begin{enumerate}[label=(G\arabic*)]
@@ -558,7 +562,7 @@ $\langle G, *\rangle$ is not commutative. For instance: $M_2 * M_4 \ne M_4 * M_2
     \item $(g, h)(g, h) = (gg, hh) = (e_G, e_H) = e_{G\times H}$.
 \end{enumerate}
 
-\subsection*{Set H}
+\subsection{Set H}
 \begin{enumerate}
     \item For $n = 1$: $(bab^{-1}) = ba^{-1}b^{-1}$. Now suppose $(bab^{-1})^{n} = ba^nb^{-1}$ for some $n \geqslant 1$. Then:
         $$(bab^{-1})^{n + 1} = (bab^{-1})^{n}(bab^{-1}) = ba^{n}b^{-1}bab^{-1} = ba^nab^{-1} = ba^{n + 1}b^{-1}$$
@@ -573,8 +577,8 @@ $\langle G, *\rangle$ is not commutative. For instance: $M_2 * M_4 \ne M_4 * M_2
     \item $xax = b \Rightarrow axax = ab \Rightarrow (ax)^2 = ab \Rightarrow \sqrt{ab} = ax$.
 \end{enumerate}
 
-\section*{Chapter 5}
-\subsection*{Set A}
+\section{Chapter 5}
+\subsection{Set A}
 \begin{enumerate}
     \item $G = \langle \mathbb{R}, +, \rangle$, $H = \{\log a: a \in \mathbb{Q}, a > 0\}$. $H$ is a subgroup of $G$.
         \begin{enumerate}[label=(\roman*)]
@@ -610,7 +614,7 @@ $\langle G, *\rangle$ is not commutative. For instance: $M_2 * M_4 \ne M_4 * M_2
     \item \textbf{TODO}.
 \end{enumerate}
 
-\subsection*{Set B}
+\subsection{Set B}
 \begin{enumerate}
     \item $G = \langle \mathscr{F}(\mathbb{R}), + \rangle$, $H = \{f \in \mathscr{F}(\mathbb{R}): f(x) = 0, \text{for every $x \in [0, 1]$}\}$. $H$ is a subgroup of $G$.
         \begin{enumerate}[label=(\roman*)]
@@ -644,7 +648,7 @@ $\langle G, *\rangle$ is not commutative. For instance: $M_2 * M_4 \ne M_4 * M_2
             \end{enumerate}
 \end{enumerate}
 
-\subsection*{Set C}
+\subsection{Set C}
 \begin{enumerate}
     \item Let $x, y \in H$; then $xy = x^{-1}y^{-1} = (yx)^{-1} = (xy)^{-1}$. So $xy \in H$. And, by the definition of $H$, $x^{-1} \in H$.
     \item Let $x, y \in H$; then $(xy)^n = x^ny^n = ee = e$. So $xy \in H$. And $(x^{-1})^{n} = (x^n)^{-1} = e^{-1} = e$. So, $x^{-1} \in H$.
@@ -655,7 +659,7 @@ $\langle G, *\rangle$ is not commutative. For instance: $M_2 * M_4 \ne M_4 * M_2
     \item The proofs in parts 4-6 depend on being able to reorder the elements in a multiplication. If $G$ is not abelian, this is not possible.
 \end{enumerate}
 
-\subsection*{Set D}
+\subsection{Set D}
 \begin{enumerate}
     \item Let $x, y \in H \cap K$; then $xy \in H$ because both $x$ and $y$ are in $H$. Analogouly, $xy \in K$. So $xy \in H \cap K$. And $x^{-1} \in H$ and $x^{-1} \in K$. So $x^{-1} \in H \cap K$.
     
@@ -686,7 +690,7 @@ $\langle G, *\rangle$ is not commutative. For instance: $M_2 * M_4 \ne M_4 * M_2
     \end{enumerate}
 \end{enumerate}
 
-\subsection*{Set E}
+\subsection{Set E}
 \begin{enumerate}
     \item 
         $\angled{1} = \angled{3} = \angled{7} = \angled{9} = \{1, 2, 3, 4, 5, 6, 7, 8, 9, 0\}$ \\
@@ -746,7 +750,7 @@ $\langle G, *\rangle$ is not commutative. For instance: $M_2 * M_4 \ne M_4 * M_2
     \item If $ab = ba$ then $a^{-1}b^{-1} = b^{-1}a^{-1}$ and $ab^{-1} = b^{-1}a$ and $a^{-1}b = ba^{-1}$. Given any $x, y \in G$, $xy$ can be written as a sequence of elements from $\{a, a^{-1}, b, b^{-1}\}$. $yx$ can also be written as a sequence of the same elements, only possibly in a different order. But since all these elements commute, we can rearrange them (let's say $a^mb^n$, with $m, n \in \mathbb{Z}$) so that $xy = yx$.
 \end{enumerate}
 
-\subsection*{Set F}
+\subsection{Set F}
 \begin{enumerate}
     \item See Table \ref{tab:op-generated}.
         \begin{table}[H]
@@ -819,7 +823,7 @@ $\langle G, *\rangle$ is not commutative. For instance: $M_2 * M_4 \ne M_4 * M_2
             \end{table}
     \end{enumerate}
 
-\subsection*{Set G}
+\subsection{Set G}
 \begin{enumerate}
     \item See Table \ref{tab:op-exercise-5G1}.
         \begin{table}[]
@@ -910,6 +914,38 @@ $\langle G, *\rangle$ is not commutative. For instance: $M_2 * M_4 \ne M_4 * M_2
             \caption{Operation table for item 6}
             \label{tab:op-exercise-5G6}
         \end{table}
+\end{enumerate}
+
+\subsection{Set H}
+\begin{enumerate}
+    \item $\mathbf{G}_2 = \begin{bmatrix}
+        1 & 0 & 0 & 0 & 1 & 1 \\
+        0 & 1 & 0 & 1 & 1 & 1 \\
+        0 & 0 & 1 & 0 & 0 & 1 \\
+    \end{bmatrix}$, 
+    $\mathbf{H}_2 = \begin{bmatrix}
+        0 & 1 & 0 & 1 & 0 & 0 \\
+        1 & 1 & 0 & 0 & 1 & 0 \\
+        1 & 1 & 1 & 0 & 0 & 1 \\
+    \end{bmatrix}$.
+
+    \item $\mathbf{G}_3 = \begin{bmatrix}
+        1 & 0 & 0 & 0 & 0 & 1 & 1\\
+        0 & 1 & 0 & 0 & 1 & 0 & 1 \\
+        0 & 0 & 1 & 0 & 1 & 1 & 0 \\
+        0 & 0 & 0 & 1 & 1 & 1 & 1 \\
+    \end{bmatrix}$,
+    $\mathbf{H}_3 = \begin{bmatrix}
+        0 & 1 & 1 & 1 & 1 & 0 & 0 \\
+        1 & 0 & 1 & 1 & 0 & 1 & 0\\
+        1 & 1 & 0 & 1 & 0 & 0 & 1 \\
+    \end{bmatrix}$.
+
+    \item By the definition of the addition operation for this group, $\mathbf{x} + \mathbf{y}$ has $1$ in the positions where $\mathbf{x}$ and $\mathbf{y}$ differ, and $0$ in the positions where they equal. So, the number of $1$s in $\mathbf{x} + \mathbf{y}$ is the same as the distance between $\mathbf{x}$ and $\mathbf{y}$.
+
+    \item From the previous item, $d(\mathbf{x}, \mathbf{0}) = w(\mathbf{x} + \mathbf{0}) = w(\mathbf{x})$.
+
+    \item 
 \end{enumerate}
 
 

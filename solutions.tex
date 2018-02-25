@@ -342,8 +342,8 @@ $\langle G, *\rangle$ is not commutative. For instance: $M_2 * M_4 \ne M_4 * M_2
                                                                                & = [(a_1, \ldots, a_n) + (b_1, \ldots, b_n)] + (c_1, \ldots, c_n)
             \end{split}
         \end{equation*}
-    \item The identity is $(0_1, \ldots, 0_n)$, since $(a_1, \ldots, a_n) + (0_1, \ldots, 0_n) = (a_1, \ldots, a_n) = (0_1, \ldots, 0_n) + (a_1, \ldots, a_n)$.
-    \item $(a_1, \ldots, a_n)$ is its own inverse, since $(a_1, \ldots, a_n) + (a_1, \ldots, a_n) = (a_1 + a_1, \ldots, a_n + a_n) = (0_1, \ldots, 0_n)$.
+    \item The identity is $(0, \ldots, 0)$, since $(a_1, \ldots, a_n) + (0, \ldots, 0) = (a_1, \ldots, a_n) = (0, \ldots, 0) + (a_1, \ldots, a_n)$.
+    \item $(a_1, \ldots, a_n)$ is its own inverse, since $(a_1, \ldots, a_n) + (a_1, \ldots, a_n) = (a_1 + a_1, \ldots, a_n + a_n) = (0, \ldots, 0)$.
     \item $b = -b \Rightarrow a + b = a + (-b) \Rightarrow a + b = a - b$.
     \item $a + b = c \Rightarrow a + b - b = c - b \Rightarrow a = c - b$. Since $-b = b$, $a = b + c$.
 \end{enumerate}
@@ -748,25 +748,165 @@ $\langle G, *\rangle$ is not commutative. For instance: $M_2 * M_4 \ne M_4 * M_2
 
 \subsection*{Set F}
 \begin{enumerate}
-    \item See Table \ref{tab:op-generated}
-    \begin{table}[]
-        \centering
-        \begin{tabular}{l|llllll}
-             &$e$   &$a$   &$b$   &$b^2$ &$ab$  &$ab^2$\\ \hline
-        $e$    &$e$   &$a$   &$b$   &$b^2$ &$ab$  &$ab^2$\\
-        $a$    &$a$   &$e$   &$ab$  &$ab^2$&$b$   &$b^2$ \\
-        $b$    &$b$   &$ab^2$&$b^2$ &$e$   &$a$   &$ab$  \\
-        $b^2$  &$b^2$ &$ab$  &$e$   &$b$   &$ab^2$&$a$   \\
-        $ab$   &$ab$  &$b^2$ &$ab^2$&$a$   &$e$   &$b$   \\
-        $ab^2$ &$ab^2$&$b$   &$a$   &$ab$  &$b^2$ &$e$  
-        \end{tabular}
-        \caption{Operation table of $G$}
-        \label{tab:op-generated}
-    \end{table}
+    \item See Table \ref{tab:op-generated}.
+        \begin{table}[H]
+            \centering
+            \begin{tabular}{l|llllll}
+                &$e$   &$a$   &$b$   &$b^2$ &$ab$  &$ab^2$\\ \hline
+            $e$    &$e$   &$a$   &$b$   &$b^2$ &$ab$  &$ab^2$\\
+            $a$    &$a$   &$e$   &$ab$  &$ab^2$&$b$   &$b^2$ \\
+            $b$    &$b$   &$ab^2$&$b^2$ &$e$   &$a$   &$ab$  \\
+            $b^2$  &$b^2$ &$ab$  &$e$   &$b$   &$ab^2$&$a$   \\
+            $ab$   &$ab$  &$b^2$ &$ab^2$&$a$   &$e$   &$b$   \\
+            $ab^2$ &$ab^2$&$b$   &$a$   &$ab$  &$b^2$ &$e$  
+            \end{tabular}
+            \caption{Operation table of $G$}
+            \label{tab:op-generated}
+        \end{table}
 
-    \item 
+    \item See Table \ref{tab:op-dihedral-d4}.
+        \begin{table}[!ht]
+            \centering
+            \begin{tabular}{c|cccccccc}
+                & $e$   & $a$   & $b$    & $b^2$ & $b^3$ & $ab$  & $ab^2$& $ab^3$\\ \hline
+            $e$   & $e$   & $a$   & $b$    & $b^2$ & $b^3$ & $ab$  & $ab^2$& $ab^3$\\
+            $a$   & $a$   & $e$   & $ab$   & $ab^2$& $ab^3$& $b$   & $b^2$ & $b^3$ \\
+            $b$   & $b$   & $ab^3$& $b^2$  & $b^3$ & $e$   & $a$   & $ab$  & $ab^2$\\
+            $b^2$ & $b^2$ & $ab^2$& $b^3$  & $e$   & $b$   & $ab^3$& $a$   & $ab$  \\
+            $b^3$ & $b^3$ & $ab$  & $e$    & $b$   & $b^2$ & $ab^2$& $ab^3$& $a$   \\
+            $ab$  & $ab$  & $b^3$ & $ab^2$ & $ab^3$& $a$   & $e$   & $b$   & $b^2$ \\
+            $ab^2$& $ab^2$& $b^2$ & $ab^3$ & $a$   & $ab$  & $b^3$ & $e$   & $b$   \\
+            $ab^3$& $ab^3$& $b$   & $a$    & $ab$  & $ab^2$& $b^2$ & $b^3$ & $e$  
+            \end{tabular}
+            \caption{Operation table of the dihedral group $D_4$}
+            \label{tab:op-dihedral-d4}
+        \end{table}
+    
+        \item See Table \ref{tab:op-quaternion}.
+            \begin{table}[]
+                \centering
+                \begin{tabular}{c|cccccccc}
+                    & $e$    & $a$                       & $b$    & $b^2$  & $b^3$  & $ab$   & $ab^2$ & $ab^3$ \\ \hline
+                $e$    & $e$    & $a$                       & $b$    & $b^2$  & $b^3$  & $ab$   & $ab^2$ & $ab^3$ \\
+                $a$    & $a$    & $b^2$                     & $ab$   & $ab^2$ & $ab^3$ & $b^3$  & $e$    & $b$    \\
+                $b$    & $b$    & $ab^3$                    & $b^2$  & $b^3$  & $e$    & $a$    & $ab$   & $ab^2$ \\
+                $b^2$  & $b^2$  & $ab^2$                    & $b^3$  & $e$    & $b$    & $ab^3$ & $a$    & $ab$   \\
+                $b^3$  & $b^3$  & $ab$                      & $e$    & $b$    & $b^2$  & $ab^2$ & $ab^3$ & $a$    \\
+                $ab$   & $ab$   & $b$                       & $ab^2$ & $ab^3$ & $a$    & $b^2$  & $b^3$  & $e$    \\
+                $ab^2$ & $ab^2$ & $e$                       & $ab^3$ & $a$    & $ab$   & $b$    & $b^2$  & $b^3$  \\
+                $ab^3$ & $ab^3$ & $b^3$                     & $a$    & $ab$   & $ab^2$ & $e$    & $b$    & $b^2$ 
+                \end{tabular}
+                \caption{Operation table for the quaternion group}
+                \label{tab:op-quaternion}
+            \end{table}
+        
+        \item See Table \ref{tab:op-table-commutative}.
+            \begin{table}[]
+                \centering
+                \begin{tabular}{c|cccccccc}
+                    & $e$   & $a$   & $b$   & $c$   & $ab$  & $bc$  & $ac$  & $abc$ \\ \hline
+                $e$   & $e$   & $a$   & $b$   & $c$   & $ab$  & $bc$  & $ac$  & $abc$ \\
+                $a$   & $a$   & $e$   & $ab$  & $ac$  & $b$   & $abc$ & $c$   & $bc$  \\
+                $b$   & $b$   & $ab$  & $e$   & $bc$  & $a$   & $c$   & $abc$ & $ac$  \\
+                $c$   & $c$   & $ac$  & $bc$  & $e$   & $abc$ & $b$   & $a$   & $ab$  \\
+                $ab$  & $ab$  & $b$   & $a$   & $abc$ & $e$   & $ac$  & $bc$  & $c$   \\
+                $bc$  & $bc$  & $abc$ & $c$   & $b$   & $ac$  & $e$   & $ab$  & $a$   \\
+                $ac$  & $ac$  & $c$   & $abc$ & $a$   & $bc$  & $ab$  & $e$   & $b$   \\
+                $abc$ & $abc$ & $bc$  & $ac$  & $ab$  & $c$   & $a$   & $b$   & $e$  
+                \end{tabular}
+                \caption{Operation table for the commutative group}
+                \label{tab:op-table-commutative}
+            \end{table}
+    \end{enumerate}
+
+\subsection*{Set G}
+\begin{enumerate}
+    \item See Table \ref{tab:op-exercise-5G1}.
+        \begin{table}[]
+            \centering
+            \begin{tabular}{l|llll}
+            & $e$ & $a$ & $b$ & $ab$\\ \hline
+            $e$ & $e$ & $a$ & $b$ & $ab$\\
+            $a$ & $a$ & $e$ & $ab$& $b$ \\
+            $b$ & $b$ & $ab$& $e$ & $a$ \\
+            $ab$& $ab$& $b$ & $a$ & $e$
+            \end{tabular}
+            \caption{Operation table for item 1}
+            \label{tab:op-exercise-5G1}
+        \end{table}
+
+    \item See Table \ref{tab:op-exercise-5G2}.
+        \begin{table}[]
+            \centering
+            \begin{tabular}{l|llllll}
+                & $e$  & $a$  & $b$  & $ab$ & $ba$ & $aba$ \\ \hline
+            $e$  & $e$  & $a$  & $b$  & $ab$ & $ba$ & $aba$ \\
+            $a$  & $a$  & $e$  & $ab$ & $b$  & $aba$ & $ba$ \\
+            $b$  & $b$  & $ba$ & $e$  & $aba$ & $a$  & $ab$ \\
+            $ab$ & $ab$ & $aba$ & $a$  & $ba$ & $e$  & $b$  \\
+            $ba$ & $ba$ & $b$  & $aba$ & $e$  & $ab$ & $a$  \\
+            $aba$ & $aba$ & $ab$ & $ba$ & $a$  & $b$  & $e$ 
+            \end{tabular}
+            \caption{Table operation for item 2}
+            \label{tab:op-exercise-5G2}
+        \end{table}
+
+    \item See Table \ref{tab:op-exercise-5G3}.
+        \begin{table}[]
+            \centering
+            \begin{tabular}{l|llllllll}
+                & $e$   & $a$   & $b$   & $ab$  & $ba$   & $bab$ & $aba$ & $abab$\\ \hline
+            $e$   & $e$   & $a$   & $b$   & $ab$  & $ba$   & $bab$ & $aba$ & $abab$\\
+            $a$   & $a$   & $e$   & $ab$  & $b$   & $aba$  & $abab$& $ba$  & $bab$ \\
+            $b$   & $b$   & $ba$  & $e$   & $bab$ & $abab$ & $ab$  & $abab$& $aba$ \\
+            $ab$  & $ab$  & $aba$ & $a$   & $abab$& $e$    & $b$   & $bab$ & $ba$  \\
+            $ba$  & $ba$  & $b$   & $bab$ & $e$   & $ababa$ & $aba$ & $a$   & $ab$  \\
+            $bab$ & $bab$ & $abab$& $ba$  & $aba$ & $b$    & $e$   & $ab$  & $a$   \\
+            $aba$ & $aba$ & $ab$  & $abab$& $a$   & $bab$  & $ba$  & $e$   & $b$   \\
+            $abab$& $abab$& $bab$ & $aba$ & $ba$  & $ab$   & $a$   & $b$   & $e$  
+            \end{tabular}
+            \caption{Operation table for item 3}
+            \label{tab:op-exercise-5G3}
+        \end{table}    
+
+    \item This is the dihedral group $D_4$. See Table \ref{tab:op-dihedral-d4}.
+
+    \item See Table \ref{tab:op-exercise-5G5}.
+        \begin{table}[]
+            \centering
+            \begin{tabular}{l|llllllll}
+                & $e$   & $a$   & $b$   & $b^2$ & $b^3$ & $ab$  & $ab^2$& $ab^3$\\ \hline
+            $e$   & $e$   & $a$   & $b$   & $b^2$ & $b^3$ & $ab$  & $ab^2$& $ab^3$\\
+            $a$   & $a$   & $e$   & $ab$  & $ab^2$& $ab^3$& $b$   & $b^2$ & $b^3$ \\
+            $b$   & $b$   & $ab$  & $b^2$ & $b^3$ & $e$   & $ab^2$& $ab^3$& $a$   \\
+            $b^2$ & $b^2$ & $ab^2$& $b^3$ & $e$   & $b$   & $ab^3$& $a$   & $ab$  \\
+            $b^3$ & $b^3$ & $ab^3$& $e$   & $b$   & $b^2$ & $a$   & $ab$  & $ab^2$\\
+            $ab$  & $ab$  & $b$   & $ab^2$& $ab^3$& $a$   & $b^2$ & $b^3$ & $e$   \\
+            $ab^2$& $ab^2$& $b^2$ & $ab^3$& $a$   & $ab$  & $b^3$ & $e$   & $b$   \\
+            $ab^3$& $ab^3$& $b^3$ & $a$   & $ab$  & $ab^2$& $e$   & $b$   & $b^2$
+            \end{tabular}
+            \caption{Operation table for item 5}.
+            \label{tab:op-exercise-5G5}
+        \end{table}
+        
+    \item See Table \ref{tab:op-exercise-5G6}.
+        \begin{table}[]
+            \centering
+            \begin{tabular}{l|llllllll}
+                & $e$   & $a$   & $b$   & $b^2$ & $b^3$ & $ab$  & $ab^2$& $ab^3$\\ \hline
+            $e$   & $e$   & $a$   & $b$   & $b^2$ & $b^3$ & $ab$  & $ab^2$& $ab^3$\\
+            $a$   & $a$   & $e$   & $ab$  & $ab^2$& $ab^3$& $b$   & $b^2$ & $b^3$ \\
+            $b$   & $b$   & $ab$  & $b^2$ & $b^3$ & $e$   & $ab^2$& $ab^3$& $a$   \\
+            $b^2$ & $b^2$ & $ab^2$& $b^3$ & $e$   & $b$   & $ab^3$& $a$   & $ab$  \\
+            $b^3$ & $b^3$ & $ab^3$& $e$   & $b$   & $b^2$ & $a$   & $ab$  & $ab^2$\\
+            $ab$  & $ab$  & $b$   & $ab^2$& $ab^3$& $a$   & $b^2$ & $b^3$ & $e$   \\
+            $ab^2$& $ab^2$& $b^2$ & $ab^3$& $a$   & $ab$  & $b^3$ & $e$   & $b$   \\
+            $ab^3$& $ab^3$& $b^3$ & $a$   & $ab$  & $ab^2$& $e$   & $b$   & $b^2$
+            \end{tabular}
+            \caption{Operation table for item 6}
+            \label{tab:op-exercise-5G6}
+        \end{table}    
 \end{enumerate}
-
 
 
 \end{document}

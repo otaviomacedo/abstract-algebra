@@ -371,7 +371,7 @@ $\langle G, *\rangle$ is not commutative. For instance: $M_2 * M_4 \ne M_4 * M_2
             \caption{Parity-check equations for $C_1$}
             \label{tab:parity-c1}
         \end{table}
-    \item $a_4 = a_2$, $a_5 = a_ + a_2$, $a_6 = a_1 + a_2 + a_3$, $a_i \in \mathbb{B}$.
+    \item $a_4 = a_2$, $a_5 = a_1 + a_2$, $a_6 = a_1 + a_2 + a_3$, $a_i \in \mathbb{B}$.
         \begin{enumerate}
             \item $C_2 = \{000000, 001001, 010111, 011110, 100011, 101010, 110100, 111101\}$.
             \item Minimum distance: 2 (e.g., $000000$ and $001001$).
@@ -944,6 +944,17 @@ $\langle G, *\rangle$ is not commutative. For instance: $M_2 * M_4 \ne M_4 * M_2
     \item By the definition of the addition operation for this group, $\mathbf{x} + \mathbf{y}$ has $1$ in the positions where $\mathbf{x}$ and $\mathbf{y}$ differ, and $0$ in the positions where they equal. So, the number of $1$s in $\mathbf{x} + \mathbf{y}$ is the same as the distance between $\mathbf{x}$ and $\mathbf{y}$.
 
     \item From the previous item, $d(\mathbf{x}, \mathbf{0}) = w(\mathbf{x} + \mathbf{0}) = w(\mathbf{x})$.
+
+    \item Let $\mathbf{x}, \mathbf{y} \in C$ such that $d(\mathbf{x}, \mathbf{y})$ is the minimum distance in $C$. Now let us assume that there is some $\mathbf{z} \in C$ such that $w(\mathbf{z}) < d(\mathbf{x}, \mathbf{y})$. Now, $\mathbf{z}$ can be written as the sum of two other elements, say $\mathbf{z} = \mathbf{x'} + \mathbf{y'}$; then $w(\mathbf{z}) = w(\mathbf{x'} + \mathbf{y'}) = d(\mathbf{x'}, \mathbf{y'}) < d(\mathbf{x}, \mathbf{y})$, which is a contradiction, since $d(\mathbf{x}, \mathbf{y})$ is the minimum distance. Therefore, the minimum distance in $C$ is equal to the minimum weight in $C$, namely $w(\mathbf{x} + \mathbf{y})$.
+
+    \item For the items below, let $p$ be the number of positions in which $\mathbf{x}$ and $\mathbf{y}$ are both $1$ .
+        \begin{enumerate}[label=(\alph*)]
+            \item Let us say that $w(\mathbf{x}) = 2m$ and $w(\mathbf{y}) = 2n$. Then $w(\mathbf{x} + \mathbf{y}) = 2m + 2n - 2p = 2(m + n - p)$, which is even.
+
+            \item Let us say that $w(\mathbf{x}) = 2m + 1$ and $w(\mathbf{y}) = 2n + 1$. Then $w(\mathbf{x} + \mathbf{y}) = 2m + 1 + 2n + 1 - 2p = 2(m + n - p + 1)$, which is even.
+
+            \item Let us say that $w(\mathbf{x}) = 2m + 1$ and $w(\mathbf{y}) = 2n$. Then $w(\mathbf{x} + \mathbf{y}) = 2m + 1 + 2n - 2p = 2(m + n - p) + 1$, which is odd.
+        \end{enumerate}
 
     \item 
 \end{enumerate}

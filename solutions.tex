@@ -8,9 +8,12 @@
 \usepackage{enumitem}
 \usepackage{float}
 \usepackage{algorithm}
-\usepackage{ mathrsfs }
+\usepackage{mathrsfs}
 \usepackage[noend]{algpseudocode}
 \usepackage[hidelinks]{hyperref}
+\usepackage{fontspec}
+
+\setmainfont{Palatino Linotype}
 
 \setcounter{secnumdepth}{0}
 
@@ -953,11 +956,73 @@ $\langle G, *\rangle$ is not commutative. For instance: $M_2 * M_4 \ne M_4 * M_2
 
             \item Let us say that $w(\mathbf{x}) = 2m + 1$ and $w(\mathbf{y}) = 2n + 1$. Then $w(\mathbf{x} + \mathbf{y}) = 2m + 1 + 2n + 1 - 2p = 2(m + n - p + 1)$, which is even.
 
-            \item Let us say that $w(\mathbf{x}) = 2m + 1$ and $w(\mathbf{y}) = 2n$. Then $w(\mathbf{x} + \mathbf{y}) = 2m + 1 + 2n - 2p = 2(m + n - p) + 1$, which is odd.
+            \item Let us say that $w(\mathbf{x}) = 2m + 1$ and $w(\mathbf{y}) = 2n$. Then $w(\mathbf{x} + \mathbf{y}) = 2m + 1 + 2n - 2p = 2(m + n - p) + 1$, which is odd.1$3x_1 + 4 = 3x_2 + 4 \Rightarrow x_1 = x_2$1$3x_1 + 4 = 3x_2 + 4 \Rightarrow x_1 = x_2$. $f$ is surjective: for every $y \in \mathbb{R}$, $f()$. $f$ is surjective: for every $y \in \mathbb{R}$, $f()$
         \end{enumerate}
 
-    \item 
+    \item Let us say a group code $C$ of order $m$ has $n$ elements with odd weight (and consequently $m - n$ elements with even weight), with $0 < n \leqslant m$. Then, let us take one of these elements with odd weight and multiply by each element of the group, obtaining the whole group: $\{xa_1, xa_2, \ldots, xa_m\}$, $a_i \in C$. In all the instances in which $a_i$ has even weight, $xa_i$ has odd weight. Since there are $m - n$ such instances, there are $m - n$ elements with odd weight, which means that $m - n = n$ and, therefore, $n = \frac{m}{2}$. In the case in which all elements have even weight, this property is trivially satisfied, since the weight of the product of any two elements with even weight is even.
+
+    \item $\mathbf{H}(\mathbf{x} + \mathbf{y}) = \mathbf{H}\mathbf{x} + \mathbf{H}\mathbf{y} = 0 \Leftrightarrow \mathbf{H}\mathbf{x} = \mathbf{H}\mathbf{y}$.
 \end{enumerate}
 
+\section{Chapter 6}
+\subsection{Set A}
+
+\begin{enumerate}
+    \item $f$ is bijective: $f^{-1}(x) = (x - 4)/3$.\\ Range: $\mathbb{R}$.
+
+    \item $f$ is bijective: $f^{-1}(x) = \sqrt[3]{x - 1}$.\\ Range: $\mathbb{R}$.
+
+    \item $f$ is not injective: $|x| = |-x| = x$ for any $x \in \mathbb{R}$. $f$ is surjective: $|y| = y$, for any $y \in \mathbb{R}$.\\ Range: $\{x \in \mathbb{R}: x \geqslant 0\}$.
+
+    \item $f$ is not injective: $f(-1) = f(2) = 2$. $f$ is surjective because it is continuous and unbounded.\\ Range: $\mathbb{R}$.
+
+    \item $f$ is bijective: 
+        
+       \[
+        f^{-1}(x) = 
+            \begin{cases}
+                x & \text{if $x$ is rational} \\
+                \frac{x}{2} & \text{if $x$ is irrational}
+            \end{cases}
+        \]
+
+      Range: $\mathbb{R}$.
+
+    \item $f$ is injective, but not surjective: for any odd number $y$, there is no $x$ such that $f(x) = y$.\\ Range: $\{x \in \mathbb{Z}: x = 2k, \text{for all $k \in \mathbb{Z}$}\} \cup \{x \notin \mathbb{Z}\}$.
+\end{enumerate}
+
+
+\section{Set B}
+\begin{enumerate}
+    \item $f$ is bijective: $f^{-1}(x) = \ln(x)$.
+
+    \item $f$ is bijective: $f^{-1}(x) = \arctan(x)$.
+
+    \item $f$ is not injective: given $f(x_1) = f(x_2)$, $x_1$ and $x_2$ can independently be any number in $\{y: \in \mathbb{R}: x_i - 1 < y \leqslant x_i\}$. $f$ is surjective: any integer maps to itself.
+
+    \item $f$ is bijective: $f^{-1} = f$.
+
+    \item $f(n) = 2n$.
+\end{enumerate}
+
+\section{Set C}
+\begin{enumerate}
+    \item $f$ is not injective: take $f(x, y_1) = f(x, y_2)$ even when $y_1 \ne y_2$. $f$ is surjective: any element $x \in A$ is the image of $(x, y)$, for any $y \in B$.
+
+    \item $f$ is bijective: $f^{-1} = f$.
+
+    \item $f$ is injective, but not surjective: none of the elements in the set $\{x \in B: x \ne b\}$ is an image of any element in $A$.
+
+    \item $f$ is bijective: $f^{-1}(x) = a^{-1}x$.
+
+    \item $f$ is bijective: $f^{-1} = f$.
+
+    \item $f$ is not bijective: take, for example the group of Table \ref{tab:op-exercise-5G1}; in that case, $a^2 = b^2 = e$. $f$ is not surjective: take, for example $\angled{\mathbb{Z}, +}$; in this case $f(x) = 2x$, which means that odd numbers are not the image of any element in $\mathbb{Z}$.
+\end{enumerate}
+
+\section{Set D}
+\begin{enumerate}
+    \item 
+\end{enumerate}
 
 \end{document}

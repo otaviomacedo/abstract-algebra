@@ -1098,7 +1098,7 @@ $\langle G, *\rangle$ is not commutative. For instance: $M_2 * M_4 \ne M_4 * M_2
 \subsection{Set H}
 In the following items, $*$ means ``any symbol'', and $!x$ means ``any symbol except $x$''. $0$ is always the initial state and, in the diagrams, the green circle represents the acceptance state. All others are failure states.
 \begin{enumerate}
-    \item $A = \{a, b, c, d\}$; $S = \{0, 1, 2, 3, 4\}$. Machine table: see Table \ref{tab:machine-3as}. Diagram: see Figure \ref{fig:threeas}.
+    \item $A = \{a, b, c, d\}$; $S = \{0, 1, 2, 3, 4\}$; machine table: see Table \ref{tab:machine-3as}; diagram: see Figure \ref{fig:threeas}.
     \begin{table}[!ht]
         \centering
         \begin{tabular}{l|ll}
@@ -1114,12 +1114,12 @@ In the following items, $*$ means ``any symbol'', and $!x$ means ``any symbol ex
     \end{table}
     \begin{figure}[!ht]
         \centering
-        \includegraphics[scale=0.7]{diagrams/threeas.pdf}
+        \includegraphics[scale=0.5]{diagrams/threeas.pdf}
         \caption{State machine for input consisting of exactly 3 a's}
         \label{fig:threeas}
     \end{figure}
     
-    \item $A = \{a, b, c, d\}$; $S = \{0, 1, 2, 3\}$. Machine table: see Table \ref{tab:machine-at-least-3as}. Diagram: see Figure \ref{fig:atleast3as}
+    \item $A = \{a, b, c, d\}$; $S = \{0, 1, 2, 3\}$; machine table: see Table \ref{tab:machine-at-least-3as}; diagram: see Figure \ref{fig:atleast3as}
     \begin{table}[!ht]
         \centering
         \begin{tabular}{l|ll}
@@ -1135,12 +1135,12 @@ In the following items, $*$ means ``any symbol'', and $!x$ means ``any symbol ex
     \end{table}
     \begin{figure}[!ht]
         \centering
-        \includegraphics[scale=0.7]{diagrams/atleast3as.pdf}
+        \includegraphics[scale=0.5]{diagrams/atleast3as.pdf}
         \caption{State machine for input consisting of at least 3 a's}
         \label{fig:atleast3as}
     \end{figure}
 
-    \item $A = \{0, 1, 2, 3, 4\}$; $S = \{0, 1, 2, 3, 4\}$. Machine table: see Table \ref{tab:add-modulo-5}. Diagram: see Figure \ref{fig:add-modulo-5}
+    \item $A = \{0, 1, 2, 3, 4\}$; $S = \{0, 1, 2, 3, 4\}$; machine table: see Table \ref{tab:add-modulo-5}; diagram: see Figure \ref{fig:add-modulo-5}
     \begin{table}[]
         \centering
         \begin{tabular}{l|lllll}
@@ -1158,10 +1158,50 @@ In the following items, $*$ means ``any symbol'', and $!x$ means ``any symbol ex
         \centering
         \includegraphics[scale=0.5]{diagrams/add-modulo-5.pdf}
         \caption{State machine for addition modulo 5}
-        \label{tab:add-modulo-5}
+        \label{fig:add-modulo-5}
     \end{figure}
 
-    
+    \item $A = \{0, 1\}$; $S = \{0, 1, 2, 3\}$; machine table: see Table \ref{tab:ends-in-111}; diagram: see Figure \ref{fig:ends-in-111}.
+    \begin{table}[]
+        \centering
+        \begin{tabular}{l|ll}
+        Present state & 0 & 1 \\ \hline
+        0             & 0 & 1 \\
+        1             & 0 & 2 \\
+        2             & 0 & 3 \\
+        3             & 0 & 0
+        \end{tabular}
+        \caption{State machine for binary string ending in 111}
+        \label{tab:ends-in-111}
+    \end{table}
+    \begin{figure}[!ht]
+        \centering
+        \includegraphics[scale=0.5]{diagrams/ends-in-111.pdf}
+        \caption{State machine for binary string ending in 111}
+        \label{fig:ends-in-111}
+    \end{figure}
+
+    \item \begin{enumerate}[label=(\alph*)]
+        \item 
+        $\bar{\alpha}(s_0, 000) = s_0$\quad
+        $\bar{\alpha}(s_0, 100) = s_1$\\
+        $\bar{\alpha}(s_0, 001) = s_1$\quad
+        $\bar{\alpha}(s_0, 101) = s_0$\\
+        $\bar{\alpha}(s_0, 010) = s_1$\quad
+        $\bar{\alpha}(s_0, 110) = s_0$\\
+        $\bar{\alpha}(s_0, 011) = s_0$\quad
+        $\bar{\alpha}(s_0, 111) = s_1$
+
+        \item 
+        $\bar{\alpha}(s_0, 00) = s_0$\quad
+        $\bar{\alpha}(s_1, 00) = s_1$\\
+        $\bar{\alpha}(s_0, 01) = s_1$\quad
+        $\bar{\alpha}(s_1, 01) = s_0$\\
+        $\bar{\alpha}(s_0, 10) = s_1$\quad
+        $\bar{\alpha}(s_1, 10) = s_0$\\
+        $\bar{\alpha}(s_0, 11) = s_0$\quad
+        $\bar{\alpha}(s_1, 11) = s_1$
+    \end{enumerate}
 \end{enumerate}
 
 

@@ -1202,8 +1202,112 @@ In the following items, $*$ means ``any symbol'', and $!x$ means ``any symbol ex
         $\bar{\alpha}(s_0, 11) = s_0$\quad
         $\bar{\alpha}(s_1, 11) = s_1$
     \end{enumerate}
+
+    \item
+        \begin{enumerate}[label=(\alph*)]
+            \item 
+            $\mathbf{x} = 01001$:\quad $T_\mathbf{x}(s_0) = s_0$\quad $T_\mathbf{x}(s_1) = s_1$\\
+            $\mathbf{x} = 10011$:\quad $T_\mathbf{x}(s_0) = s_1$\quad $T_\mathbf{x}(s_1) = s_0$\\
+            $\mathbf{x} = 01010$:\quad $T_\mathbf{x}(s_0) = s_0$\quad $T_\mathbf{x}(s_1) = s_1$
+
+            \item In the case of $M_1$, $T_\mathbf{x}$ either maps the initial state to the same state if the weight of $\mathbf{x}$ is even and to the opposite state otherwise. So, there are only two functions.
+
+            \item In general, let $n$ be the number of $a$'s in a given $\mathbf{x}$; then $T_\mathbf{x}(s_i) = s_j$, in which $j = \max(i + n, 4)$.
+
+            \item We can think of $T_\mathbf{x}(s_i)$ as a fuction $f(\mathbf{x}, i) = \sum\limits_{b \in \mathbf{x}} (b \mod 4) + (i \mod 4)$. Since $\mathbf{x}$ determines the function and there are only 5 possible values for the term that includes it in $f$, there are therefore only 5 distinct transition functions in this case.
+        \end{enumerate}
 \end{enumerate}
 
+\subsection{Set I}
+\begin{enumerate}
+    \item see Table \ref{tab:automaton-mz4} and Figure \ref{fig:automaton-mz4}.
+    
+    \begin{table}[]
+        \centering
+        \begin{tabular}{l|llll}
+        Present state & 0 & 1 & 2 & 3 \\ \hline
+        0             & 0 & 1 & 2 & 3 \\
+        1             & 1 & 2 & 3 & 0 \\
+        2             & 2 & 3 & 0 & 1 \\
+        3             & 3 & 0 & 1 & 2
+        \end{tabular}
+        \caption{Automaton $M(\mathbb{Z}_4)$}
+        \label{tab:automaton-mz4}
+    \end{table}
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.5]{diagrams/automaton-mz4.pdf}
+        \caption{Automaton $M(\mathbb{Z}_4)$}
+        \label{fig:automaton-mz4}        
+    \end{figure}
 
+    \item \emph{What the hell is $S_3$?}
+
+    \item $(T_\mathbf{y} \circ T_\mathbf{x})(s_i) = \bar{\alpha}(\bar{\alpha}(s_i, \mathbf{x}), \mathbf{y})$. This corresponds to putting the automaton in the state $s_i$, then applying all the events in $\mathbf{x}$ and then applying all the events in $\mathbf{y}$. Symbolically, $(T_\mathbf{y} \circ T_\mathbf{x})(s_i) = \bar{\alpha}(s_i, \mathbf{xy}) = T_\mathbf{xy}$.
+
+    \item As we've seen in exercise H5b of this chapter, there are only two transition functions for $M_1$. Let us call them $E(s_i) = s_i$ and $I(s_i) = s_{\text{inverse of}\, i}$. See Table \ref{tab:op-semigroup-m1} for the group operation of $\mathscr{S}(M_1)$. $E$ is the identity element and each element is the inverse of itself. So $\mathscr{S}(M_1)$ is also a group.
+
+    \begin{table}[!ht]
+        \centering
+        \begin{tabular}{l|ll}
+        $\circ$ & $E$ & $I$ \\ \hline
+        $E$     & $E$ & $I$ \\
+        $I$     & $I$ & $E$
+        \end{tabular}
+        \caption{Operation table of $\mathscr{S}(M_1)$}
+        \label{tab:op-semigroup-m1}
+    \end{table}
+    
+    \item As we've seen, there are only 5 transition functions in $M_2$. Let's call them $P_i$, for $0 \leqslant i \leqslant 4$, so that $P_i(s_j) = (i + j) \mod 4$. The operation table is essentially the same as Table \ref{tab:add-modulo-5}. And it is also a group.
+
+    \item \emph{The diagram shows multiple arrows for the same event leaving the same state. This is not a state machine.}
+\end{enumerate}
+
+\section{Chapter 7}
+
+\subsection{Set A}
+
+\begin{enumerate}
+    \item $f^{-1} = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 \\
+        2 & 6 & 3 & 5 & 4 & 1 \\
+    \end{bmatrix}$\quad
+    $g^{-1} = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 \\
+        3 & 1 & 2 & 6 & 5 & 4 \\
+    \end{bmatrix}$\quad
+    $h^{-1} = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 \\
+        2 & 6 & 1 & 4 & 5 & 3 \\
+    \end{bmatrix}$\\\\
+    $g \circ f = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 \\
+        4 & 2 & 1 & 5 & 6 & 3 \\
+    \end{bmatrix}$\quad
+    $f \circ g = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 \\
+        1 & 3 & 6 & 2 & 4 & 5 \\
+    \end{bmatrix}$
+
+    \item $f \circ (g \circ h) = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 \\
+        6 & 1 & 5 & 2 & 4 & 3 \\
+    \end{bmatrix}$
+
+    \item $g \circ h^{-1} = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 \\
+        3 & 4 & 2 & 6 & 5 & 1 \\
+    \end{bmatrix}$
+
+    \item $h \circ g^{-1} \circ f^{-1} = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 \\
+        3 & 4 & 1 & 5 & 2 & 6 \\
+    \end{bmatrix}$
+
+    \item $g \circ g \circ g = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 \\
+        1 & 2 & 3 & 6 & 5 & 4 \\
+    \end{bmatrix}$
+\end{enumerate}
 
 \end{document}

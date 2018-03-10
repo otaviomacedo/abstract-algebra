@@ -14,6 +14,8 @@
 \usepackage{fontspec}
 \usepackage{graphicx}
 
+% TODO Get rid of table and figure environments wherever possible.
+
 \setmainfont{Palatino Linotype}
 
 \setcounter{secnumdepth}{0}
@@ -1241,7 +1243,46 @@ In the following items, $*$ means ``any symbol'', and $!x$ means ``any symbol ex
         \label{fig:automaton-mz4}        
     \end{figure}
 
-    \item \emph{What the hell is $S_3$?}
+    \item \begin{minipage}{0.5\textwidth}
+        \centering
+        $e = \begin{bmatrix}
+            1 & 2 & 3 \\
+            1 & 2 & 3 \\
+        \end{bmatrix}$\\
+        $a = \begin{bmatrix}
+            1 & 2 & 3 \\
+            1 & 3 & 2 \\
+        \end{bmatrix}$\\
+        $b = \begin{bmatrix}
+            1 & 2 & 3 \\
+            3 & 1 & 2 \\
+        \end{bmatrix}$\\
+        $c = \begin{bmatrix}
+            1 & 2 & 3 \\
+            3 & 2 & 1 \\
+        \end{bmatrix}$\\
+        $d = \begin{bmatrix}
+            1 & 2 & 3 \\
+            2 & 3 & 1 \\
+        \end{bmatrix}$\\
+        $f = \begin{bmatrix}
+            1 & 2 & 3 \\
+            2 & 1 & 3 \\
+        \end{bmatrix}$\\
+    \end{minipage}
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \begin{tabular}{l|llllll}
+            $\circ$ & $e$ & $a$ & $b$ & $c$ & $d$ & $f$ \\ \hline
+            $e$       & $e$ & $a$ & $b$ & $c$ & $d$ & $f$ \\
+            $a$       & $a$ & $e$ & $f$ & $d$ & $c$ & $b$ \\
+            $b$       & $b$ & $c$ & $d$ & $f$ & $e$ & $a$ \\
+            $c$       & $c$ & $b$ & $a$ & $e$ & $f$ & $d$ \\
+            $d$       & $d$ & $f$ & $e$ & $a$ & $b$ & $c$ \\
+            $f$       & $f$ & $d$ & $c$ & $b$ & $a$ & $e$
+        \end{tabular}
+    \end{minipage}\\        
+    \includegraphics[scale=0.5]{diagrams/automaton-s3.pdf}
 
     \item $(T_\mathbf{y} \circ T_\mathbf{x})(s_i) = \bar{\alpha}(\bar{\alpha}(s_i, \mathbf{x}), \mathbf{y})$. This corresponds to putting the automaton in the state $s_i$, then applying all the events in $\mathbf{x}$ and then applying all the events in $\mathbf{y}$. Symbolically, $(T_\mathbf{y} \circ T_\mathbf{x})(s_i) = \bar{\alpha}(s_i, \mathbf{xy}) = T_\mathbf{xy}$.
 
@@ -1308,6 +1349,196 @@ In the following items, $*$ means ``any symbol'', and $!x$ means ``any symbol ex
         1 & 2 & 3 & 4 & 5 & 6 \\
         1 & 2 & 3 & 6 & 5 & 4 \\
     \end{bmatrix}$
+\end{enumerate}
+
+\subsection{Set B}
+
+\begin{enumerate}
+    \item $G$ is a group since the composition of functions is associative, there is an identity element, $\epsilon$, and each element is its own inverse. Operation table:
+    \begin{center}
+            \begin{tabular}{l|llll}
+            $\circ$       & $\epsilon$ & $f$        & $g$        & $h$           \\\hline
+            $\epsilon$    & $\epsilon$ & $f$        & $g$        & $h$           \\
+            $f$           & $f$        & $\epsilon$ & $h$        & $g$           \\
+            $g$           & $g$        & $h$        & $\epsilon$ & $f$           \\
+            $h$           & $h$        & $g$        & $f$        & $\epsilon$
+        \end{tabular}
+    \end{center}
+        
+    \item $f = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 \\
+        2 & 3 & 4 & 1 & 6 & 5 \\
+    \end{bmatrix}$\quad
+    $f^{2} = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 \\
+        3 & 4 & 1 & 2 & 5 & 6 \\
+    \end{bmatrix}$\quad
+    $f^{3} = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 \\
+        4 & 1 & 2 & 3 & 6 & 5 \\
+    \end{bmatrix}$\quad
+    $f^{4} = \epsilon = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 \\
+        1 & 2 & 3 & 4 & 5 & 6 \\
+    \end{bmatrix}$
+
+    \item \begin{minipage}{0.5\textwidth}
+        \centering
+        $e = \begin{bmatrix}
+            1 & 2 & 3 & 4 & 5 \\
+            1 & 2 & 3 & 4 & 5
+        \end{bmatrix}$\\
+        $f = \begin{bmatrix}
+            1 & 2 & 3 & 4 & 5 \\
+            4 & 3 & 2 & 1 & 5
+        \end{bmatrix}$\\
+        $g = \begin{bmatrix}
+            1 & 2 & 3 & 4 & 5 \\
+            2 & 1 & 4 & 3 & 5
+        \end{bmatrix}$\\
+        $h = \begin{bmatrix}
+            1 & 2 & 3 & 4 & 5 \\
+            3 & 4 & 1 & 2 & 5
+        \end{bmatrix}$
+    \end{minipage}
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \begin{tabular}{l|llll}
+            $\circ$ & $e$ & $f$ & $g$ & $h$ \\ \hline
+            $e$       & $e$ & $f$ & $g$ & $h$ \\
+            $f$       & $f$ & $e$ & $h$ & $g$ \\
+            $g$       & $g$ & $h$ & $e$ & $f$ \\
+            $h$       & $h$ & $g$ & $f$ & $e$
+        \end{tabular}            
+    \end{minipage}
+
+    \item \textbf{TODO}
+\end{enumerate}
+
+\subsection{Set C}
+\begin{enumerate}
+    \item $f(g(x)) = \frac{1}{(1 - (x - 1) / x)} = x$ and $g(f(x)) = \frac{x/(1 - x)}{1/(1 - x)} = x$. Therefore $A$ is closed under composition and inverses.
+
+    \item Every function is its own inverse and $gf = fg = h$, $fh = hf = g$ and $gh = hg = f$.  Therefore $A$ is closed under composition and inverses.
+
+    \item \textbf{TODO}
+
+    \item \textbf{TODO}
+\end{enumerate}
+
+\subsection{Set D}
+\begin{enumerate}
+    \item $f_n: \mathbb{R} \to \mathbb{R}$ is bijective and its inverse is defined as $f_n^{-1}(x) = x - n$.
+
+    \item $f_n(f_m(x)) = x + m + n = f_{n + m}(x)$. $f_{-n}(f_n(x)) = x + n - n = x$. Therefore $f_{-n} = f^{-1}_n$.
+
+    \item $G$ is closed under composition and inverses (see previous item).
+
+    \item $f_1$ is a generator of $G$.
+\end{enumerate}
+
+\subsection{Set E}
+\begin{enumerate}
+    \item $f_{a,b}: \mathbb{R} \to \mathbb{R}$ is bijective and its inverse is defined as $f_{a,b}^{-1}(x) = (x - b)/a$.
+
+    \item $f_{a,b}(f_{c,d}(x)) = f_{a,b}(cx + d) = a(cx + d) + b = acx + ad + b = f_{ac, ad + b}(x)$.
+
+    \item $f_{a,b}^{-1}(x) = (x - b)/a = (1/a)x - b/a = f_{1/a, -b/a}(x)$.
+
+    \item From the previous item we know that $G$ is closed under composition and inverses.
+\end{enumerate}
+
+\subsection{Set F}
+\begin{enumerate}
+    \item $R_0 = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6\\
+        1 & 2 & 3 & 4 & 5 & 6\\
+    \end{bmatrix}$\quad
+    $R_1 = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6\\
+        2 & 3 & 4 & 5 & 6 & 1\\
+    \end{bmatrix}$\quad
+    $R_2 = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6\\
+        3 & 4 & 5 & 6 & 1 & 2\\
+    \end{bmatrix}$\\
+    $R_3 = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6\\
+        4 & 5 & 6 & 1 & 2 & 3\\
+    \end{bmatrix}$\quad
+    $R_4 = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6\\
+        5 & 6 & 1 & 2 & 3 & 4\\
+    \end{bmatrix}$\quad
+    $R_5 = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6\\
+        6 & 1 & 2 & 3 & 4 & 5\\
+    \end{bmatrix}$\\
+    $R_6 = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6\\
+        5 & 4 & 3 & 2 & 1 & 6\\
+    \end{bmatrix}$\quad
+    $R_7 = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6\\
+        6 & 5 & 4 & 3 & 2 & 1\\
+    \end{bmatrix}$\quad
+    $R_8 = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6\\
+        1 & 6 & 5 & 4 & 3 & 2\\
+    \end{bmatrix}$\\
+    $R_9 = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6\\
+        2 & 1 & 6 & 5 & 4 & 3\\
+    \end{bmatrix}$\quad
+    $R_{10} = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6\\
+        3 & 2 & 1 & 6 & 5 & 4\\
+    \end{bmatrix}$\quad
+    $R_{11 }= \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6\\
+        4 & 3 & 2 & 1 & 6 & 5\\
+    \end{bmatrix}$\quad
+
+    \item \begin{minipage}{0.3\textwidth}
+        \centering
+        $\epsilon = \begin{bmatrix}
+            1 & 2 & 3 & 4\\
+            1 & 2 & 3 & 4
+        \end{bmatrix}$\\
+        $a = \begin{bmatrix}
+            1 & 2 & 3 & 4\\
+            4 & 3 & 2 & 1
+        \end{bmatrix}$\\
+        $b = \begin{bmatrix}
+            1 & 2 & 3 & 4\\
+            2 & 1 & 4 & 3
+        \end{bmatrix}$\\
+        $c = \begin{bmatrix}
+            1 & 2 & 3 & 4\\
+            3 & 4 & 1 & 2
+        \end{bmatrix}$
+    \end{minipage}
+    \begin{minipage}{0.6\textwidth}
+        \begin{tabular}{l|llll}
+            $\circ$ & $\epsilon$ & $a$  & $b$  & $c$  \\\hline
+            $\epsilon$     & $\epsilon$ & $a$  & $b$  & $c$  \\
+            $a$      & $a$  & $\epsilon$ & $c$  & $b$  \\
+            $b$      & $b$  & $c$  & $\epsilon$ & $a$  \\
+            $c$      & $c$  & $b$  & $a$  & $\epsilon$
+        \end{tabular}
+    \end{minipage}
+
+    \item \textbf{TODO}
+    
+    \item \textbf{TODO}
+\end{enumerate}
+
+\subsection{Set G}
+\begin{enumerate}
+    \item \textbf{TODO}
+    \item \textbf{TODO}
+    \item \textbf{TODO}
+    \item \textbf{TODO}
 \end{enumerate}
 
 \end{document}

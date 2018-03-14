@@ -22,6 +22,7 @@
 
 \let\emptyset\varnothing
 \DeclareMathOperator{\dec}{dec}
+\algdef{SE}[DOWHILE]{Do}{doWhile}{\algorithmicdo}[1]{\algorithmicwhile\ #1}%
 
 \newcommand{\angled}[1]{\langle#1\rangle}
 
@@ -1539,6 +1540,37 @@ In the following items, $*$ means ``any symbol'', and $!x$ means ``any symbol ex
     \item \textbf{TODO}
     \item \textbf{TODO}
     \item \textbf{TODO}
+\end{enumerate}
+
+\subsection{Set H}
+\begin{enumerate}
+    \item Let $f, g \in G$; then $f(g(a)) = a$, which means that $f \circ g \in G$. And $f(a) = a \Rightarrow f^{-1}(a) = a$, so $f^{-1} \in G$. Therefore $G$ is a subgroup of $S_A$.
+
+    \item Let $f, g \in G$ so that $f$ and $g$ move $n$ and $m$ elements, respectively; then $f \circ g$ can move, at most, a finite number of elements (namely, $n + m$). And $f^{-1}$ maps the same number of elements as $f$. So $G$ is closed under composition and inverses and therefore is a subgroup of $S_A$.
+
+    \item Let $f, g \in G$; then $f(g(x)) \in B$ for any $x \in B$, so $f \circ g \in G$. And let's say $B$ has $n$ elements; then $f$ will map those elements of $B$ to $n$ different elements of $B$ (because $f$ is bijective). $f$ ``exhausts'' all elements of $B$, in the sense that there can be no element in $B$ that is not an image of $B$ under $f$. More formally, for any $x \in A$, $f(x) \in B \Rightarrow x \in B$. So $f^{-1} \in G$. Therefore $G$ is a subgroup of $S_A$.
+
+    \item Let us define a function $f: \mathbb{N} \to \mathbb{N}$ such that $f(n) = 2n$ if $n$ is even; if $n$ is odd, we ``cover the holes'' left by the even integers. So, the function looks like:
+        $$
+            f = \begin{bmatrix}
+                0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & \ldots\\
+                0 & 1 & 4 & 2 & 8 & 3 & 12 & 5 & 16 & \ldots
+            \end{bmatrix}
+        $$
+    $A = \mathbb{N}$ and $B = \{x \in \mathbb{N}: x = 2k, k \in \mathbb{N}\}$. It is clear that $f$ maps every even number to another even number. Due to the way it is constructed, $n_1 \ne n_2 \Rightarrow f(n_1) \ne f(n_2)$ (injective). The function definition also guarantees that any integer $m$ is the image of some integer $n$; $\mathbb{N}$ is infinite, so if we keep incrementing $x$, eventually it will map to $m$ (surjective). So $f$ is a permutation. But note, for example, that $f^{-1}(2) = 3$. So $f^{-1} \notin G$ and, therefore, $G$ is not a subgroup of $S_A$.
+\end{enumerate}
+
+\subsection{Set I}
+\begin{enumerate}
+    \item $\alpha(k_i) = k_i = \epsilon(k_i)$. From rule (viii) we can conclude that $\alpha = \epsilon$.
+
+    \item We can think of this group as a directed graph in which the edges are the clans and, for any pair $(k_i, k_j)$, there is a directed vertex $k_i \to k_j$ if, and only if, $\alpha(k_i) = k_j$. This graph must have a cycle since: 1) every edge has an outgoing vertex (it's always possible to apply $\alpha$ to any edge) and 2) the set of clans is finite, so any sufficiently long path will eventually revisit some edge. In fact, the length of any cycle is no greater than $n$ (otherwise, that path would have more than $n$ \emph{different} edges, which is impossible).
+
+    So, take any cycle and any clan $k$ in that cycle. Let $m \leqslant n$ be the length of this cycle. Algebraically, we have $\alpha^m(k) = k = \epsilon(k)$. By rule (viii), $\alpha^m = \epsilon$.
+
+    \item From rule (vii) we can conclude that the number of permutations cannot be less than $n$ (otherwise, for any given clan $k_i$ there would be another clan $k_j$ so that people in $k_i$ would not have any relation in $k_j$) and it cannot be greater than $n$ either (otherwise it would result in more than $n$ clans, which is impossible). So the number of permutations is exactly $n$.
+
+    \item 
 \end{enumerate}
 
 \end{document}

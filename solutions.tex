@@ -1562,15 +1562,26 @@ In the following items, $*$ means ``any symbol'', and $!x$ means ``any symbol ex
 
 \subsection{Set I}
 \begin{enumerate}
-    \item $\alpha(k_i) = k_i = \epsilon(k_i)$. From rule (viii) we can conclude that $\alpha = \epsilon$.
+    \item $\alpha(k_i) = k_i = \epsilon(k_i)$. From (viii) we can conclude that $\alpha = \epsilon$.
 
     \item We can think of this group as a directed graph in which the edges are the clans and, for any pair $(k_i, k_j)$, there is a directed vertex $k_i \to k_j$ if, and only if, $\alpha(k_i) = k_j$. This graph must have a cycle since: 1) every edge has an outgoing vertex (it's always possible to apply $\alpha$ to any edge) and 2) the set of clans is finite, so any sufficiently long path will eventually revisit some edge. In fact, the length of any cycle is no greater than $n$ (otherwise, that path would have more than $n$ \emph{different} edges, which is impossible).
 
-    So, take any cycle and any clan $k$ in that cycle. Let $m \leqslant n$ be the length of this cycle. Algebraically, we have $\alpha^m(k) = k = \epsilon(k)$. By rule (viii), $\alpha^m = \epsilon$.
+    So, take any cycle and any clan $k$ in that cycle. Let $m \leqslant n$ be the length of this cycle. Algebraically, we have $\alpha^m(k) = k = \epsilon(k)$. By (viii), $\alpha^m = \epsilon$.
 
-    \item From rule (vii) we can conclude that the number of permutations cannot be less than $n$ (otherwise, for any given clan $k_i$ there would be another clan $k_j$ so that people in $k_i$ would not have any relation in $k_j$) and it cannot be greater than $n$ either (otherwise it would result in more than $n$ clans, which is impossible). So the number of permutations is exactly $n$.
+    \item From (vii) we can conclude that the number of permutations cannot be less than $n$ (otherwise, for any given clan $k_i$ there would be another clan $k_j$ so that people in $k_i$ would not have any relation in $k_j$) and it cannot be greater than $n$ either
+     (otherwise it would result in more than $n$ clans, which is impossible). So the number of permutations is exactly $n$.
 
-    \item 
+    \item Let's say people in clan $k_i$ have children in clan $k_j$, that is, $c(k_i) = k_j$. So $c^{-1}(c(k_i)) = k_i = c^{-1} = (k_j)$. In other words, people in $k_j$ have fathers in $c^{-1}(k_j)$. Similarly for $w$.
+
+    \item If $c(k_i) = k_i$ then $c = \epsilon$ by (viii). If a woman is in clan $k_i$, then her husband lives in clan $w^{-1}(k_i)$ and their son lives in clan $c(w^{-1}(k_i)) = k_i = \epsilon(k_i)$. So $c \circ w^{-1} = \epsilon \Rightarrow c = w$.
+
+    \item $c \circ w^{-1} \circ w \circ c^{-1} = \epsilon$, which means that any man and his matrilateral parallel cousins are in the same clan. By (vi), such kind of marriage is prohibited.
+
+    \item \textbf{TODO}.
+
+    \item If a woman is in clan $k_i$ then the son of her mother's brother is in clan $c \circ w \circ c^{-1}(k_i)$. Her husband comes from that clan, so $w^{-1}(k_i) = c \circ w \circ c^{-1}(k_i)$. So $c \circ w \circ c^{-1} = w^{-1}$ and, therefore, $c \circ w = w^{-1} \circ c$.
+
+    \item If a woman is in clan $k_i$ then the son of her father's sister is in clan $c \circ w^{-1} \circ c^{-1}$. Her husband comes from that clan, so $c \circ w^{-1} \circ c^{-1} = w^{-1}$. Therefore $c \circ w^{-1} = w^{-1} \circ c$ .
 \end{enumerate}
 
 \end{document}

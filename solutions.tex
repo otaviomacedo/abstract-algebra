@@ -1709,9 +1709,17 @@ In the following items, $*$ means ``any symbol'', and $!x$ means ``any symbol ex
                 $\alpha^5 = (1,6,5,4,3,2)$    
         \end{enumerate}
 
-    \item Each $\alpha^n$ corresponds to a permutation in which each element maps to the one $n$ ``hops'' ahead in the cycle. More formally, $\alpha^n(a_i) = a_{i + n \mod s}$. As a result there are $s$ different powers of $\alpha$.
+    \item Each $\alpha^n$ corresponds to a permutation in which each element maps to the one $n$ ``hops'' ahead in the cycle. More formally, $\alpha^n(a_i) = a_{(i + n) \mod s}$. As a result there are $s$ different powers of $\alpha$.
 
-    \item 
+    \item $\alpha^{-1} = (a_sa_{s - 1}\cdots a_1)$. From the equation in the previous item, $\alpha^{s - 1}(a_i) = a_{(i + s - 1) \mod s}$. So $\alpha^{s - 1}(a_1) = a_s$, $\alpha^{s - 1}(a_2) = a_1$ and so on. So $\alpha^{s - 1} = (a_sa_{s - 1}\cdots a_1) = \alpha^{-1}$.
+
+    \item Let us suppose $s$ is odd. If we start with $a_1$ and keep applying $\alpha^2$ repeatedly, we get $a_3, a_5, \ldots, a_s$, that is, all the elements with odd index. From then on, if we continue applying $\alpha^2$, we get $a_2, a_4, \ldots, a_{s - 1}$, that is, all the elements with even index. With this procedure, we cover all the elements without repeating, thus forming a cycle. Now, if $s$ is even and we apply the same procedure, we only get odd numbers until we eventually return to $a_1$, forming a cycle that does not contain the whole domain (all the evens were left out). So, if $\alpha$ is a cycle, then $s$ is odd.
+
+    \item First, from the equation in item 2, $\alpha^{s + 1}(a_i) = a_{(i + s + 1) \mod s} = a_{(i + 1) \mod s} = \alpha(a_i)$ for any $a_i$ in the domain. So $\alpha = \alpha^{s + 1}$. If $s$ is odd, then $(s + 1)$ is divisible by 2. So, $(\alpha^{(s + 1)/2})^2 = \alpha^{s + 1} = \alpha$.
+    
+    \item The reasoning here is similar to that in item 4; if $s$ is even and we apply $\alpha^2$ repeatedly starting from $a_1$, we'll generate all elements with odd index and come back to $a_1$, thus forming the cycle $(a_1a_3\ldots a_{s-1})$. Then, if we do the same, but starting from $a_2$, we'll cover all the even indices, forming the cycle $(a_2a_4\ldots a_s)$. These two cycles of length $s/2$ are disjoint and cover the whole domain, so $\alpha^2 = (a_1a_3\ldots a_{s-1})(a_2a_4\ldots a_s)$.
+
+    \item This is a generalization of the previous item; if $s = kt$ and we apply $\alpha^k$ repeatedly starting from $a_1$, we'll generate a cycle $c_1$, composed of the sequence of elements $a_i$ with $i = kj + 1$, for $0 \leqslant j \leqslant t - 1$. Similarly, starting from $a_2$, we generate a cycle $c_2$, composed of the sequence of elements $a_i$ with $i = kj + 2$, for $0 \leqslant j \leqslant t - 1$ and so on until $a_k$. All these cycles of length $s/k$ are disjoint and cover the whole domain, so $a^k = c_1c_2\ldots c_{s/k}$.
 \end{enumerate}
 
 \end{document}

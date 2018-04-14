@@ -667,7 +667,7 @@ $\langle G, *\rangle$ is not commutative. For instance: $M_2 * M_4 \ne M_4 * M_2
 
 \subsection{Set D}
 \begin{enumerate}
-    \item Let $x, y \in H \cap K$; then $xy \in H$ because both $x$ and $y$ are in $H$. Analogouly, $xy \in K$. So $xy \in H \cap K$. And $x^{-1} \in H$ and $x^{-1} \in K$. So $x^{-1} \in H \cap K$.
+    \item Let $x, y \in H \cap K$; then $xy \in H$ because both $x$ and $y$ are in $H$. Analogously, $xy \in K$. So $xy \in H \cap K$. And $x^{-1} \in H$ and $x^{-1} \in K$. So $x^{-1} \in H \cap K$.
     
     \item Let $x, y \in H$. Since $H$ is a group, $xy \in H$ and the operation is the same as in $K$. Similarly, $x^{-1} \in H$.
     
@@ -1720,6 +1720,56 @@ In the following items, $*$ means ``any symbol'', and $!x$ means ``any symbol ex
     \item The reasoning here is similar to that in item 4; if $s$ is even and we apply $\alpha^2$ repeatedly starting from $a_1$, we'll generate all elements with odd index and come back to $a_1$, thus forming the cycle $(a_1a_3\ldots a_{s-1})$. Then, if we do the same, but starting from $a_2$, we'll cover all the even indices, forming the cycle $(a_2a_4\ldots a_s)$. These two cycles of length $s/2$ are disjoint and cover the whole domain, so $\alpha^2 = (a_1a_3\ldots a_{s-1})(a_2a_4\ldots a_s)$.
 
     \item This is a generalization of the previous item; if $s = kt$ and we apply $\alpha^k$ repeatedly starting from $a_1$, we'll generate a cycle $c_1$, composed of the sequence of elements $a_i$ with $i = kj + 1$, for $0 \leqslant j \leqslant t - 1$. Similarly, starting from $a_2$, we generate a cycle $c_2$, composed of the sequence of elements $a_i$ with $i = kj + 2$, for $0 \leqslant j \leqslant t - 1$ and so on until $a_k$. All these cycles of length $s/k$ are disjoint and cover the whole domain, so $a^k = c_1c_2\ldots c_{s/k}$.
+
+    \item Let's start with element $a_i$ and apply $\alpha^n$ repeatedly, generating the sequence $a_i, a_{(i + n)\mod s}, a_{(i + 2n)\mod s}$ and so on. In order for this sequence to form a cycle, for all $0 < j < s$, $jn \mod s$ must be non-zero. Since $\alpha^n = \alpha$, we know that $0 < n < s$. Now, let's assume that there are $j, n$ such that $jn \mod s = 0$, which means that $jn = sk$, for some integer $k$. $s$ cannot be one of the factors of $jn$ ($s$ is greater than both $j$ and $n$). So, if $jn$ can be factored at all, $jn = sk = f_1, f_2, \ldots, k, \ldots, f_m$. Dividing both sides by $k$, we can express $s$ as a product of intergers different from 1 and itself. In other words, $s$ is not prime. Therefore, if $s$ is prime, $\alpha^n$ is a cycle for any integer $n$.
 \end{enumerate}
+
+\subsection{Set C}
+\begin{enumerate}
+    \item Even: (a) and (d) only.
+
+    \item For all subitems, we can start from the same observation: the product of two permutations (each one itself written a product of transpositions) can be represented by the simple concatenation of the two. So the number of transpositions that make up the product is the sum of the number of transpositions in each of the original permutations. Then: 
+        \begin{enumerate}
+            \item Even plus even is even.
+            \item Odd plus odd is even.
+            \item Even plus odd is odd.
+        \end{enumerate}
+
+    \item Any cycle $(a_1, a_2, \ldots, a_l)$ can be represented as the composition of transpositions $(a_1,a_{l - 1})(a_1,a_{l - 2})\cdots(a_1,a_2)$. So, for a cycle of length $l$, the number of transpositions is $l - 1$. Therefore if $l$ is even, the composition is odd and vice-versa.
+
+    \item 
+    \begin{enumerate}
+        \item From the previous item, we know that the $\alpha$ can be represented as a product of transpositions with size $l - 1$ and $\beta$ as a product of transpositions with size $m - 1$. And $\alpha\beta$ can be represented as a concatenation of the the these two. Therefore the size of this product is $l + m - 2$.
+
+        \item This is a generalization of item (a).
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{Set D}
+\begin{enumerate}
+    \item This is a direct consequence of the fact that disjoint cycles commute.
+
+    \item Let's assume that at least one of $\alpha$ and $\beta$ is not the identity. In this case, $\alpha\beta(x) \ne x$ for all $x \in \{a_1, \ldots, a_s, b_1, \ldots, b_r\}$.
+
+    \item From item 1, $(\alpha\beta)^t = \alpha^t\beta^t$. Since $\alpha$ and $\beta$ are disjoint, so too are $\alpha^t$ and $\beta^t$. From item 2, $\alpha^t = \epsilon$ and $\beta^t = \epsilon$.
+
+    \item $\gamma = (a_sb_1)$, so that $\alpha\beta\gamma = (a_1, \ldots, a_s, b_2, \ldots, b_r, b_1)$.
+
+    \item $\gamma\alpha\beta = (b_2, \ldots, b_r, a_s, a_1, \ldots, a_{s - 1}, b_1)$\\$\alpha\gamma\beta = (a_1, \ldots, a_s, b_1, \ldots, b_r)$.   
+
+    \item \textbf{TODO}
+\end{enumerate}
+
+\subsection{Set E}
+\begin{enumerate}
+    \item $\pi\alpha\pi^{-1}(\pi(a_1)) = \pi\alpha(a_1) = \pi(a_2)$. Analogously for $a_2, \ldots, a_s$.
+
+    \item Let $\alpha = (a_1, \ldots, a_n)$ and $\beta = (b_1, \ldots, b_n)$. Now let's choose any permutation $\pi$ that satisfies the following condition: $\pi(a_i) = b_i$ for any element in the cycle $\alpha$. Then, we can rewrite $\beta = (\pi(a_1), \ldots, \pi(a_n))$. From the previous item, we know, then, that $\beta = \pi\alpha\pi^{-1}$ and is, therefore, a conjugate of $\alpha$. The same reasoning applies in the other direction.
+
+    \item Let $\alpha = (a_1, \ldots, a_s)$ and $\beta = (b_1, \ldots, b_r)$. Taking any $\pi \in S_n$, $\pi\alpha\pi^{-1} = (\pi(a_1), \ldots, \pi(a_s))$ and $\pi\beta\pi^{-1} = (\pi(b_1), \ldots, \pi(b_r))$. Now suppose $\pi(a_i) = \pi(b_j)$ for some $i, j$. Since $\pi$ is a permutation, $a_i = b_j$, which is false, because $\alpha$ and $\beta$ are disjoint. Therefore $\pi\alpha\pi^{-1}$ and $\pi\beta\pi^{-1}$ are also disjoint.
+
+    \item 
+\end{enumerate}
+
 
 \end{document}

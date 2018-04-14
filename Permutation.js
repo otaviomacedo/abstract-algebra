@@ -70,7 +70,6 @@ class Permutation {
             if (cycle.length > 1) {
                 result.push(cycle);
             }
-
         }
         return result;
     }
@@ -93,6 +92,28 @@ class Permutation {
             result = result.compose(this);
         }
         return result;
+    }
+
+    toTranspositions() {
+        //FIXME: This function doesn't compute the transpositions of the identity permutation
+        let nextMismatch = (temp, n1, n2) => {
+            if (n1 && temp.apply(n1) !== this.apply(n1)) return n1;
+            if (n2 && temp.apply(n2) !== this.apply(n2)) return n2;
+            return this._domain.find(x => temp.apply(x) !== this.apply(x))
+        }
+
+        let result = [];
+        let temp = Permutations.Identity(this.size);
+        let next = nextMismatch(temp);
+        while (next) {
+            let n1 = temp.apply(next);
+            let n2 = this.apply(next);
+            result.push([n1, n2]);
+            temp = temp.transpose(n1, n2);
+            next = nextMismatch(temp, n1, n2);
+        }
+
+        return result.reverse();
     }
 
     equals(other) {
@@ -186,28 +207,6 @@ class Composition extends Permutation {
 }
 
 class Permutations {
-    static toTranspositions(permutation) {
-        //FIXME: This function doesn't compute the transpositions of the identity permutation
-        let nextMismatch = function(temp, n1, n2){
-            if (n1 && temp.apply(n1) !== permutation.apply(n1)) return n1;
-            if (n2 && temp.apply(n2) !== permutation.apply(n2)) return n2;
-            return permutation._domain.find(x => temp.apply(x) !== permutation.apply(x))
-        }
-
-        let result = [];
-        let temp = Permutations.Identity(permutation.size);
-        let next = nextMismatch(temp);
-        while (next) {
-            let n1 = temp.apply(next);
-            let n2 = permutation.apply(next);
-            result.push([n1, n2]);
-            temp = temp.transpose(n1, n2);
-            next = nextMismatch(temp, n1, n2);
-        }
-
-        return result.reverse();
-    }
-
     static Identity(size) {
         //TODO can we cache this instance?
         return new Identity(size);
@@ -276,24 +275,31 @@ class Cycle extends Permutation {
     }
 }
 
+class RandomPermutation extends Permutation {
+    constructor(size) {
+        super(size);
+        this._delegate = this._generate();
+    }
+
+    _generate() {
+        let a = new Range(1, this.size).toArray();
+        let b = [];
+        while (a.length > 0) {
+            let pos = Math.floor((Math.random() * a.length - 1) + 0);
+            b.push(a.splice(pos, 1)[0]);
+        }
+        return new ArrayPermutation(b);
+    }
+
+    apply(x) {
+        return this._delegate.apply(x);
+    }
+}
+
 function print(variable, x) {
     console.log(`$${variable} = ${x.map(cycle => `(${cycle.join()})`).join('')}$\\\\`)
 }
 
-function powers(p) {
-    print("\\alpha^1", p.power(1).disjointCycles())
-    print("\\alpha^2", p.power(2).disjointCycles())
-    print("\\alpha^3", p.power(3).disjointCycles())
-    print("\\alpha^4", p.power(4).disjointCycles())
-    print("\\alpha^5", p.power(5).disjointCycles())
-    print("\\alpha^6", p.power(6).disjointCycles())
-    print("\\alpha^7", p.power(7).disjointCycles())
-    print("\\alpha^8", p.power(8).disjointCycles())
-    print("\\alpha^9", p.power(9).disjointCycles())
-    print("\\alpha^{10}", p.power(10).disjointCycles())
-    console.log("------------------------------------")
-}
+let a = Permutations.fromCycles(10, [[1, 2, 3, 4], [4, 5], [5, 6, 7, 8]])
 
-// powers(new Cycle(6, [1, 2, 3, 4, 5, 6]))
-
-new ArrayPermutation([1, 2, 5, 4, 0])
+console.log(a.disjointCycles().toString())

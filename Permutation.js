@@ -95,7 +95,6 @@ class Permutation {
     }
 
     toTranspositions() {
-        //FIXME: This function doesn't compute the transpositions of the identity permutation
         let nextMismatch = (temp, n1, n2) => {
             if (n1 && temp.apply(n1) !== this.apply(n1)) return n1;
             if (n2 && temp.apply(n2) !== this.apply(n2)) return n2;
@@ -114,6 +113,22 @@ class Permutation {
         }
 
         return result.reverse();
+    }
+
+    order() {
+        let result = Permutations.Identity(this.size);
+        let i = 1;
+        while (true) {
+            result = result.compose(this);
+            if (result.isIdentity()) {
+                return i;
+            }
+            i++;
+        }
+    }
+
+    isIdentity() {
+        return new Range(1, this.size).every(i => this.apply(i) === i);
     }
 
     equals(other) {
@@ -300,6 +315,7 @@ function print(variable, x) {
     console.log(`$${variable} = ${x.map(cycle => `(${cycle.join()})`).join('')}$\\\\`)
 }
 
-let a = Permutations.fromCycles(10, [[1, 2, 3, 4], [4, 5], [5, 6, 7, 8]])
+let a = Permutations.fromCycles(9, [[1, 2, 3, 4], [5, 6, 7, 8, 9]])
 
-console.log(a.disjointCycles().toString())
+
+console.log(a.order())

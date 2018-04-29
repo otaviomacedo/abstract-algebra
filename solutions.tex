@@ -1764,9 +1764,27 @@ In the following items, $*$ means ``any symbol'', and $!x$ means ``any symbol ex
 \begin{enumerate}
     \item $\pi\alpha\pi^{-1}(\pi(a_1)) = \pi\alpha(a_1) = \pi(a_2)$. Analogously for $a_2, \ldots, a_s$.
 
-    \item Let $\alpha = (a_1, \ldots, a_n)$ and $\beta = (b_1, \ldots, b_n)$. Now let's choose any permutation $\pi$ that satisfies the following condition: $\pi(a_i) = b_i$ for any element in the cycle $\alpha$. Then, we can rewrite $\beta = (\pi(a_1), \ldots, \pi(a_n))$. From the previous item, we know, then, that $\beta = \pi\alpha\pi^{-1}$ and is, therefore, a conjugate of $\alpha$. The same reasoning applies in the other direction.
+    \item Let $\alpha = (a_1, \ldots, a_n)$ and $\beta = (b_1, \ldots, b_n)$. Now let's choose any permutation $\pi$ such that $\pi(a_i) = b_i$ for any element in the cycle $\alpha$. Then, we can rewrite $\beta = (\pi(a_1), \ldots, \pi(a_n))$. From the previous item, we know, then, that $\beta = \pi\alpha\pi^{-1}$ and is, therefore, a conjugate of $\alpha$. The same reasoning applies in the other direction.
 
     \item Let $\alpha = (a_1, \ldots, a_s)$ and $\beta = (b_1, \ldots, b_r)$. Taking any $\pi \in S_n$, $\pi\alpha\pi^{-1} = (\pi(a_1), \ldots, \pi(a_s))$ and $\pi\beta\pi^{-1} = (\pi(b_1), \ldots, \pi(b_r))$. Now suppose $\pi(a_i) = \pi(b_j)$ for some $i, j$. Since $\pi$ is a permutation, $a_i = b_j$, which is false, because $\alpha$ and $\beta$ are disjoint. Therefore $\pi\alpha\pi^{-1}$ and $\pi\beta\pi^{-1}$ are also disjoint.
+
+    \item $\pi\sigma\pi^{-1} = \pi\alpha_1\alpha_2\cdots\alpha_t\pi^{-1} = \pi\alpha_1\pi^{-1}\pi\alpha_2\pi^{-1}\cdots\pi\alpha_t\pi^{-1}$. Each $\pi\alpha_i\pi^{-1}$ is a cycle of the same length of $\alpha_i$ and they are all disjoint (see previous item).
+
+    \item Since $\alpha_1$ and $\alpha_2$ have the same length, it follows (from item 2) that they are conjugate, i.e., there is some permutation $\lambda$ such that $\alpha_1 = \lambda\alpha_2\lambda^{-1}$. Similarly, there is a permutation $\gamma$ such that $\beta_1 = \gamma\beta_2\gamma^{-1}$. Also from item 2, we know that we can construct $\lambda$ in such a way as to map elements in the cycle $\alpha_1$ to elements of $\alpha_2$ (elements from $\beta_1$ are mapped to themselves). Similarly, $\gamma$ maps from elements in $\beta_1$ to elements in $\beta_2$. Since $\alpha_1$ and $\beta_1$ are disjoint, we know (from item 3) that $\alpha_1\beta_1 = \lambda\alpha_2\lambda^{-1}\gamma\beta_2\gamma^{-1}$. But since $\gamma$ and $\lambda$ don't ``modify'' the same elements, we can rewrite the equation as $\alpha_1\beta_1 = \gamma\lambda\alpha_2(\gamma\lambda)^{-1}\gamma\lambda\beta_2(\gamma\lambda)^{-1}$. Making $\pi = \gamma\lambda$, we get $\alpha_1\beta_1 = \pi\alpha_2\beta_2\pi^{-1}$.
+\end{enumerate}
+
+\subsection{Set F}
+\begin{enumerate}
+    \item From exercise 8.B.3, $\alpha^n(a_i) = a_{(i + n) \mod s}$ for any $a_i$ in the cycle. So $\alpha^s(a_i) = a_{(i + s) \mod s} = a_i$ and, therefore, $\alpha^s = \epsilon$. And $\alpha^{2s} = \alpha^s\alpha^s = \epsilon\epsilon = \epsilon$ and $\alpha^{3s} = \alpha^{2s}\alpha^s = \epsilon\epsilon = \epsilon$. $\alpha^k \ne \epsilon$ for all $k < s$, since it will always map an element in the cycle to a different element in the cycle.
+
+    \item This follows straighforwardly from item 1.
+
+    \item
+        \begin{enumerate}[label=(\alph*)]
+            \item 6
+            \item 4
+            \item 20
+        \end{enumerate}
 
     \item 
 \end{enumerate}

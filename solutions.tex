@@ -1786,7 +1786,35 @@ In the following items, $*$ means ``any symbol'', and $!x$ means ``any symbol ex
             \item 20
         \end{enumerate}
 
-    \item 
+    \item We need to find the smallest integer $n$ such that $(\alpha\beta)^n = \epsilon$. Since $\alpha$ and $\beta$ commute, $\alpha^n\beta^n = \epsilon$. And since they are disjoint, $\alpha^n = \epsilon$ and $\beta^n = \epsilon$. The order of $\alpha$ is 4, which means that $\alpha^{4p} = \epsilon$ for every integer $p \geqslant 1$. Similarly, the order of $\beta$ is 6, so $\beta^{6q} = \epsilon$ for every integer $q \geqslant 1$. So $n = 4p = 6q$. So the problem now has been reduced to find the least common multiple of 4 and 6, which is 12.
+
+    \item The least common multiple of $r$ and $s$ for the same reasons explained in the previous item.
+\end{enumerate}
+
+\subsection{Set G}
+\begin{enumerate}
+    \item By definition, given any two different permutations $\alpha_i$ and $\alpha_j$, there is some $x$ such that $\alpha_i(x) \ne \alpha_j(x)$. Since $\beta$ is a permutation, there is some $y$ such that $\beta(y) = x$. So $\alpha_i\beta(y) \ne \alpha_j\beta(y)$ and, therefore, $\alpha_1\beta, \ldots, \alpha_r\beta$ are $r$ distinct permutations. That they are odd was already proved in exercise C2.
+
+    \item The proof that they are distinct is the same as in the previous item. That they are even was already proved in exercise C2.
+
+    \item Let's say the number of even permutations in $S_n$ is $r$ and the number of odd permutations is $s$. If we pick any odd permutation and mulitiply by each of the even permutations, we will get $r$ different odd permutations. So $s \geqslant r$. Similarly, if we get any odd permutation and multiply by each of the odd ones (including itself), we get $s$ different even permutations. So $r \geqslant s$. From these two inequalities, we can conclude that $r = s$, that is, the number of odd permutations is equal to the number of even permutations.
+
+    \item From C2, we know that the composition of two even permutations is even; so $A_n$ is closed under composition. And if we reverse the order of the cycles that compose to form a permutation, we get its inverse (that is, $\alpha_1\alpha_2\ldots\alpha_n = (\alpha_n\alpha_{n-1}\ldots\alpha_1)^{-1}$, where $\alpha_i$ are cycles). So, clearly, the inverse of an even permutation is also even, that is $A_n$ is closed under inverses. Therefore $A_n$ is a subgroup of $S_n$.
+
+    \item There are only two possiblities: either $H$ contains only even permutations (of which $A_n$ is an example) or it contains at least one odd permutation. If the former is the case, there is nothing else to prove; if the latter is the case, then we can apply the same reasoning we did in exercise G3, just replacing $S_n$ with $H$.
+\end{enumerate}
+
+\subsection{Set H}
+\begin{enumerate}
+    \item Every permutation can be written as a product of disjoint cycles and every cycle can be written as a product of transpositions. So every permutation can be written as a product of transpositions. In other words, the set of all transpositions in $S_n$ generates $S_n$.
+
+    \item Any cycle $(a_1, a_2, \ldots a_n)$ can be written as the product $(1, a_1)(1, a_n)(1, a_{n-1})\ldots(1, a_1)$. Since any permutation can be written as a product of disjoint cycles, the set $\{(1, a_1), (1, a_2), \ldots (1, a_n)\}$ generates $S_n$.
+
+    \item Every permutation can be written as a product of transpositions of the form $(1, a_i)$ (see exercise H2). Given two elements $x, y$, $(1, x)(1, y) = (1, y, x)$. So we can get any even permutation, and apply this transformation to all consecutive transpositions in the product and the result will be a product of cycles of length 3. Therefore, the set of cycles of length 3 generates $A_n$.
+ 
+    \item \emph{The hint says it all} B-)
+
+    \item \emph{The hint says it all} B-)
 \end{enumerate}
 
 

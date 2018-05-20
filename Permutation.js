@@ -315,7 +315,11 @@ function print(variable, x) {
     console.log(`$${variable} = ${x.map(cycle => `(${cycle.join()})`).join('')}$\\\\`)
 }
 
-let a = Permutations.fromCycles(9, [[1, 2, 3, 4], [5, 6, 7, 8, 9]])
+let a = new RandomPermutation(9)
 
-
-console.log(a.order())
+console.log(a.toString())
+console.log('--------------------------------------------')
+console.log(a.disjointCycles())
+console.log('--------------------------------------------')
+console.log(a.toTranspositions())
+console.log('--------------------------------------------')

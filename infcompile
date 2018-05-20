@@ -1,0 +1,1 @@
+while true; do xelatex -interaction=nonstopmode -halt-on-error solutions.tex ; sleep 10; done

@@ -2054,4 +2054,102 @@ In the following items, $*$ means ``any symbol'', and $!x$ means ``any symbol ex
         So, $ \text{Aut}(G) $ is closed under composition. From exercise 9.A.2 we know that if $ f $ is an isomophism, then $ f^{-1} $ is also an isomophism. So $\text{Aut}(G)$ is also closed under inverses. Therefore, $\text{Aut}(G)$ is a subgroup of $ S_G $.
 \end{enumerate}
 
+\section{Chapter 10}
+\subsection{Set A}
+\begin{enumerate}
+    \item
+        \begin{enumerate}
+            \item $ a^ma^n = a^0a^n = ea^n  = a^n = a^{0 + n} = a^{m + n} $.
+            
+            \item $ m = -p $ for some $  p > 0 $. So,
+
+            $ a^m = a^{-p} = (a^{-1})^p $
+
+            $ a^n = (a^{-1})^{-n} $
+
+            Therefore, $ a^ma^n = (a^{-1})^p(a^{-1})^{-n} = (a^{-1})^{p - n} = a^{-p + n} = a^{m + n} $.
+
+            \item $ m = -k $, $ n = -l $, for some $ k, l > 0 $. So,
+
+            $ a^m = a^{-k} = (a^{-1})^k $
+
+            $ a^n = a^{-l} = (a^{-1})^l $
+
+            Therefore, $ a^ma^n = (a^{-1})^k(a^{-1})^l = (a^{-1})^{k + l} = a^{-(k + l)} = a^{m + n} $.
+        \end{enumerate}
+
+    \item
+        \begin{enumerate}
+            \item $ (a^m)^n = (a^0)^n = e^n = e = e^{0n} = e^{mn} $.
+
+            \item $ (a^m)^n = (a^m)^0 = e = e^{0n} = e^{mn} $.
+
+            \item $ m = -p $ for some $  p > 0 $. So,
+            
+            $ (a^{m})^n = (a^{-p})^n = ((a^{-1})^p)^n = \underbrace{\underbrace{a^{-1}\ldots a^{-1}}_{\text{$p$ times}}\ldots \underbrace{a^{-1}\ldots a^{-1}}_{\text{$p$ times}}}_{\text{$n$ times}} = (a^{-1})^{pn} = a^{-pn} = a^{mn} $.
+
+            \item $ n = -q $, for some $ q > 0 $.
+            
+            $ (a^m)^n = (a^m)^{-q} = ((a^m)^{-1})^q = ((a^{-1})^m)^q $. Doing the same transformations as above, we get that $ (a^m)^n = a^{mn} $.
+
+            \item $ m = -p $, $ n = -q $ for some $  p, q > 0 $. So,
+
+            $ (a^m)^n = (a^{-p})^{-q} = ((a^{-p})^{-1})^{q} = (a^{p})^{q} = a^{pq} = a^{mn} $.
+        \end{enumerate}
+
+    \item
+        \begin{enumerate}
+            \item $ (a^n)^{-1} = (a^0)^{-1} = e^{-1} = e = a^{0.-1} = a^{n.-1} = a^{-n}$.
+
+            \item $ (a^n)^{-1} = (a^{-q})^{-1} = a^q = a^{-n}$.
+        \end{enumerate}
+\end{enumerate}
+
+\subsection{Set B}
+\begin{enumerate}
+    \item $ \text{ord}(10) = 5 $, because $ 10.1 = 10 $, $ 10.2 = 20 $, $ 10.3 = 5 $, $ 10.4 = 15 $ and $ 10.5 = 0 $.
+
+    \item $ \text{ord}(6) = 8 $, becaue $ 6.1 = 6 $, $ 6.2 = 12 $, $ 6.3 = 2 $, $ 6.4 = 8 $, $ 6.5 = 14 $, $ 6.6 = 4 $, $ 6.7 = 10 $ and $ 6.8 = 0 $.
+
+    \item $ \text{ord}(f) = 4 $. Same process as above.
+
+    \item $ \text{ord}(1) = 1 $ in $ \mathbb{R}^* $. $ \text{ord}(1) = \infty $ in $ \mathbb{R} $.
+
+    \item $$ f^2(x) = \frac{\frac{x}{2-x}}{2 - \left(\frac{x}{2 - x}\right)} = \frac{\frac{x}{2-x}}{\frac{2(2 - x) - x}{2 - x}} = \frac{x}{2(2 - x) - x} $$
+
+    In general, the numerator will stay the same and the denominator can be described by the following recursive function:
+
+    $$
+        d^n(x) = 2d^{n - 1}(x) - x
+    $$
+    
+    The non-recursive version of this function is:
+
+    $$
+        d^n(x) = 2^n(1 - x) + x
+    $$
+
+    Let's prove this by induction. For the base case ($ n = 1 $), we have:
+
+    $$ 
+        d^1(x) = 2^1(1 - x) + x = 2 - 2x + x = 2 - x
+    $$
+
+    For the induction, assume that $ d^n(x) = 2^n(1 - x) + x $. Then:
+    
+    $$ d^{n + 1}(x) = 2(2^n(1 - x) + x) - x = 2^{n + 1} + 2x - x = 2^{n + 1}(1 - x) + x $$
+
+    Thus,
+
+    $$ f^n(x) = \frac{x}{d^n(x)} = \frac{x}{2^n(1 - x) + x} $$
+    
+    In order for $ f^n(x) = x $ for any $ x \in A $, $ d^n(x) = 1 $ for any $ x \in A $. So,
+
+    $$ 
+        2^n(1 - x) + x = 1 \Rightarrow 2^n(1 - x) = 1 - x \Rightarrow 2^n = 1 \Rightarrow n = 0
+    $$
+
+    Since the only solution to the equation is $ n = 0 $, $ \text{ord}(f) = \infty$.
+\end{enumerate}
+
 \end{document} 

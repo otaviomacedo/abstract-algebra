@@ -2135,7 +2135,7 @@ In the following items, $*$ means ``any symbol'', and $!x$ means ``any symbol ex
         d^1(x) = 2^1(1 - x) + x = 2 - 2x + x = 2 - x
     $$
 
-    For the induction, assume that $ d^n(x) = 2^n(1 - x) + x $. Then:
+    For the induction step, assume that $ d^n(x) = 2^n(1 - x) + x $. Then:
     
     $$ d^{n + 1}(x) = 2(2^n(1 - x) + x) - x = 2^{n + 1} + 2x - x = 2^{n + 1}(1 - x) + x $$
 
@@ -2150,6 +2150,57 @@ In the following items, $*$ means ``any symbol'', and $!x$ means ``any symbol ex
     $$
 
     Since the only solution to the equation is $ n = 0 $, $ \text{ord}(f) = \infty$.
+
+    \item Yes, in every group (finite or infinite), $ \text{ord}(e) = 1 $. 
+
+    \item
+        \begin{enumerate}
+            \item 12
+
+            \item 8, 16
+
+            \item 6, 18
+
+            \item 4, 20
+        \end{enumerate}
+\end{enumerate}
+
+\subsection{Set C}
+\begin{enumerate}
+    \item $ \text{ord}(a) = 1 \Rightarrow a^1 = e \Rightarrow a = e $. Conversely, $ e^1 = e \Rightarrow \text{ord}(e) = 1 $.
+
+    \item $ a^{n - r} = a^na^{-r} = ea^{-r} = a^{-r} = (a^r)^{-1} $.
+
+    \item Let's say $ \text{ord}(a) = n $. Then, $ nm = k $, for some integer $ m $. Since $ k $ is odd, it can be written as $ k = 2p + 1 $ for some integer $ p $. Let's assume $ n $ is even, which means it can be written as $ n = 2q $ for some integer $ q $. Replacing all the variables:
+
+    $$ nm = k \Rightarrow 2qm = 2p + 1 $$
+    which is impossible. Therefore, $ \text{ord}(a) $ is odd.
+
+    \item Let's say $ \text{ord}(bab^{-1}) = n $. Then, $ \underbrace{bab^{-1}\ldots bab^{-1}}_\text{$n$ times} = ba^nb^{-1} = e $. Multiplying both sides on the left by $ b^{-1} $ and on the right by $ b $: $ a^n = e $. Now let's assume there is another integer $ m < n$ such that $ a^m = e $. Then $ ba^mb^{-1} = e $, contradicting our premise that $ \text{ord}(bab^{-1}) = n. $ So $ n $ is the smallest power of $ a $ to yield $ e $ and, therefore, $ \text{ord}(a) = n = \text{ord}(bab^{-1}) $.
+
+    \item Let's say $ \text{ord}(a) = n $. Then $ a^n = e \Rightarrow a^na^{-n} = a^{-n} \Rightarrow (a^{-1})^n = e$. Also, $ n $ is the smallest positive power of $ a $ that yields $ e $ for an analogous reason given in the previous exercise.
+
+    \item This is a generalization of the previous two exercises. The proof follows the same pattern.
+\end{enumerate}
+
+\subsection{Set D}
+\begin{enumerate}
+    \item Let's say $ \text{ord}(a) = n $. Then, $ p = nk $ for some integer $ k $ (by theorem 5 of the chapter). Since $ a \ne e $, $ n \ne  1$. Because $ p $ is prime, $  k = 1 $ and, therefore $ p = n $.
+
+    \item Let's say $ \text{ord}(a) = n $ and $ \text{ord}(a^k) = m $. So $ a^{km} = e $. From theorem 5, we know that $ km $ is a multiple of $ n $, that is: 
+    $$ km = qn $$
+    
+    for some integer $ q $. We can satisfy this equation by making $ m = \frac{n}{\text{gcd}(k, n)} $ and $ q = \frac{k}{\text{gcd}(k, n)} $. Therefore, $ m.\text{gcd}(k, n) = n $. In other words, $ m $ is a divisor of $ n $.
+
+    \item $ km $ is the smallest positive exponent of $ a $ that yields $ e $. It may be possible to rewrite $ km $ as a different product of two integers, but if we fix $ k $, then the other number cannot be smaller than $ m $. Therefore, $ m $ is the smallest exponent of $ a^k $ that yields $ e $, that is, $ \text{ord}(a^k) = m $.
+
+    \item Let's first consider the case in which $ a \ne e $. By the definition of odd number, $ n = 2k + 1 $ for some integer $ k $. So, 
+    $$ e = a^{2k + 1} = a^{2k}a \Rightarrow (a^2)^k = a^{-1} \Rightarrow \text{ord}(a^2) \ne k $$
+
+    By theorem 5, the next exponent that yields $e$ is $ 2n $. So, $ (a^{2})^n = e \Rightarrow \text{ord}(a^2) = n $.
+
+    In the case in which $ a = e $, $ \text{ord}(a^2) = \text{ord}(a) = 1 $.
+
 \end{enumerate}
 
 \end{document} 

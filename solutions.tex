@@ -21,6 +21,8 @@
 
 \let\emptyset\varnothing
 \DeclareMathOperator{\dec}{dec}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\lcm}{lcm}
 \algdef{SE}[DOWHILE]{Do}{doWhile}{\algorithmicdo}[1]{\algorithmicwhile\ #1}%
 
 \newcommand{\angled}[1]{\langle#1\rangle}
@@ -432,7 +434,12 @@ $\langle G, *\rangle$ is not commutative. For instance: $M_2 * M_4 \ne M_4 * M_2
     \item $a(ab) = a(ba) = (ab)a$.
     \item $a^2b^2 = aabb = abab = baba = bbaa = b^2a^2$.
     \item $(xax^{-1})(xbx^{-1}) = xabx^{-1} = xbax^{-1} = (xbx^{-1})(xax^{-1})$.
-    \item $aba^{-1} = baa^{-1} = b \Rightarrow aba^{-1}a = ba \Rightarrow ab = ba$.
+    \item 
+        \begin{enumerate}
+            \item $ aba^{-1} = b \Rightarrow aba^{-1}a = ba \Rightarrow ab = ba $
+
+            \item $ ab = ba \Rightarrow aba^{-1} = baa^{-1} \Rightarrow aba^{-1} = b $
+        \end{enumerate}
     \item $e = ab(ab)^{-1} = ab(ba)^{-1} = aba^{-1}b^{-1}$.
 \end{enumerate}
 
@@ -2185,12 +2192,9 @@ In the following items, $*$ means ``any symbol'', and $!x$ means ``any symbol ex
 
 \subsection{Set D}
 \begin{enumerate}
-    \item Let's say $ \text{ord}(a) = n $. Then, $ p = nk $ for some integer $ k $ (by theorem 5 of the chapter). Since $ a \ne e $, $ n \ne  1$. Because $ p $ is prime, $  k = 1 $ and, therefore $ p = n $.
+    \item Let $ \text{ord}(a) = n $. Then $ p = nk $ for some integer $ k $ (by theorem 5 of the chapter). Since $ a \ne e $, $ n \ne  1$. Because $ p $ is prime, $  k = 1 $ and, therefore $ p = n $.
 
-    \item Let's say $ \text{ord}(a) = n $ and $ \text{ord}(a^k) = m $. So $ a^{km} = e $. From theorem 5, we know that $ km $ is a multiple of $ n $, that is: 
-    $$ km = qn $$
-    
-    for some integer $ q $. We can satisfy this equation by making $ m = \frac{n}{\text{gcd}(k, n)} $ and $ q = \frac{k}{\text{gcd}(k, n)} $. Therefore, $ m.\text{gcd}(k, n) = n $. In other words, $ m $ is a divisor of $ n $.
+    \item Let $ \text{ord}(a) = n $. Then $ (a^k)^n = (a^n)^k = e^k = e $. By theorem 5, we know that $ n $ is a multiple of the order of $ a^k $.
 
     \item $ km $ is the smallest positive exponent of $ a $ that yields $ e $. It may be possible to rewrite $ km $ as a different product of two integers, but if we fix $ k $, then the other number cannot be smaller than $ m $. Therefore, $ m $ is the smallest exponent of $ a^k $ that yields $ e $, that is, $ \text{ord}(a^k) = m $.
 
@@ -2200,6 +2204,20 @@ In the following items, $*$ means ``any symbol'', and $!x$ means ``any symbol ex
     By theorem 5, the next exponent that yields $e$ is $ 2n $. So, $ (a^{2})^n = e \Rightarrow \text{ord}(a^2) = n $.
 
     In the case in which $ a = e $, $ \text{ord}(a^2) = \text{ord}(a) = 1 $.
+
+    \item $ a^n = a^{r - s} = e $. By theorem 5, $ n $ is a multiple of $ r - s $.
+
+    \item Let's start by denying the conclusion and assuming that $ a $ is not in the center of $ G $, that is, there is some integer $ x $ such that $ ax \ne xa $. Thus, $ a \ne xax^{-1} $. But we know that $ \text{ord}(a) = \text{ord}(xax^{-1}) = k $, which means that $ a $ is not the only element in $ G $ that has order $ k $ (i.e., there are at least two: $ a $ and $ xax^{-1} $).
+
+    \item Again, let's deny the conclusion by assuming that $ \text{ord}(a^k) = mp $ for some integer $ p $. By part 2, we also know that $ \text{ord}(a^k)q = \text{ord}(a) $ for some integer $ q $. So, $ mpq = \text{ord}(a) $, contradicting the hypothesis.
+
+    \item $ a^{mk} = e $ and $ a^{rk} = e $. By theorem 5, $ mkp = rk $ for some integer $ p $. Dividing by $ k $ on both sides: $ mp = r $. 
 \end{enumerate}
 
-\end{document} 
+\subsection{Set E}
+\begin{enumerate}
+    \item By theorem 5, $ a^{np} = b^{mq} = e $ for any positive integers $ p, q $. As a consequence, $ a^{np}b^{mq} = e $. If we choose $ p $ and $ q $ such that $ np = mq = k $, then $ (ab)^k = e $ (because $ a $ and $ b $ commute). By definition, the smallest value of $ k $ is $ \text{lcm}(m, n) $. Therefore, $ \text{ord}(ab) = \text{lcm}(m, m) $.    
+\end{enumerate}
+
+
+\end{document}  

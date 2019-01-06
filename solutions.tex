@@ -2248,7 +2248,51 @@ In the following items, $*$ means ``any symbol'', and $!x$ means ``any symbol ex
     $$ \ord(a^{gcd(m, n)}b) = pn = \frac{m}{\gcd(m, n)}n = \lcm(m, n) $$
 
     Therefore, $ c = a^{gcd(m, n)}b $.
+
+    \item Consider the group of matrices in page 29 of the book. $ A $ and $ B $ do not commute, $ \ord(A) = 2 $, $ \ord(B) = 3 $ and $ \ord(AB) = \ord(C) = 2 \ne 6 = \lcm(2, 3) $.
 \end{enumerate}
 
+\subsection{Set F}
+\begin{enumerate}
+    \item By theorem 5, $ a $ to the power of every multiple of $ 12 $ is equal to $ e $. So what we are looking for is the smallest multiple of $ 8 $ that is equal to some multiple of $ n $. In other words, we are looking for the positive integer $ k $ such that $ 8k = \lcm(8, 12) = 24 $. Therefore $ k = 3 $.
+
+    \item $ \ord(a) = 12 = 4.3 $. By exercise D3, $ \ord(a^4) = 3 $. Since $ 3 $ is odd, by exercise D4, $ \ord((a^4)^2) = \ord(a^8) = 3 $.
+
+    \item Let $ \ord(a) = n $. Generalizing exercise F1, to find the order of $ a^k $ corresponds to finding the smallest $ j $ such that $ (a^k)^j = a^{kj} = e $. By theorem 5 we know that $ a^{in} = e$ for every positive integer $ i $. So we need to find $ j $ such that $ kj = \lcm(k, n) $. Then:
+
+    $$ \ord(a^k) = j = \frac{\lcm(k, n)}{k} = \frac{kn}{\gcd(k, n)k} = \frac{n}{\gcd(k, n)} = \frac{\ord(a)}{\gcd(k, \ord(a))} $$
+
+    Using this result, we can calculate $ \ord(a^9) = 4 $, $ \ord(a^{10}) = 6 $, $ \ord(a^5) = 12 $.
+
+    \item $5$, $7$ and $11$.
+
+    \item Already proved in exercise F3.
+
+    \item For all values of $ k $ that are relatively prime to $ \ord(a) $.
+\end{enumerate}
+
+\subsection{Set G}
+\begin{enumerate}
+    \item By exercise F3:
+
+    $$ \ord(a^m) = \frac{n}{\gcd(m, n)} = \frac{n}{1} = n$$
+
+    \item $$ n = \frac{n}{\gcd(m, n)} \Rightarrow \gcd(m, n) = 1$$
+
+    \item Because $ k $ is the order of $ a^m $.
+
+    \item By theorem 5, $ t = \frac{n}{\gcd(m, n)}p $ for some positive integer $ p $. Then:
+
+    $$ mt = \frac{m}{\gcd(m, n)}np $$ 
+
+    Since $ \frac{m}{\gcd(m, n)} $ is an integer, $ n $ is a factor of $ mt $.
+
+    \item Already proved in exercise F3.
+\end{enumerate}
+
+\subsection{Set H}
+\begin{enumerate}
+    \item 
+\end{enumerate}
 
 \end{document}  

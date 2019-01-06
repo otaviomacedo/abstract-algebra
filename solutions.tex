@@ -2218,14 +2218,36 @@ In the following items, $*$ means ``any symbol'', and $!x$ means ``any symbol ex
 \begin{enumerate}
     \item By theorem 5, $ a^{np} = b^{mq} = e $ for any positive integers $ p, q $. As a consequence, $ a^{np}b^{mq} = e $. If we choose $ p $ and $ q $ such that $ np = mq = k $, then $ (ab)^k = e $ (because $ a $ and $ b $ commute). By definition, the smallest value of $ k $ is $ \lcm(m, n) $. Therefore, $ \ord(ab) = \lcm(m, n) $.    
 
-    \item Let's assume that there exist positive integers $ k, l $ such that $ a^k = b^l \ne e $. So, $ \ord(a^k) = \ord(b^l) \ne 1 $. By exercise D2, we know that there exist positive integers $ p, q $ such that:
+    \item Let's assume that there exist positive integers $ k, l $ such that $ a^k = b^l \ne e $. Then $ \ord(a^k) = \ord(b^l) \ne 1 $. By exercise D2, we know that there exist positive integers $ p, q $ such that:
 
     $$ \ord(a^k)p = m $$
     $$ \ord(b^l)q = n $$
 
     So $ m $ and $ n $ have a common divisor, $ \ord(a^k) = \ord(b^l) $, different from $ \pm 1 $. In other words, they are not relatively prime.
 
-    \item 
+    \item Let's assume there are $ i, j, k, l $ such that $ i \ne k $, $ j \ne l $ and $ a^ib^j = a^kb^l $. Then $ a^{k - i} = b^{j -l} $. From the previous exercise we can conclude that $ m $ and $ n $ are not relatively prime.
+
+    \item For some positive integer $ k $:
+        \begin{align*}
+            \ord(ab)k &= \lcm(m, n) && \text{by part 1} \\
+            \ord(ab)k &= mn && \text{because $ m $ and $ n $ are relatively prime} \\
+            (ab)^{mn} &= e && \text{by theorem 5}
+        \end{align*}
+
+        Let's assume that there is a positive integer $ p $ such that $  p < m $ and $ (ab)^p = e$. Then
+
+        \begin{align*}
+            e = (ab)^p &= a^pb^p && \text{because $ a $ and $ b $ commute} \\
+            a^p &= b^{-p}
+        \end{align*}
+
+        which contradicts the conclusion of part 2. Therefore $ mn $ is the order of $ ab $.
+
+    \item $ \ord(a) = m = \gcd(m, n)p $ for some integer $ p $. So $ \ord(a^{\gcd(m, n)}) = p $. Since $ a^{\gcd(m, n)} $ and $ b $ commute and $ p $ is relatively prime to $ n $:
+
+    $$ \ord(a^{gcd(m, n)}b) = pn = \frac{m}{\gcd(m, n)}n = \lcm(m, n) $$
+
+    Therefore, $ c = a^{gcd(m, n)}b $.
 \end{enumerate}
 
 

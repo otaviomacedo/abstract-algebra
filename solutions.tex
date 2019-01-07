@@ -2292,7 +2292,16 @@ In the following items, $*$ means ``any symbol'', and $!x$ means ``any symbol ex
 
 \subsection{Set H}
 \begin{enumerate}
+    \item $ \ord(b^3) = \frac{\ord(b)}{\gcd(3, \ord(b)} = 12 \Rightarrow \ord(b) = 12.\gcd(3, \ord(b)) $. Because $ 3 $ is prime, $ \gcd(3, \ord(b)) $ is either $ 1 $ or $ 3 $. Let's assume it's $ 1 $; then $ \ord(b) = 12 $. But $ \gcd(3, 12) = 3 $, contradicting this hypothesis. So, $ \ord(b) = 36 $.
+
+    \item Following the same reasoning above, $ \ord(b) = 24 $.
+
+    \item Following the same reasoning above, $ \ord(b) = 60 $.
+
+    \item $ \ord(b^k) = \frac{\lcm(k, \ord(b))}{k} = n \Rightarrow \lcm(k, \ord(b)) = l\ord(b) = nk $ for some positive integer $ l $. Therefore the order of $ b $ is a factor of $ nk $.
+
     \item 
+
 \end{enumerate}
 
 \end{document}  

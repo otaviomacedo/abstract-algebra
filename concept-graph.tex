@@ -6,7 +6,7 @@
 %%%>
 \usepackage{pgf, tikz}
 \usetikzlibrary{arrows, automata}
-\usepackage{amssymb}
+\usepackage{amsmath}
 \usetikzlibrary{arrows.meta}
 \tikzset{%
   >={Latex[width=2mm,length=2mm]},
@@ -18,6 +18,11 @@
       definition/.style = {base, fill=green!30},
        theorem/.style = {base, fill=red!30, text width=3cm},
 }
+
+\DeclareRobustCommand\longtwoheadrightarrow
+     {\relbar\joinrel\twoheadrightarrow}
+
+
 \begin{document}    
 
 
@@ -27,7 +32,7 @@
 \begin{tikzpicture}[
   ->,
     node distance=1.5cm,
-    every node/.style={fill=white, font=\sffamily}, 
+    every node/.style={fill=white}, 
     align=left,
     auto]
 
@@ -53,8 +58,9 @@
   \node(coset)            [definition, below of=subgroup]   {\textbf{Coset}};
   \node(normal)            [definition, left of=coset, xshift=-6cm, text width=6cm]   {\textbf{Normal Subgroup}\newline A subgroup $N$ such that $gN = Ng$};
   \node(quotient)            [definition, below of=normal]   {\textbf{Quotient Group}};
-  \node(order)            [definition, right of=quotient, xshift=6cm, text width=6cm]   {\textbf{Order}\newline Number of elements of a group};
-  \node(cauchy)            [theorem, right of=order, xshift=6cm]   {\textbf{Cauchy's Theorem}};
+  \node(order)            [definition, right of=quotient, xshift=6cm, text width=6cm]   {\textbf{Order of a Group}\newline Number of elements of a group};
+  \node(orderel)            [definition, right of=coset, xshift=6cm, text width=6cm]   {\textbf{Order of an Element}\newline Order of $a$: smallest $n$ such that $a^n = e$};
+  \node(cauchy)            [theorem, right of=order, xshift=6cm, text width=6cm]   {\textbf{Cauchy's Theorem}\newline $p$ prime divisor of $|G| \implies G$ has at least one element of order $p$ };
   \node(pGroup)            [definition, below of=cauchy, text width=6cm]   {\textbf{$p$-Group}\newline A group $G$ such that $|G| = p^k$ where $p$ is prime};
   \node(pSylow)            [definition, below of=pGroup]   {\textbf{$p$-Sylow Group}};
   \node(sylow)            [theorem, below of=pSylow]   {\textbf{Sylow`s Theorem}};
@@ -69,7 +75,7 @@
 
   \node(fht)            [theorem, left of=sylow, text width=8cm, xshift=-6cm, yshift=1cm]   {\textbf{Fundamental Homomorphism Theorem}\newline
                                                                                     Given:
-                                                                                    $$f: G \twoheadrightarrow H$$
+                                                                                    $$f : G\underset{K}{\longrightarrow}{} H$$
                                                                                     Then:
                                                                                     $$G/K\cong H$$};
   
@@ -89,13 +95,11 @@
   \draw[->]             (subgroup) -- (normal);
   \draw[->]             (coset) -- (normal);
   \draw[->]             (normal) -- (quotient);
-  \draw[->]             (group) to[in=180, out=270, bend left] (order);
+  \draw[->]             (group) to (orderel);
   \draw[->]             (order) -- (cauchy);
   \draw[->]             (order) -- (pGroup);
-
   \draw[->]             (quotient) -- (lagrange);
   \draw[->]             (order) -- (lagrange);
-
   \draw[->]             (homomorphism) -- (isomorphism);
   \draw[->]             (homomorphism) -- (kernel);
   \draw[->]             (homomorphism) -- (fht);
@@ -106,6 +110,8 @@
   \draw[->]             (pGroup) -- (pSylow);
   \draw[->]             (pSylow) -- (sylow);
   \draw[->]             (group) -- (cyclic);
+  \draw[<->]             (order) -- (orderel);
+  \draw[->]             (orderel) -- (cauchy);
   
 \end{tikzpicture}
 \end{document}

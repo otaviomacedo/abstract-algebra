@@ -1,0 +1,278 @@
+\section{Chapter 7}
+
+\subsection{Set A}
+
+\begin{enumerate}
+    \item $f^{-1} = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 \\
+        2 & 6 & 3 & 5 & 4 & 1 \\
+    \end{bmatrix}$\quad
+    $g^{-1} = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 \\
+        3 & 1 & 2 & 6 & 5 & 4 \\
+    \end{bmatrix}$\quad
+    $h^{-1} = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 \\
+        2 & 6 & 1 & 4 & 5 & 3 \\
+    \end{bmatrix}$\\\\
+    $g \circ f = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 \\
+        4 & 2 & 1 & 5 & 6 & 3 \\
+    \end{bmatrix}$\quad
+    $f \circ g = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 \\
+        1 & 3 & 6 & 2 & 4 & 5 \\
+    \end{bmatrix}$
+
+    \item $f \circ (g \circ h) = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 \\
+        6 & 1 & 5 & 2 & 4 & 3 \\
+    \end{bmatrix}$
+
+    \item $g \circ h^{-1} = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 \\
+        3 & 4 & 2 & 6 & 5 & 1 \\
+    \end{bmatrix}$
+
+    \item $h \circ g^{-1} \circ f^{-1} = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 \\
+        3 & 4 & 1 & 5 & 2 & 6 \\
+    \end{bmatrix}$
+
+    \item $g \circ g \circ g = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 \\
+        1 & 2 & 3 & 6 & 5 & 4 \\
+    \end{bmatrix}$
+\end{enumerate}
+
+\subsection{Set B}
+
+\begin{enumerate}
+    \item $G$ is a group since the composition of functions is associative, there is an identity element, $\epsilon$, and each element is its own inverse. Operation table:
+    \begin{center}
+            \begin{tabular}{l|llll}
+            $\circ$       & $\epsilon$ & $f$        & $g$        & $h$           \\\hline
+            $\epsilon$    & $\epsilon$ & $f$        & $g$        & $h$           \\
+            $f$           & $f$        & $\epsilon$ & $h$        & $g$           \\
+            $g$           & $g$        & $h$        & $\epsilon$ & $f$           \\
+            $h$           & $h$        & $g$        & $f$        & $\epsilon$
+        \end{tabular}
+    \end{center}
+        
+    \item $f = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 \\
+        2 & 3 & 4 & 1 & 6 & 5 \\
+    \end{bmatrix}$\quad
+    $f^{2} = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 \\
+        3 & 4 & 1 & 2 & 5 & 6 \\
+    \end{bmatrix}$\quad
+    $f^{3} = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 \\
+        4 & 1 & 2 & 3 & 6 & 5 \\
+    \end{bmatrix}$\quad
+    $f^{4} = \epsilon = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 \\
+        1 & 2 & 3 & 4 & 5 & 6 \\
+    \end{bmatrix}$
+
+    \item \begin{minipage}{0.5\textwidth}
+        \centering
+        $e = \begin{bmatrix}
+            1 & 2 & 3 & 4 & 5 \\
+            1 & 2 & 3 & 4 & 5
+        \end{bmatrix}$\\
+        $f = \begin{bmatrix}
+            1 & 2 & 3 & 4 & 5 \\
+            4 & 3 & 2 & 1 & 5
+        \end{bmatrix}$\\
+        $g = \begin{bmatrix}
+            1 & 2 & 3 & 4 & 5 \\
+            2 & 1 & 4 & 3 & 5
+        \end{bmatrix}$\\
+        $h = \begin{bmatrix}
+            1 & 2 & 3 & 4 & 5 \\
+            3 & 4 & 1 & 2 & 5
+        \end{bmatrix}$
+    \end{minipage}
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \begin{tabular}{l|llll}
+            $\circ$ & $e$ & $f$ & $g$ & $h$ \\ \hline
+            $e$       & $e$ & $f$ & $g$ & $h$ \\
+            $f$       & $f$ & $e$ & $h$ & $g$ \\
+            $g$       & $g$ & $h$ & $e$ & $f$ \\
+            $h$       & $h$ & $g$ & $f$ & $e$
+        \end{tabular}            
+    \end{minipage}
+
+    \item \textbf{TODO}
+\end{enumerate}
+
+\subsection{Set C}
+\begin{enumerate}
+    \item $f(g(x)) = \frac{1}{(1 - (x - 1) / x)} = x$ and $g(f(x)) = \frac{x/(1 - x)}{1/(1 - x)} = x$. Therefore $A$ is closed under composition and inverses.
+
+    \item Every function is its own inverse and $gf = fg = h$, $fh = hf = g$ and $gh = hg = f$.  Therefore $A$ is closed under composition and inverses.
+
+    \item \textbf{TODO}
+
+    \item \textbf{TODO}
+\end{enumerate}
+
+\subsection{Set D}
+\begin{enumerate}
+    \item $f_n: \mathbb{R} \to \mathbb{R}$ is bijective and its inverse is defined as $f_n^{-1}(x) = x - n$.
+
+    \item $f_n(f_m(x)) = x + m + n = f_{n + m}(x)$. $f_{-n}(f_n(x)) = x + n - n = x$. Therefore $f_{-n} = f^{-1}_n$.
+
+    \item $G$ is closed under composition and inverses (see previous item).
+
+    \item $f_1$ is a generator of $G$.
+\end{enumerate}
+
+\subsection{Set E}
+\begin{enumerate}
+    \item $f_{a,b}: \mathbb{R} \to \mathbb{R}$ is bijective and its inverse is defined as $f_{a,b}^{-1}(x) = (x - b)/a$.
+
+    \item $f_{a,b}(f_{c,d}(x)) = f_{a,b}(cx + d) = a(cx + d) + b = acx + ad + b = f_{ac, ad + b}(x)$.
+
+    \item $f_{a,b}^{-1}(x) = (x - b)/a = (1/a)x - b/a = f_{1/a, -b/a}(x)$.
+
+    \item From the previous item we know that $G$ is closed under composition and inverses.
+\end{enumerate}
+
+\subsection{Set F}
+\begin{enumerate}
+    \item $R_0 = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6\\
+        1 & 2 & 3 & 4 & 5 & 6\\
+    \end{bmatrix}$\quad
+    $R_1 = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6\\
+        2 & 3 & 4 & 5 & 6 & 1\\
+    \end{bmatrix}$\quad
+    $R_2 = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6\\
+        3 & 4 & 5 & 6 & 1 & 2\\
+    \end{bmatrix}$\\
+    $R_3 = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6\\
+        4 & 5 & 6 & 1 & 2 & 3\\
+    \end{bmatrix}$\quad
+    $R_4 = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6\\
+        5 & 6 & 1 & 2 & 3 & 4\\
+    \end{bmatrix}$\quad
+    $R_5 = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6\\
+        6 & 1 & 2 & 3 & 4 & 5\\
+    \end{bmatrix}$\\
+    $R_6 = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6\\
+        5 & 4 & 3 & 2 & 1 & 6\\
+    \end{bmatrix}$\quad
+    $R_7 = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6\\
+        6 & 5 & 4 & 3 & 2 & 1\\
+    \end{bmatrix}$\quad
+    $R_8 = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6\\
+        1 & 6 & 5 & 4 & 3 & 2\\
+    \end{bmatrix}$\\
+    $R_9 = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6\\
+        2 & 1 & 6 & 5 & 4 & 3\\
+    \end{bmatrix}$\quad
+    $R_{10} = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6\\
+        3 & 2 & 1 & 6 & 5 & 4\\
+    \end{bmatrix}$\quad
+    $R_{11 }= \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6\\
+        4 & 3 & 2 & 1 & 6 & 5\\
+    \end{bmatrix}$\quad
+
+    \item \begin{minipage}{0.3\textwidth}
+        \centering
+        $\epsilon = \begin{bmatrix}
+            1 & 2 & 3 & 4\\
+            1 & 2 & 3 & 4
+        \end{bmatrix}$\\
+        $a = \begin{bmatrix}
+            1 & 2 & 3 & 4\\
+            4 & 3 & 2 & 1
+        \end{bmatrix}$\\
+        $b = \begin{bmatrix}
+            1 & 2 & 3 & 4\\
+            2 & 1 & 4 & 3
+        \end{bmatrix}$\\
+        $c = \begin{bmatrix}
+            1 & 2 & 3 & 4\\
+            3 & 4 & 1 & 2
+        \end{bmatrix}$
+    \end{minipage}
+    \begin{minipage}{0.6\textwidth}
+        \begin{tabular}{l|llll}
+            $\circ$ & $\epsilon$ & $a$  & $b$  & $c$  \\\hline
+            $\epsilon$     & $\epsilon$ & $a$  & $b$  & $c$  \\
+            $a$      & $a$  & $\epsilon$ & $c$  & $b$  \\
+            $b$      & $b$  & $c$  & $\epsilon$ & $a$  \\
+            $c$      & $c$  & $b$  & $a$  & $\epsilon$
+        \end{tabular}
+    \end{minipage}
+
+    \item \textbf{TODO}
+    
+    \item \textbf{TODO}
+\end{enumerate}
+
+\subsection{Set G}
+\begin{enumerate}
+    \item \textbf{TODO}
+    \item \textbf{TODO}
+    \item \textbf{TODO}
+    \item \textbf{TODO}
+\end{enumerate}
+
+\subsection{Set H}
+\begin{enumerate}
+    \item Let $f, g \in G$; then $f(g(a)) = a$, which means that $f \circ g \in G$. And $f(a) = a \Rightarrow f^{-1}(a) = a$, so $f^{-1} \in G$. Therefore $G$ is a subgroup of $S_A$.
+
+    \item Let $f, g \in G$ so that $f$ and $g$ move $n$ and $m$ elements, respectively; then $f \circ g$ can move, at most, a finite number of elements (namely, $n + m$). And $f^{-1}$ maps the same number of elements as $f$. So $G$ is closed under composition and inverses and therefore is a subgroup of $S_A$.
+
+    \item Let $f, g \in G$; then $f(g(x)) \in B$ for any $x \in B$, so $f \circ g \in G$. And let's say $B$ has $n$ elements; then $f$ will map those elements of $B$ to $n$ different elements of $B$ (because $f$ is bijective). $f$ ``exhausts'' all elements of $B$, in the sense that there can be no element in $B$ that is not an image of $B$ under $f$. More formally, for any $x \in A$, $f(x) \in B \Rightarrow x \in B$. So $f^{-1} \in G$. Therefore $G$ is a subgroup of $S_A$.
+
+    \item Let us define a function $f: \mathbb{N} \to \mathbb{N}$ such that $f(n) = 2n$ if $n$ is even; if $n$ is odd, we ``cover the holes'' left by the even integers. So, the function looks like:
+        $$
+            f = \begin{bmatrix}
+                0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & \ldots\\
+                0 & 1 & 4 & 2 & 8 & 3 & 12 & 5 & 16 & \ldots
+            \end{bmatrix}
+        $$
+    $A = \mathbb{N}$ and $B = \{x \in \mathbb{N}: x = 2k, k \in \mathbb{N}\}$. It is clear that $f$ maps every even number to another even number. Due to the way it is constructed, $n_1 \ne n_2 \Rightarrow f(n_1) \ne f(n_2)$ (injective). The function definition also guarantees that any integer $m$ is the image of some integer $n$; $\mathbb{N}$ is infinite, so if we keep incrementing $x$, eventually it will map to $m$ (surjective). So $f$ is a permutation. But note, for example, that $f^{-1}(2) = 3$. So $f^{-1} \notin G$ and, therefore, $G$ is not a subgroup of $S_A$.
+\end{enumerate}
+
+\subsection{Set I}
+\begin{enumerate}
+    \item $\alpha(k_i) = k_i = \epsilon(k_i)$. From (viii) we can conclude that $\alpha = \epsilon$.
+
+    \item We can think of this group as a directed graph in which the edges are the clans and, for any pair $(k_i, k_j)$, there is a directed vertex $k_i \to k_j$ if, and only if, $\alpha(k_i) = k_j$. This graph must have a cycle since: 1) every edge has an outgoing vertex (it's always possible to apply $\alpha$ to any edge) and 2) the set of clans is finite, so any sufficiently long path will eventually revisit some edge. In fact, the length of any cycle is no greater than $n$ (otherwise, that path would have more than $n$ \emph{different} edges, which is impossible).
+
+    So, take any cycle and any clan $k$ in that cycle. Let $m \leqslant n$ be the length of this cycle. Algebraically, we have $\alpha^m(k) = k = \epsilon(k)$. By (viii), $\alpha^m = \epsilon$.
+
+    \item From (vii) we can conclude that the number of permutations cannot be less than $n$ (otherwise, for any given clan $k_i$ there would be another clan $k_j$ so that people in $k_i$ would not have any relation in $k_j$) and it cannot be greater than $n$ either
+     (otherwise it would result in more than $n$ clans, which is impossible). So the number of permutations is exactly $n$.
+
+    \item Let's say people in clan $k_i$ have children in clan $k_j$, that is, $c(k_i) = k_j$. So $c^{-1}(c(k_i)) = k_i = c^{-1} = (k_j)$. In other words, people in $k_j$ have fathers in $c^{-1}(k_j)$. Similarly for $w$.
+
+    \item If $c(k_i) = k_i$ then $c = \epsilon$ by (viii). If a woman is in clan $k_i$, then her husband lives in clan $w^{-1}(k_i)$ and their son lives in clan $c(w^{-1}(k_i)) = k_i = \epsilon(k_i)$. So $c \circ w^{-1} = \epsilon \Rightarrow c = w$.
+
+    \item $c \circ w^{-1} \circ w \circ c^{-1} = \epsilon$, which means that any man and his matrilateral parallel cousins are in the same clan. By (vi), such kind of marriage is prohibited.
+
+    \item \textbf{TODO}.
+
+    \item If a woman is in clan $k_i$ then the son of her mother's brother is in clan $c \circ w \circ c^{-1}(k_i)$. Her husband comes from that clan, so $w^{-1}(k_i) = c \circ w \circ c^{-1}(k_i)$. So $c \circ w \circ c^{-1} = w^{-1}$ and, therefore, $c \circ w = w^{-1} \circ c$.
+
+    \item If a woman is in clan $k_i$ then the son of her father's sister is in clan $c \circ w^{-1} \circ c^{-1}$. Her husband comes from that clan, so $c \circ w^{-1} \circ c^{-1} = w^{-1}$. Therefore $c \circ w^{-1} = w^{-1} \circ c$ .
+\end{enumerate}

@@ -1,0 +1,243 @@
+\section{Chapter 10}
+\subsection{Set A}
+\begin{enumerate}
+    \item
+        \begin{enumerate}
+            \item $ a^ma^n = a^0a^n = ea^n  = a^n = a^{0 + n} = a^{m + n} $.
+            
+            \item $ m = -p $ for some $  p > 0 $. So,
+
+            $ a^m = a^{-p} = (a^{-1})^p $
+
+            $ a^n = (a^{-1})^{-n} $
+
+            Therefore, $ a^ma^n = (a^{-1})^p(a^{-1})^{-n} = (a^{-1})^{p - n} = a^{-p + n} = a^{m + n} $.
+
+            \item $ m = -k $, $ n = -l $, for some $ k, l > 0 $. So,
+
+            $ a^m = a^{-k} = (a^{-1})^k $
+
+            $ a^n = a^{-l} = (a^{-1})^l $
+
+            Therefore, $ a^ma^n = (a^{-1})^k(a^{-1})^l = (a^{-1})^{k + l} = a^{-(k + l)} = a^{m + n} $.
+        \end{enumerate}
+
+    \item
+        \begin{enumerate}
+            \item $ (a^m)^n = (a^0)^n = e^n = e = e^{0n} = e^{mn} $.
+
+            \item $ (a^m)^n = (a^m)^0 = e = e^{0n} = e^{mn} $.
+
+            \item $ m = -p $ for some $  p > 0 $. So,
+            
+            $ (a^{m})^n = (a^{-p})^n = ((a^{-1})^p)^n = \underbrace{\underbrace{a^{-1}\ldots a^{-1}}_{\text{$p$ times}}\ldots \underbrace{a^{-1}\ldots a^{-1}}_{\text{$p$ times}}}_{\text{$n$ times}} = (a^{-1})^{pn} = a^{-pn} = a^{mn} $.
+
+            \item $ n = -q $, for some $ q > 0 $.
+            
+            $ (a^m)^n = (a^m)^{-q} = ((a^m)^{-1})^q = ((a^{-1})^m)^q $. Doing the same transformations as above, we get that $ (a^m)^n = a^{mn} $.
+
+            \item $ m = -p $, $ n = -q $ for some $  p, q > 0 $. So,
+
+            $ (a^m)^n = (a^{-p})^{-q} = ((a^{-p})^{-1})^{q} = (a^{p})^{q} = a^{pq} = a^{mn} $.
+        \end{enumerate}
+
+    \item
+        \begin{enumerate}
+            \item $ (a^n)^{-1} = (a^0)^{-1} = e^{-1} = e = a^{0.-1} = a^{n.-1} = a^{-n}$.
+
+            \item $ (a^n)^{-1} = (a^{-q})^{-1} = a^q = a^{-n}$.
+        \end{enumerate}
+\end{enumerate}
+
+\subsection{Set B}
+\begin{enumerate}
+    \item $ \ord(10) = 5 $, because $ 10.1 = 10 $, $ 10.2 = 20 $, $ 10.3 = 5 $, $ 10.4 = 15 $ and $ 10.5 = 0 $.
+
+    \item $ \ord(6) = 8 $, becaue $ 6.1 = 6 $, $ 6.2 = 12 $, $ 6.3 = 2 $, $ 6.4 = 8 $, $ 6.5 = 14 $, $ 6.6 = 4 $, $ 6.7 = 10 $ and $ 6.8 = 0 $.
+
+    \item $ \ord(f) = 4 $. Same process as above.
+
+    \item $ \ord(1) = 1 $ in $ \mathbb{R}^* $. $ \ord(1) = \infty $ in $ \mathbb{R} $.
+
+    \item $$ f^2(x) = \frac{\frac{x}{2-x}}{2 - \left(\frac{x}{2 - x}\right)} = \frac{\frac{x}{2-x}}{\frac{2(2 - x) - x}{2 - x}} = \frac{x}{2(2 - x) - x} $$
+
+    In general, the numerator will stay the same and the denominator can be described by the following recursive function:
+
+    $$
+        d^n(x) = 2d^{n - 1}(x) - x
+    $$
+    
+    The non-recursive version of this function is:
+
+    $$
+        d^n(x) = 2^n(1 - x) + x
+    $$
+
+    Let's prove this by induction. For the base case ($ n = 1 $), we have:
+
+    $$ 
+        d^1(x) = 2^1(1 - x) + x = 2 - 2x + x = 2 - x
+    $$
+
+    For the induction step, assume that $ d^n(x) = 2^n(1 - x) + x $. Then:
+    
+    $$ d^{n + 1}(x) = 2(2^n(1 - x) + x) - x = 2^{n + 1} + 2x - x = 2^{n + 1}(1 - x) + x $$
+
+    Thus,
+
+    $$ f^n(x) = \frac{x}{d^n(x)} = \frac{x}{2^n(1 - x) + x} $$
+    
+    In order for $ f^n(x) = x $ for any $ x \in A $, $ d^n(x) = 1 $ for any $ x \in A $. So,
+
+    $$ 
+        2^n(1 - x) + x = 1 \Rightarrow 2^n(1 - x) = 1 - x \Rightarrow 2^n = 1 \Rightarrow n = 0
+    $$
+
+    Since the only solution to the equation is $ n = 0 $, $ \ord(f) = \infty$.
+
+    \item Yes, in every group (finite or infinite), $ \ord(e) = 1 $. 
+
+    \item
+        \begin{enumerate}
+            \item 12
+
+            \item 8, 16
+
+            \item 6, 18
+
+            \item 4, 20
+        \end{enumerate}
+\end{enumerate}
+
+\subsection{Set C}
+\begin{enumerate}
+    \item $ \ord(a) = 1 \Rightarrow a^1 = e \Rightarrow a = e $. Conversely, $ e^1 = e \Rightarrow \ord(e) = 1 $.
+
+    \item $ a^{n - r} = a^na^{-r} = ea^{-r} = a^{-r} = (a^r)^{-1} $.
+
+    \item Let's say $ \ord(a) = n $. Then, $ nm = k $, for some integer $ m $. Since $ k $ is odd, it can be written as $ k = 2p + 1 $ for some integer $ p $. Let's assume $ n $ is even, which means it can be written as $ n = 2q $ for some integer $ q $. Replacing all the variables:
+
+    $$ nm = k \Rightarrow 2qm = 2p + 1 $$
+    which is impossible. Therefore, $ \ord(a) $ is odd.
+
+    \item Let's say $ \ord(bab^{-1}) = n $. Then, $ \underbrace{bab^{-1}\ldots bab^{-1}}_\text{$n$ times} = ba^nb^{-1} = e $. Multiplying both sides on the left by $ b^{-1} $ and on the right by $ b $: $ a^n = e $. Now let's assume there is another integer $ m < n$ such that $ a^m = e $. Then $ ba^mb^{-1} = e $, contradicting our premise that $ \ord(bab^{-1}) = n. $ So $ n $ is the smallest exponent of $ a $ to yield $ e $ and, therefore, $ \ord(a) = n = \ord(bab^{-1}) $.
+
+    \item Let's say $ \ord(a) = n $. Then $ a^n = e \Rightarrow a^na^{-n} = a^{-n} \Rightarrow (a^{-1})^n = e$. Also, $ n $ is the smallest positive power of $ a $ that is equal to $ e $ for an analogous reason given in the previous exercise.
+
+    \item This is a generalization of the previous two exercises. The proof follows the same pattern.
+\end{enumerate}
+
+\subsection{Set D}
+\begin{enumerate}
+    \item Let $ \ord(a) = n $. Then $ p = nk $ for some integer $ k $ (by theorem 5 of the chapter). Since $ a \ne e $, $ n \ne  1$. Because $ p $ is prime, $  k = 1 $ and, therefore $ p = n $.
+
+    \item Let $ \ord(a) = n $. Then $ (a^k)^n = (a^n)^k = e^k = e $. By theorem 5, we know that $ n $ is a multiple of the order of $ a^k $.
+
+    \item $ km $ is the smallest positive exponent of $ a $ that yields $ e $. It may be possible to rewrite $ km $ as a different product of two integers, but if we fix $ k $, then the other number cannot be smaller than $ m $. Therefore, $ m $ is the smallest exponent of $ a^k $ that yields $ e $, that is, $ \ord(a^k) = m $.
+
+    \item Let's first consider the case in which $ a \ne e $. By the definition of odd number, $ n = 2k + 1 $ for some integer $ k $. So, 
+    $$ e = a^{2k + 1} = a^{2k}a \Rightarrow (a^2)^k = a^{-1} \Rightarrow \ord(a^2) \ne k $$
+
+    By theorem 5, the next exponent that yields $e$ is $ 2n $. So, $ (a^{2})^n = e \Rightarrow \ord(a^2) = n $.
+
+    In the case in which $ a = e $, $ \ord(a^2) = \ord(a) = 1 $.
+
+    \item $ a^n = a^{r - s} = e $. By theorem 5, $ n $ is a multiple of $ r - s $.
+
+    \item Let's start by denying the conclusion and assuming that $ a $ is not in the center of $ G $, that is, there is some integer $ x $ such that $ ax \ne xa $. Thus, $ a \ne xax^{-1} $. But we know that $ \ord(a) = \ord(xax^{-1}) = k $, which means that $ a $ is not the only element in $ G $ that has order $ k $ (i.e., there are at least two: $ a $ and $ xax^{-1} $).
+
+    \item Again, let's deny the conclusion by assuming that $ \ord(a^k) = mp $ for some integer $ p $. By part 2, we also know that $ \ord(a^k)q = \ord(a) $ for some integer $ q $. So, $ mpq = \ord(a) $, contradicting the hypothesis.
+
+    \item $ a^{mk} = e $ and $ a^{rk} = e $. By theorem 5, $ mkp = rk $ for some integer $ p $. Dividing by $ k $ on both sides: $ mp = r $. 
+\end{enumerate}
+
+\subsection{Set E}
+\begin{enumerate}
+    \item By theorem 5, $ a^{np} = b^{mq} = e $ for any positive integers $ p, q $. As a consequence, $ a^{np}b^{mq} = e $. If we choose $ p $ and $ q $ such that $ np = mq = k $, then $ (ab)^k = e $ (because $ a $ and $ b $ commute). By definition, the smallest value of $ k $ is $ \lcm(m, n) $. Therefore, $ \ord(ab) = \lcm(m, n) $.    
+
+    \item Let's assume that there exist positive integers $ k, l $ such that $ a^k = b^l \ne e $. Then $ \ord(a^k) = \ord(b^l) \ne 1 $. By exercise D2, we know that there exist positive integers $ p, q $ such that:
+
+    $$ \ord(a^k)p = m $$
+    $$ \ord(b^l)q = n $$
+
+    So $ m $ and $ n $ have a common divisor, $ \ord(a^k) = \ord(b^l) $, different from $ \pm 1 $. In other words, they are not relatively prime.
+
+    \item Let's assume there are $ i, j, k, l $ such that $ i \ne k $, $ j \ne l $ and $ a^ib^j = a^kb^l $. Then $ a^{k - i} = b^{j -l} $. From the previous exercise we can conclude that $ m $ and $ n $ are not relatively prime.
+
+    \item For some positive integer $ k $:
+        \begin{align*}
+            \ord(ab)k &= \lcm(m, n) && \text{by part 1} \\
+            \ord(ab)k &= mn && \text{because $ m $ and $ n $ are relatively prime} \\
+            (ab)^{mn} &= e && \text{by theorem 5}
+        \end{align*}
+
+        Let's assume that there is a positive integer $ p $ such that $  p < m $ and $ (ab)^p = e$. Then
+
+        \begin{align*}
+            e = (ab)^p &= a^pb^p && \text{because $ a $ and $ b $ commute} \\
+            a^p &= b^{-p}
+        \end{align*}
+
+        which contradicts the conclusion of part 2. Therefore $ mn $ is the order of $ ab $.
+
+    \item $ \ord(a) = m = \gcd(m, n)p $ for some integer $ p $. So $ \ord(a^{\gcd(m, n)}) = p $. Since $ a^{\gcd(m, n)} $ and $ b $ commute and $ p $ is relatively prime to $ n $:
+
+    $$ \ord(a^{gcd(m, n)}b) = pn = \frac{m}{\gcd(m, n)}n = \lcm(m, n) $$
+
+    Therefore, $ c = a^{gcd(m, n)}b $.
+
+    \item Consider the group of matrices in page 29 of the book. $ A $ and $ B $ do not commute, $ \ord(A) = 2 $, $ \ord(B) = 3 $ and $ \ord(AB) = \ord(C) = 2 \ne 6 = \lcm(2, 3) $.
+\end{enumerate}
+
+\subsection{Set F}
+\begin{enumerate}
+    \item By theorem 5, $ a $ to the power of every multiple of $ 12 $ is equal to $ e $. So what we are looking for is the smallest multiple of $ 8 $ that is equal to some multiple of $ n $. In other words, we are looking for the positive integer $ k $ such that $ 8k = \lcm(8, 12) = 24 $. Therefore $ k = 3 $.
+
+    \item $ \ord(a) = 12 = 4.3 $. By exercise D3, $ \ord(a^4) = 3 $. Since $ 3 $ is odd, by exercise D4, $ \ord((a^4)^2) = \ord(a^8) = 3 $.
+
+    \item Let $ \ord(a) = n $. Generalizing exercise F1, to find the order of $ a^k $ corresponds to finding the smallest $ j $ such that $ (a^k)^j = a^{kj} = e $. By theorem 5 we know that $ a^{in} = e$ for every positive integer $ i $. So we need to find $ j $ such that $ kj = \lcm(k, n) $. Then:
+
+    $$ \ord(a^k) = j = \frac{\lcm(k, n)}{k} = \frac{kn}{\gcd(k, n)k} = \frac{n}{\gcd(k, n)} = \frac{\ord(a)}{\gcd(k, \ord(a))} $$
+
+    Using this result, we can calculate $ \ord(a^9) = 4 $, $ \ord(a^{10}) = 6 $, $ \ord(a^5) = 12 $.
+
+    \item $5$, $7$ and $11$.
+
+    \item Already proved in exercise F3.
+
+    \item For all values of $ k $ that are relatively prime to $ \ord(a) $.
+\end{enumerate}
+
+\subsection{Set G}
+\begin{enumerate}
+    \item By exercise F3:
+
+    $$ \ord(a^m) = \frac{n}{\gcd(m, n)} = \frac{n}{1} = n$$
+
+    \item $$ n = \frac{n}{\gcd(m, n)} \Rightarrow \gcd(m, n) = 1$$
+
+    \item Because $ k $ is the order of $ a^m $.
+
+    \item By theorem 5, $ t = \frac{n}{\gcd(m, n)}p $ for some positive integer $ p $. Then:
+
+    $$ mt = \frac{m}{\gcd(m, n)}np $$ 
+
+    Since $ \frac{m}{\gcd(m, n)} $ is an integer, $ n $ is a factor of $ mt $.
+
+    \item Already proved in exercise F3.
+\end{enumerate}
+
+\subsection{Set H}
+\begin{enumerate}
+    \item $ \ord(b^3) = \frac{\ord(b)}{\gcd(3, \ord(b))} = 12 \Rightarrow \ord(b) = 12.\gcd(3, \ord(b)) $. Because $ 3 $ is prime, $ \gcd(3, \ord(b)) $ is either $ 1 $ or $ 3 $. Let's assume it's $ 1 $; then $ \ord(b) = 12 $. But $ \gcd(3, 12) = 3 $, contradicting this hypothesis. So, $ \ord(b) = 36 $.
+
+    \item Following the same reasoning above, $ \ord(b) = 24 $.
+
+    \item Following the same reasoning above, $ \ord(b) = 60 $.
+
+    \item $ \ord(b^k) = \frac{\lcm(k, \ord(b))}{k} = n \Rightarrow \lcm(k, \ord(b)) = l\ord(b) = nk $ for some positive integer $ l $. Therefore the order of $ b $ is a factor of $ nk $.
+
+    \item $ b^{n'k}  = e$. For the same reason, $ b^{nk} = e $. So $ b^{n'k} = b^{nk} \Rightarrow n = n' $, which is a contradiction.
+
+    \item $ \ord(b) = \frac{nk}{l} $, in which $ n $ and $ l $ are relatively prime. If $ l > 1 $, it is not a factor of $ n $ and therefore it's not a prime factor of $ k $. In this case, $ l $ does not divide either $ k $ or $ n $. But $ \ord(b) $ is an integer, so $ l = 1 $ and $ \ord(b) = nk $.
+\end{enumerate}

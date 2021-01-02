@@ -1,0 +1,271 @@
+\section{Chapter 3}
+
+\subsection{Set A}
+
+\begin{enumerate}
+    \item $x * y = x + y + k$. Same thing as the example in Set B of Chapter 2, but with a generic constant $k$ instead of the fixed constant 1.
+    \item $x * y = \frac{xy}{2}$, on the set $\{x \in \mathbb{R}, x \ne 0\}$.
+    \begin{description}
+        \item [Commutative] 
+            $$\frac{xy}{2} = \frac{yx}{2}$$
+        \item [Associative]
+        $$(x * y) * z = \frac{xy}{2} * z = \frac{\frac{xy}{2}z}{2} = \frac{xyz}{4}$$
+        $$x * (y * z) = \frac{x(y * z)}{2} = \frac{x\frac{yz}{2}}{2} = \frac{xyz}{4}$$
+        \item [Identity] $x * e = x \Rightarrow \frac{xe}{2} = x \Rightarrow e = 2$
+        \item [Inverse] $x * x' = 2 \Rightarrow \frac{xx'}{2} = 2 \Rightarrow xx' = 4 \Rightarrow x' = \frac{4}{x}$
+    \end{description}
+    \item $x * y = x + y + xy$, on the set $\{x \in \mathbb{R}, x \ne -1\}$
+    \begin{description}
+        \item [Commutative] $x + y + xy = y + x + yx$
+        \item [Associative]
+        $$(x * y) * z = (x + y + xy) * z = (x + y + xy) + x + (x + y + xy)z = x + y + z + xy + yz + xyz$$
+        $$x * (y * z) = x * (y + z + yz) = x + (y + z + yz) + x(y + z + yz) = x + y + z + xy + yz + xyz$$
+        \item [Identity] $x * e = x \Rightarrow x + e + xe = x \Rightarrow x + e + xe - x = 0 \Rightarrow x(1 + e - 1) + e = 0 \Rightarrow xe + e = 0 \Rightarrow e = 0$
+        \item [Inverse] $x * x' = 0 \Rightarrow x + x'+ xx' = 0 \Rightarrow x = -x'(1 + x) \Rightarrow x' = \frac{x}{1+x}$
+    \end{description}
+    \item $x * y = \frac{x + y}{xy + 1}$, on the set $\{x \in \mathbb{R}, -1 < x < 1\}$.
+    \begin{description}
+        \item [Commutative]
+            $$\frac{x + y}{xy + 1} = \frac{y + x}{yx + 1}$$
+        \item [Associative]
+            $$(x * y) * z = \frac{x + y}{xy + 1} * z = \frac{\left(\frac{x + y}{xy + 1}\right) + z}{\left(\frac{x + y}{xy + 1}\right)z + 1} = \frac{x + y + xyz + z}{xz + yz + xy + 1}$$
+            $$x * (y * z) = x * \frac{y + z}{yz + 1} = \frac{x + \left(\frac{y + z}{yz + 1}\right)}{x\left(\frac{y + z}{yz + 1}\right) + 1} = \frac{x + y + xyz + z}{xz + yz + xy + 1}$$
+        \item [Identity] $e * x = x * e = x \Rightarrow \frac{x + e}{xe + 1} = x \Rightarrow x + e = x(xe + 1) \Rightarrow e = 0$
+        \item [Inverse] $x' * x = x * x' = 0 \Rightarrow \frac{x + x'}{xx' + 1} = 0 \Rightarrow x + x' = 0 \Rightarrow x' = -x$
+    \end{description}
+\end{enumerate}
+
+\subsection{Set B}
+\begin{enumerate}
+    \item $(a, b) * (c , d) = (ad + bc, bd)$, on the set $\{(x, y) \in \mathbb{R} \times \mathbb{R}: y \ne 0\}$: abelian group.
+        \begin{description}
+            \item [Commutative: Yes] $(ad + bc, bd) = (cb + da, bd)$
+            \item [Associative: Yes]
+                $$[(a, b) * (c, d)] * (f, g) = (ad + bc, bd) * (f, g) = (adg + bcg + bdf, bdg)$$
+                $$(a, b) * [(c, d) * (f, g)] = (a, b) * (cg + df, dg) = (adg + bcg + bdf, bdg)$$
+            \item [Identity: Yes]
+                \begin{equation*}
+                    \begin{split}
+                        (e_1, e_2) * (a, b) = (a, b) * (e_1, e_2) = (a, b) & \Rightarrow (ae_2 + be_1, be_2) = (a, b) \\
+                                                                           & \Rightarrow  \begin{cases}
+                                                                                                be_2 = b \Rightarrow e_2 = 1 \\
+                                                                                                ae_2 + be_1 = a \Rightarrow be_1 = 0 \Rightarrow e_1 = 0
+                                                                                          \end{cases} \\
+                                                                           & \Rightarrow e = (0, 1)
+                    \end{split}
+                \end{equation*}
+            \item [Inverse: Yes]
+                \begin{equation*}
+                    \begin{split}
+                        (a', b') * (a, b) = (a, b) * (a', b') = (0, 1) & \Rightarrow (ab' + ba', bb') = (0, 1) \\
+                                                                       & \Rightarrow \begin{cases}
+                                                                                            bb' = 1 \Rightarrow b' = \frac{1}{b} \\
+                                                                                            ab' + ba' = 0 \Rightarrow \frac{a}{b} + ba' = 0 \Rightarrow a' = -\frac{a}{b^2}
+                                                                                     \end{cases} \\
+                                                                       & \Rightarrow (a, b)' = \left(-\frac{a}{b^2}, \frac{1}{b}\right)
+                    \end{split}
+                \end{equation*}
+        \end{description}
+    \item $(a, b) * (c, d) = (ac, bc + d)$, on the set $\{(x, y) \in \mathbb{R} \times \mathbb{R}: x \ne 0\}$: non-abelian group.
+        \begin{description}
+            \item [Commutative: No] $(ac, bc + d) \ne (ca, da + b)$
+            \item [Associative: Yes]
+                $$[(a, b) * (c, d)] * (f, g) = (ac, bc + d) * (f, g) = (acf, bcf + df + g)$$
+                $$[(a, b) * [(c, d) * (f, g)] = (a, b) * (cf, df + g) = (acf, bcf + df + g)$$
+            \item [Identity: Yes]
+                \begin{equation*}
+                    \begin{split}
+                        (a, b) * (e_1, e_2) = (a, b) & \Rightarrow (ae_1 + be_1, e_2) = (a, b) \\
+                                                    & \Rightarrow  \begin{cases}
+                                                                        ae_1 = a \Rightarrow e_1 = 1 \\
+                                                                        be_1 + e2 = b \Rightarrow b + e_2 = b \Rightarrow e_2 = 0
+                                                                   \end{cases} \\
+                                                    & \Rightarrow e = (1, 0)
+                    \end{split}
+                \end{equation*}
+                Not being commutative, we have to check the inverse order of the operands:
+                    $$(1, 0) * (a, b) = (1a + 0a, b) = (a, b)$$
+            \item [Inverse: Yes]
+                \begin{equation*}
+                    \begin{split}
+                        (a, b) * (a', b') = (1, 0) & \Rightarrow (aa' + ba', b') = (1, 0) \\
+                                                & \Rightarrow \begin{cases}
+                                                                    aa' = 1 \Rightarrow a' = \frac{1}{a} \\
+                                                                    ba' + b' = 0 \Rightarrow \frac{b}{a} + b' = 0 \Rightarrow b' = -\frac{b}{a}
+                                                                \end{cases}
+                    \end{split}
+                \end{equation*}
+                Not being commutative, we have to check the inverse order of the operands:
+                    $$\left(\frac{1}{a}, -\frac{b}{a}\right) * (a, b) = \left(\frac{1}{a}a, -\frac{b}{a}a + b\right) = (1, 0)$$
+        \end{description}
+    \item Same operation as in part 2, but on the set $\mathbb{R} \times \mathbb{R}$: not a group. There is no solution for the identity element.
+    \item $(a, b) * (c, d = (ac -bd, ad + bc)$, on the set $\mathbb{R} \times \mathbb{R}$, with the origin deleted: abelian group.
+        \begin{description}
+            \item [Commutative: Yes] $(ac - bd, ad + bc) = (ca - db, cb + da)$
+            \item [Associative: Yes]
+                $$[(a, b) * (c, d)] * (f, g) = (ac - bd, ad + bc) * (f, g) = (acf - bdf - adg - bcg, acg - bdg + adf + bcf)$$
+                $$(a, b) * [(c, d) * (f, g)] = (a, b) * (cf - dg, cg + df) = (acf - adg - bcg - bdf, acg + adf + bcf - bdg)$$
+            \item [Identity: Yes]
+                \begin{equation*}
+                    \begin{split}
+                        (e_1, e_2) * (a, b) = (a, b) * (e_1, e_2) = (a, b) & \Rightarrow (ae_1 - be_2, ae_2 + be_1) = (a, b) \\
+                                                                           & \Rightarrow  \begin{cases}
+                                                                                ae_1 - be_2 = a \Rightarrow e_1 = \frac{a + be_2}{a} \Rightarrow e_1 = 1 \\
+                                                                                be_2 + be_1 = b \Rightarrow ae_2 + b\left(\frac{a + be_2}{a}\right) = b \Rightarrow e_2 = 0
+                                                                             \end{cases} \\
+                                                                           & \Rightarrow e = (1, 0)
+                    \end{split}
+                \end{equation*}
+            \item [Inverses: Yes]
+            \begin{equation*}
+                \begin{split}
+                    (a', b') * (a, b) = (a, b) * (a', b') = (1, 0) & \Rightarrow (aa' - bb', ab' + ba') = (1, 0) \\
+                                                                   & \Rightarrow \begin{cases}
+                                                                                        ab' + ba' = 0 \Rightarrow b' = -\frac{ba'}{a} \Rightarrow b'= -\frac{ba}{a^3 + ab^2}\\
+                                                                                        aa' - bb' = 1 \Rightarrow aa' + \frac{b^2a'}{a} = 1 \Rightarrow a'= \frac{a}{a^2 + b^2}
+                                                                                 \end{cases}\\
+                                                                   & \Rightarrow (a, b)' = \left(\frac{a}{a^2 + b^2}, -\frac{ba}{a^3 + ab^2}\right)
+                \end{split}
+            \end{equation*}
+    \end{description}
+    \item Consider the operation of the preceding problem on the set $\mathbb{R} \times \mathbb{R}$. Is this a group? Explain.\\
+    This is not a group. The value for the identity is undefined.
+\end{enumerate}
+
+\subsection{Set C}
+\begin{enumerate}
+    \item $e = \emptyset$, since $\emptyset + A = A + \emptyset = (A - \emptyset) \cup (\emptyset - A) = A \cup A = A$.
+    \item $A' + A = A + A' = \emptyset \Rightarrow (A - A') \cup (A'- A) = \emptyset \cup \emptyset = \emptyset$.
+    \item $P_D = \{\emptyset, \{a\}, \{b\}, \{c\}, \{a, b\}, \{a, c\}, \{b, c\}, \{a, b, c\}\}$. See table \ref{tab:powerset-op}.
+    \begin{table}[!ht]
+        \centering
+        \begin{tabular}{c|cccccccc}
+        +             & $\emptyset$   & $\{a\}$       & $\{b\}$       & $\{c\}$       & $\{a, b\}$    & $\{a, c\}$    & $\{b, c\}$    & $D$ \\
+        \hline
+        $\emptyset$   & $\emptyset$   & $\{a\}$       & $\{b\}$       & $\{c\}$       & $\{a, b\}$    & $\{a, c\}$    & $\{b, c\}$    & $D$ \\
+        $\{a\}$       & $\{a\}$       & $\emptyset$   & $\{a, b\}$    & $\{a, c\}$    & $\{b\}$       & $\{c\}$       & $D$           & $\{b, c\}$    \\
+        $\{b\}$       & $\{b\}$       & $\{a, b\}$    & $\emptyset$   & $\{b, c\}$    & $\{a\}$       & $D$           & $\{c\}$       & $\{a, c\}$    \\
+        $\{c\}$       & $\{c\}$       & $\{a, c\}$    & $\{b, c\}$    & $\emptyset$   & $D$           & $\{a\}$       & $\{b\}$       & $\{a, b\}$    \\
+        $\{a, b\}$    & $\{a, b\}$    & $\{b\}$       & $\{a\}$       & $D$           & $\emptyset$   & $\{b, c\}$    & $\{a, c\}$    & $\{c\}$       \\
+        $\{a, c\}$    & $\{a, c\}$    & $\{c\}$       & $D$           & $\{a\}$       & $\{b, c\}$    & $\emptyset$   & $\{a, b\}$    & $\{b\}$       \\
+        $\{b, c\}$    & $\{b, c\}$    & $D$           & $\{c\}$       & $\{b\}$       & $\{a, c\}$    & $\{a, b\}$    & $\emptyset$   & $\{a\}$       \\
+        $D$           & $D$           & $\{b, c\}$    & $\{a, c\}$    & $\{a, b\}$    & $\{c\}$       & $\{b\}$       & $\{a\}$       & $\emptyset$  
+        \end{tabular}
+        \caption{Operation table for $\langle P_D, + \rangle$}
+        \label{tab:powerset-op}
+    \end{table}
+\end{enumerate}
+
+\subsection{Set D}
+See Table \ref{tab:checkerboard} for the checkerboard game operation table. $I$ is the identity since $X * I = I * X= X$ for any $X \in G$, and every element has an inverse (itself).
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c|cccc}
+    $*$ & $I$ & $V$ & $H$ & $D$ \\ \hline
+    $I$ & $I$ & $V$ & $H$ & $D$ \\
+    $V$ & $V$ & $I$ & $D$ & $H$ \\
+    $H$ & $H$ & $D$ & $I$ & $V$ \\
+    $D$ & $D$ & $H$ & $V$ & $I$
+    \end{tabular}
+    \caption{Operation table for $\langle G, *\rangle$}
+    \label{tab:checkerboard}
+\end{table}
+
+\subsection{Set E}
+See Table \ref{tab:coingame-op} for the coin game operation table. $I$ is the identity, since $X * I = I * X = X$, for every $X \in G$. 
+In every line there is an entry with $I$, which means that every element has an inverse.
+$\langle G, *\rangle$ is not commutative. For instance: $M_2 * M_4 \ne M_4 * M_2$.
+
+\begin{table}[!hb]
+    \centering
+    \begin{tabular}{c|cccccccc}
+    $*$ & $I$ & $M_1$ & $M_2$ & $M_3$ & $M_4$ & $M_5$ & $M_6$ & $M_7$ \\ \hline
+    $I$ & $I$ & $M_1$ & $M_2$ & $M_3$ & $M_4$ & $M_5$ & $M_6$ & $M_7$ \\
+    $M_1$ & $M_1$ & $I$ & $M_3$ & $M_2$ & $M_5$ & $M_4$ & $M_7$ & $M_6$ \\
+    $M_2$ & $M_2$ & $M_3$ & $I$ & $M_1$ & $M_6$ & $M_7$ & $M_4$ & $M_5$ \\
+    $M_3$ & $M_3$ & $M_2$ & $M_1$ & $I$ & $M_7$ & $M_6$ & $M_5$ & $M_4$ \\
+    $M_4$ & $M_4$ & $M_6$ & $M_5$ & $M_7$ & $I$ & $M_2$ & $M_1$ & $M_3$ \\
+    $M_5$ & $M_5$ & $M_7$ & $M_4$ & $M_6$ & $M_1$ & $M_3$ & $I$ & $M_2$ \\
+    $M_6$ & $M_6$ & $M_4$ & $M_7$ & $M_5$ & $M_2$ & $I$ & $M_3$ & $M_1$ \\
+    $M_7$ & $M_7$ & $M_5$ & $M_6$ & $M_4$ & $M_3$ & $M_1$ & $M_2$ & $I$
+    \end{tabular}
+    \caption{Operation table for $\langle G, *\rangle$}
+    \label{tab:coingame-op}
+\end{table}
+
+\subsection{Set F}
+\begin{enumerate}
+    \item \begin{equation*}
+            \begin{split}
+                (a_1, a_2, \ldots, a_n) + (b_1, b_2, \ldots, b_n) & = (a_1 + b_1, a_2 + b_2, \ldots, a_n + b_n) \\
+                                                                   & = (b_1 + a_1, b_2 + a_2, \ldots, b_n + a_n) \\
+                                                                  & = (b_1, b_2, \ldots, b_n) + (a_1, a_2, \ldots, a_n)
+            \end{split}
+        \end{equation*}
+    \item 
+        $$1 + (0 + 1) = 1 + 1 = 0 = 1 + 1 = (1 + 0) + 1$$
+        $$1 + (0 + 0) = 1 + 0 = 0 = 1 + 0 = (1 + 0) + 0$$
+        $$0 + (1 + 1) = 0 + 0 = 0 = 1 + 1 = (0 + 1) + 1$$
+        $$0 + (0 + 1) = 0 + 1 = 1 = 0 + 1 = (0 + 0) + 1$$
+        $$0 + (1 + 0) = 0 + 1 = 1 = 0 + 0 = (0 + 1) + 0$$
+        $$0 + (0 + 0) = 0 + 0 = 0 = 0 + 0 = (0 + 0) + 1$$
+    \item
+        \begin{equation*}
+            \begin{split}
+                (a_1, \ldots, a_n) + [(b_1, \ldots, b_n) + (c_1, \ldots, c_n)] & = (a_1, \ldots, a_n) + (b_1 + c_1, \ldots, b_n + c_n) \\
+                                                                               & = (a_1 + (b_1 + c_1), \ldots, a_n + (b_n + c_n)) \\
+                                                                               & = ((a_1 + b_1) + c_1, \ldots, (a_n + b_n) + c_n) \\
+                                                                               & = [(a_1, \ldots, a_n) + (b_1, \ldots, b_n)] + (c_1, \ldots, c_n)
+            \end{split}
+        \end{equation*}
+    \item The identity is $(0, \ldots, 0)$, since $(a_1, \ldots, a_n) + (0, \ldots, 0) = (a_1, \ldots, a_n) = (0, \ldots, 0) + (a_1, \ldots, a_n)$.
+    \item $(a_1, \ldots, a_n)$ is its own inverse, since $(a_1, \ldots, a_n) + (a_1, \ldots, a_n) = (a_1 + a_1, \ldots, a_n + a_n) = (0, \ldots, 0)$.
+    \item $b = -b \Rightarrow a + b = a + (-b) \Rightarrow a + b = a - b$.
+    \item $a + b = c \Rightarrow a + b - b = c - b \Rightarrow a = c - b$. Since $-b = b$, $a = b + c$.
+\end{enumerate}
+
+\subsection{Set G}
+\begin{enumerate}
+    \item See Table \ref{tab:parity-c1}.
+        \begin{table}[!hb]
+            \centering
+            \begin{tabular}{c|c|c}
+                                        & $a_4 = a_1 + a_3$ & $a_5 = a_1 + a_2 + a_3$ \\ \hline
+            $00000$ & $0 = 0 + 0$       & $0 = 0 + 0 + 0$         \\
+            $00111$ & $1 = 0 + 1$       & $1 = 0 + 0 + 1$         \\
+            $01001$ & $0 = 0 + 0$       & $1 = 0 + 1 + 0$         \\
+            $01110$ & $1 = 0 + 1$       & $0 = 0 + 1 + 1$         \\
+            $10011$ & $1 = 1 + 0$       & $1 = 1 + 0 + 0$         \\
+            $10100$ & $0 = 1 + 1$       & $0 = 1 + 0 + 1$         \\
+            $11010$ & $1 = 1 + 0$       & $0 = 1 + 1 + 0$         \\
+            $11101$ & $0 = 1 + 1$       & $1 = 1 + 1 + 1$        
+            \end{tabular}
+            \caption{Parity-check equations for $C_1$}
+            \label{tab:parity-c1}
+        \end{table}
+    \item $a_4 = a_2$, $a_5 = a_1 + a_2$, $a_6 = a_1 + a_2 + a_3$, $a_i \in \mathbb{B}$.
+        \begin{enumerate}
+            \item $C_2 = \{000000, 001001, 010111, 011110, 100011, 101010, 110100, 111101\}$.
+            \item Minimum distance: 2 (e.g., $000000$ and $001001$).
+            \item There are $2^6 = 64$ words in $\mathbb{B}^6$ and there are $8$ codewords in $C_2$.
+            To be detected, a codeword must be transformed in a non-codeword. So there are $64 - 8 = 36$ ways of doing that.
+        \end{enumerate}
+    \item $\{0000, 0101, 1011, 1110\}$, for equations $a_3 = a_1$ and $a_4 = a_1 + a_2$. Minimum distance: 2.
+    \item Let $\dec$ be the decode function. So,
+        $$\dec(11111) = 11101$$
+        $$\dec(00101) = 00111$$
+        $$\dec(11000) = 11010$$
+        $$\dec(10011) = 10011$$
+        $$\dec(10001) = 10011$$
+        $$\dec(10111) = 10011, 00111$$
+    \item If the minimum distance in a code is $m$, that means, by definition, that to transform one codeword into another, it is necessary to change at least $m$ bits.
+        Therefore, if less than $m$ bits are changed, the result is a non-codeword and, as such, can be detected.
+    \item Let us assume that there is a certain element $x \in \mathbb{B}: x \in S_t(a) \cap S_t(b)$.
+        Then the largest possible value of $d(a, b)$ is $2t = m - 1$.
+        But it takes at least $m$ errors to change one codeword into another. So, the premise is false and, therefore, $S_t(a) \cap S_t(b) \ne \emptyset$.
+    \item Let us say a codeword $w$ is transformed into a non-codeword $w'$ such that $d(w, w') \leqslant t$. Then $w' \in S_t(w)$.
+        Since $S_t(w) \cap S_t(x) = \emptyset$ for any other codeword $x$, $w'$ can be unambiguously decoded into $w$.
+    \item \emph{I am probably wrong, but here is my reasoning, anyway}: the minimum distance in $C_1$ is 2. 
+        If that is the case, ``two errors in any codeword can always be detected'' is false. 
+        For instance, errors in positions 3 and 6 of $000000$ result in $001001$, another codeword, thus undetectable.
+\end{enumerate}

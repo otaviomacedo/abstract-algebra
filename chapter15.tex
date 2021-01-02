@@ -1,0 +1,20 @@
+\section{Chapter 15}
+\subsection{Set G}
+\begin{enumerate}
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item Take any element $a \in G$. By Lagrange's Theorem, the order of $a$ is either $p$ or $p^2$. Let's consider each case separately:
+    \begin{enumerate}
+        \item (\emph{There is an element with order $p^2$}) Since $|\langle a\rangle| = p^2 = |G|$, $\langle a\rangle = G$. So every element $x \in G$ can be uniquely written as $x = a^i$. The map $G \to \mathbb{Z}_{p^2}$ given by $x \mapsto a^i$, for $0 \leqslant i < p$, is an isomorphism.
+        \item (\emph{There is no element with order $p^2$}) In this case all elements have order $p$. Consider the equivalence relation:
+        \begin{align*} 
+            e \sim e &\\ 
+            a \sim b &\ \text{iff $\angled{a} = \angled{b}$ and $a \ne e$ and $b \ne e$}
+        \end{align*}
+        Take any $g, h \in G$ such that $g \nsim h$. Because equivalence relations define partitions, $\angled{g} \cap \angled{h} = \{e\}$, which means that $g^i \ne h^j$ for any $0 < i, j < p$. Now, consider that $g^ih^j = g^kh^l$ for some $0 \leqslant i, j, k, l < p$. Then $g^{i - k} = h^{l - j}$. The only way to satisfy this equation is making $i - k = 0$ and $l - j = 0$. So $i = k$ and $l = j$. Equivalently, $i \ne k$ or $l \ne j \Rightarrow g^ih^j \ne g^kh^l$. Also, there are $p^2$ different pairs $(i, j)$ such that $0 \leqslant i, j < p$. From these two facts, we can conclude that there are $p^2$ different products $g^ih^j$  and, therefore,  any $x \in G$ can be uniquely written as $x = g^ih^j$ for some $0 \leqslant i, j < p$. So the map $G \to \mathbb{Z}_p \times \mathbb{Z}_p$, given by $g^ih^j \mapsto (i, j)$ is an isomorphism.
+
+    \end{enumerate}
+\end{enumerate}

@@ -1,0 +1,383 @@
+\section{Chapter 5}
+\subsection{Set A}
+\begin{enumerate}
+    \item $G = \langle \mathbb{R}, +, \rangle$, $H = \{\log a: a \in \mathbb{Q}, a > 0\}$. $H$ is a subgroup of $G$.
+        \begin{enumerate}[label=(\roman*)]
+            \item Suppose $\log a, \log b \in H$; then $\log a + \log b = \log(ab)$. Since $ab \in \mathbb{Q}$ and $ab > 0$, $\log(ab) \in H$. So $H$ is closed under addition.
+            \item Suppose $\log a \in H$; then $-\log a = \log a^{-1} = \log \frac{1}{a}$. Since $ \frac{1}{a} \in \mathbb{Q}$ and $\frac{1}{a} > 0$, $-\log a \in H$.
+        \end{enumerate}
+    \item $G = \langle\mathbb{R}, +\rangle$, $H = \{\log n: n \in \mathbb{Z}, n > 0\}$. $H$ is \emph{not} a subgroup of $G$.
+        \begin{enumerate}[label=(\roman*)]
+            \item Suppose $\log m, \log n \in H$; then $\log m + \log n = \log(mn)$. Since $mn \in \mathbb{Z}$ and $mn > 0$, $\log(mn) \in H$.
+            \item Suppose $\log n \in H$; then $-\log n = \log\frac{1}{n}$. But $\frac{1}{n} \notin \mathbb{Z}$. So $-\log n \notin H$.
+        \end{enumerate}
+    \item $G = \langle\mathbb{R}, +\rangle$, $H = \{x \in \mathbb{R}: \tan x \in \mathbb{Q}\}$. $H$ is a subgroup of $G$.
+        \begin{enumerate}[label=(\roman*)]
+            \item Suppose $x, y \in H$; then $\tan(x + y) = \frac{\tan x + \tan y}{1 - \tan x \tan y}$, which is rational. So $x + y \in H$.
+            \item Suppose $x \in H$; then $\tan(-x) = -\tan x \in \mathbb{Q}$. So $-x \in H$.
+        \end{enumerate}
+    \item $G = \langle \mathbb{R}, \cdot \rangle$, $H = \{2^n3^m: m, n \in \mathbb{Z}\}$. $H$ is a subgroup of $G$.
+        \begin{enumerate}[label=(\roman*)]
+            \item Suppose $2^{n}3^{m}, 2^{p}3^{q} \in H$; then $2^{n}3^{m}2^{p}3^{q} = 2^{n + p}3^{m + q}$. Since $n + p, m + q \in \mathbb{Z}$,
+                $H$ is closed under multiplication. 
+            \item Suppose $2^{n}3^{m} \in H$; then $(2^{n}3^{m})^{-1} = 2^{-n}3^{-m}$. Since $-n, -m \in \mathbb{Z}$, $H$ is closed under inverses.
+        \end{enumerate}
+    \item $G = \langle \mathbb{R} \times \mathbb{R}, + \rangle$, $H = \{(x, y): y = 2x\}$. $H$ is a subgroup of $G$.
+        \begin{enumerate}[label=(\roman*)]
+            \item Suppose $(x_1, 2x_1), (x_2, 2x_2) \in H$; then $(x_1, 2x_1) + (x_2, 2x_2) = (x_1 + x_2, 2(x_1 + x_2))$. So, 
+                $H$ is closed under addition. 
+            \item Suppose $(x, 2x) \in H$; then $-(x, 2x) = (-x, -2x) = (-x, 2(-x))$. So, $H$ is closed under inverses.
+        \end{enumerate}
+    \item $G = \langle \mathbb{R} \times \mathbb{R}, + \rangle$, $H = \{(x, y): x^2 + y^2 > 0\}$. $H$ is \emph{not} a subgroup of $G$.
+        \begin{enumerate}[label=(\roman*)]
+            \item Suppose $(x, y) \in H$; then $(-x, -y)$ is also in $H$. But $(x, y) + (-x, -y) = (0, 0) \notin H$, since $0^2 + 0^2 = 0$. So, $H$ is not closed under addition. 
+        \end{enumerate}
+    \item \textbf{TODO}.
+\end{enumerate}
+
+\subsection{Set B}
+\begin{enumerate}
+    \item $G = \langle \mathscr{F}(\mathbb{R}), + \rangle$, $H = \{f \in \mathscr{F}(\mathbb{R}): f(x) = 0, \text{for every $x \in [0, 1]$}\}$. $H$ is a subgroup of $G$.
+        \begin{enumerate}[label=(\roman*)]
+            \item Suppose $f, g \in H$; then, for every $x \in [0, 1]$, $[f + g](x) = f(x) + g(x) = 0 + 0 = 0$. So, $f + g \in H$.
+            \item Suppose $f \in H$; then, for every $x \in [0, 1]$, $[-f](x) = -f(x) = 0$. So, $-f \in H$.
+        \end{enumerate}
+        \item $G = \langle \mathscr{F}(\mathbb{R}), + \rangle$, $H = \{f \in \mathscr{F}(\mathbb{R}): f(-x) = -f(x)\}$. $H$ is a subgroup of $G$.
+            \begin{enumerate}[label=(\roman*)]
+                \item Suppose $f, g \in H$; then $[f + g](-x) = f(-x) + g(-x) = -f(x) - g(x) = -(f(x) + g(x) = -[f + g](x)$. So, $f + g \in H$.
+                \item Suppose $f \in H$; then $[-f](-x) = -f(-x) = -(-f(x)) = f(x)$. So, $-f \in H$.
+            \end{enumerate}    
+        \item $G = \langle \mathscr{F}(\mathbb{R}), + \rangle$, $H = \{f \in \mathscr{F}(\mathbb{R}): \text{$f$ is periodic of period $\pi$}\}$. $H$ is a subgroup of $G$.
+            \begin{enumerate}[label=(\roman*)]
+                \item Suppose $f, g \in H$; then $[f + g](x + n\pi) = f(x + n\pi) + g(x + n\pi) = f(x) + g(x) = [f + g](x)$. So, $f + g \in H$.
+                \item Suppose $f \in H$; then $[-f](-x) = -f(x + n\pi) = -f(x) = f(x)$. So, $-f \in H$.
+            \end{enumerate}    
+        \item $G = \langle \mathscr{C}(\mathbb{R}), +\rangle$, $H = \{f \in \mathscr{C}(\mathbb{R}): \int_0^1 f(x)dx = 0\}$.
+            \begin{enumerate}[label=(\roman*)]
+                \item Suppose $f, g \in H$; then $\int_0^1[f + g](x)dx = \int_0^1[f(x) + g(x)]dx = \int_0^1 f(x)dx + \int_0^1 g(x)dx = 0 + 0 = 0$.  So, $f + g \in H$.
+                \item Suppose $f \in H$; then $\int_0^1[-f](x)dx = -\int_0^1f(x)dx = 0$. So $-f \in H$.
+            \end{enumerate}
+        \item $G = \langle \mathscr{D}(\mathbb{R}), +\rangle$, $H = \{f \in \mathscr{D}(\mathbb{R}): df/dx \text{ is constant}\}$.
+            \begin{enumerate}[label=(\roman*)]
+                \item Suppose $f, g \in H$; then $d[f + g]/dx = df/dx + dg/dx = k$, where $k$ is a constant.  So, $f + g \in H$.
+                \item Suppose $f \in H$; then $d[-f]/dx = -df/dx$, which is also a consntant. So $-f \in H$.
+            \end{enumerate}
+        \item $G = \langle \mathscr{F}(\mathbb{R}), +\rangle$, $H = \{f \in \mathscr{F}(\mathbb{R}): f(x) \in \mathbb{Z} \text{ for every $x \in \mathbb{R}$}\}$.
+            \begin{enumerate}[label=(\roman*)]
+                \item Suppose $f, g \in H$; then $[f + g](x) = f(x) + g(x) \in \mathbb{Z}$.  So, $f + g \in H$.
+                \item Suppose $f \in H$; then $[-f](x) = -f(x) \in \mathbb{Z}$. So $-f \in H$.
+            \end{enumerate}
+\end{enumerate}
+
+\subsection{Set C}
+\begin{enumerate}
+    \item Let $x, y \in H$; then $xy = x^{-1}y^{-1} = (yx)^{-1} = (xy)^{-1}$. So $xy \in H$. And, by the definition of $H$, $x^{-1} \in H$.
+    \item Let $x, y \in H$; then $(xy)^n = x^ny^n = ee = e$. So $xy \in H$. And $(x^{-1})^{n} = (x^n)^{-1} = e^{-1} = e$. So, $x^{-1} \in H$.
+    \item Let $x_1, x_2 \in H$; then $x_1x_2 = y_1^2y_2^2 = (y_1y_2)^2$. So $x_1x_2 \in H$. And $x_1^{-1} = (y_1^2)^{-1} = (y_1^{-1})^{2}$. So, $x_1^{-1} \in H$.
+    \item Let $x, y \in K$; then $(xy)^2 = x^2y^2 \in H$. So $xy \in K$. And $(x^{-1})^2 = (x^2)^{-1} \in H$. So, $x^{-1} \in K$.
+    \item Let $x, y \in K$; then $x^m, y^n \in H$, for some integers $m, n$. By the definition of group, we can multiply any element of $H$ by itself and the result will be in $H$. That is, $x^{km}, y^{kn} \in H$, for any integer $k > 0$. In particular, $x^{nm}, y^{mn} \in H$ and, thus, $x^{nm}y^{mn} = (xy)^{nm} \in H$. So, $x \in K$. And $(x^m)^{-1} = (x^{-1})^m \in H$. So, $x^{-1} \in K$.
+    \item Let $z_1, z_2 \in HK$; then there are $x_1, x_2 \in H$ and $y_1, y_2 \in K$ such that $z_1z_2 = x_1y_1x_2y_2 = x_1x_2y_1y_2 \in HK$. And $z_1^{-1} = (x_1y_1)^{-1} = x^{-1}y^{-1} \in HK$.
+    \item The proofs in parts 4-6 depend on being able to reorder the elements in a multiplication. If $G$ is not abelian, this is not possible.
+\end{enumerate}
+
+\subsection{Set D}
+\begin{enumerate}
+    \item Let $x, y \in H \cap K$; then $xy \in H$ because both $x$ and $y$ are in $H$. Analogously, $xy \in K$. So $xy \in H \cap K$. And $x^{-1} \in H$ and $x^{-1} \in K$. So $x^{-1} \in H \cap K$.
+    
+    \item Let $x, y \in H$. Since $H$ is a group, $xy \in H$ and the operation is the same as in $K$. Similarly, $x^{-1} \in H$.
+    
+    \item Let $a, b \in C$; then $abx = axb = xab$, for any $x \in G$. So $ab \in C$. And $(a^{-1}x)^{-1} = x^{-1}a = ax^{-1} = (xa^{-1})^{-1}$. So, $a^{-1}x = xa^{-1}$ and, thus, $a^{-1} \in C$.
+    
+    \item Let $a, b \in C'$; then $(abx)^2 = abxabx = xabxab = (xab)^2$. So $ab \in C'$. And $((a^{-1}x)^2)^{-1} = (a^{-1}xa^{-1}x)^{-1} = x^{-1}ax^{-1}a = (x^{-1}a)^2 = ((a^{-1}x)^2)^{-1}$. So $a^{-1} \in C'$.
+    
+    \item Let us consider the elements $a_ia_1, a_ia_2, \ldots, a_ia_n$ for some $a_i \in S$ and let us assume that $e \notin S$; then $a_ia_j \ne a_i$ for any $a_j \in S$. This observation, along with the fact that $G$ is a finite group, allows us to conclude that $a_ia_1 \ne a_ia_2 \ne \ldots \ne a_ia_n \ne a_i$. $S$ being closed, this would imply that $S$ has $n + 1$ elements, which is a contradiction and, therefore, $e \in S$.
+
+    Now let us assume that there is some $a_i \in S$ such that $a_i^{-1} \notin S$; then $a_ia_j \ne e$ for any $a_j \in S$. Similar to the observation above, this would imply that $S$ has $n + 1$ elements (all $a_ia_j$ plus $e$). Therefore $S$ is closed under inverses.     
+    
+    \item Let $P$ be the set of all periods of $f$ and $a, b \in P$; then $f(abx) = f(bx) = f(x)$ for any $x \in G$.
+    And $f(x) = f(aa^{-1}x) = f(a^{-1}x)$ for any $x \in G$. So $P$ is closed under multiplication and inverses.
+    
+    \item
+        \begin{enumerate}[label=(\alph*)]
+            \item Let $x, y \in K$ and $a \in H$; then $xya(xy)^{-1} = xyay^{-1}x^{-1} \in H$. Conversely, assuming $xya(xy)^{-1} \in H$ implies that $yay^{-1} \in H$, which implies that $a \in H$. So $xy \in K$. And $a \in H \Rightarrow xx^{-1}axx^{-1} \in H \Rightarrow x^{-1}ax \in H$. Conversely, assuming that $x^{-1}ax \in H$ implies that $xx^{-1}ax^{-1} \in H \Rightarrow a \in H$. So $x^{-1} \in H$. Thus, $K$ is closed under multiplication and inverses.
+            
+            \item Let $a, b \in H$ and $x \in K$; then $xax^{-1} \in H$ and $xbx^{-1} \in H$. Since $H$ is a group (see previous item), $xax^{-1}xb^{-1} = xabx^{-1} \in H$. The proof in the other direction is basically the same. And, since $H$ is a group, $(xax^{-1})^{-1} = xa^{-1}x^{-1} \in H$ (similar proof in the other direction). So, $H$ is closed under multiplication and inverses.
+        \end{enumerate}
+    
+    \item \begin{enumerate}[label=(\alph*)]
+        \item Let $x_1, x_2 \in G$; then $(x_1, e)(x_2, e) = (x_1x_2, e) \in G \times H$. And $(x_1, e)^{-1} = (x_1^{-1}, e) \in G \times H$. So $G \times H$ is closed under multiplication and inverses.
+
+        \item Let $x_1, x_2 \in G$; then $(x_1, x_1)(x_2, x_2) = (x_1x_1, x_2x_2) \in G \times G$. And $(x_1, x_1)^{-1} = (x_1^{-1}, x_1^{-1}) \in G \times G$. So $G \times G$ is closed under multiplication and inverses.
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{Set E}
+\begin{enumerate}
+    \item 
+        $\angled{1} = \angled{3} = \angled{7} = \angled{9} = \{1, 2, 3, 4, 5, 6, 7, 8, 9, 0\}$ \\
+        $\angled{2} = \angled{4} = \angled{6} = \{2, 4, 6, 8, 0\}$ \\
+        $\angled{5} = \{5, 0\}$ \\
+        $\angled{8} = \{8, 2, 0\}$ \\
+        $\angled{0} = \{0\}$ \\
+
+    \item 
+        $0 = 5 + 5$\\
+        $1 = 5 + 2 + 2 + 2$\\
+        $2 = 2$\\
+        $3 = 5 + 2 + 2 + 2 + 2$\\
+        $4 = 2 + 2$\\
+        $5 = 5$\\
+        $6 = 2 + 2 + 2$\\
+        $7 = 5 + 2$\\
+        $8 = 2 + 2 + 2 + 2$\\
+        $9 = 5 + 2 + 2$\\
+
+    \item $\angled{6, 9}$ is the subset of $\mathbb{Z}$ whose elements are multiples of 3 modulo 12, that is, $\{6, 9, 3, 0\}$.
+
+    \item $\angled{10, 15}$ is the subset of the integers that are multiples of 5.
+
+    \item Let's start with the following equality: $1 = 7.3 + 5.(-4)$. For any integer $n$, if we multiply by $n$ on both sides, we get $n = 7(3n) + 5(-4n)$. In other words, any $n \in \mathbb{Z}$ can be written as a sum of a certain number of $7$'s plus a sum of another number of $5$'s. In the context of the additive group of the intergers, this means that $\mathbb{Z} = \angled{7, 5}$.
+
+    \item $\mathbb{Z}_2 \times \mathbb{Z}_3 = \angled{(1, 1)}$, since we can multiply $(1, 1)$ by the integers from $1$ to $5$, obtaining $(1, 1)$, $(0, 2)$, $(1, 0)$, $(0, 1)$, $(1, 2)$, $(0, 0)$, respectively, which exhausts the whole set. Similarly, $\mathbb{Z}_3 \times \mathbb{Z}_4$ can be obtained by multiplying $(1, 1)$ by the integers from $1$ to $12$.
+    arg
+    \item Let us assume that there is an element $(1, y)$ that is the generator of $\mathbb{Z}_2 \times \mathbb{Z}_4$ (the first integer of the tuple cannot possibly be 0, otherwise it would be impossible to generate non-zero integers at the first position). To generate different elements, we have to multiply that generator by different integers, so all elements would be of the form $(n\mod 2, yn \mod 4)$, with $n \in \mathbb{Z}$. In particular, to generate $(0, 1)$, the following system of equations must be satisfied:
+    \begin{equation*}
+        \begin{split}
+            n \mod 2 = 0 & \Rightarrow n = 2p, p \in \mathbb{Z}\\
+            yn \mod 4 = 1 & \Rightarrow ny = 4q + 1, q \in \mathbb{Z}              
+        \end{split}
+    \end{equation*}
+    which implies that $2py = 4q + 1$, which has no solution, contradicting our initial assumption. So, $\mathbb{Z}_2 \times \mathbb{Z}_4$ is not cyclic.
+
+    On the other hand, any element of $(x, y) \in \mathbb{Z}_2 \times \mathbb{Z}_4$ can be written as $(1n + 1m \mod 2, 1n + 2m \mod 4)$, as listed in Table \ref{tab:multiples-gen-z2z4}.
+
+    \begin{table}[!hb]
+        \centering
+        \begin{tabular}{cc|cc}
+        $n$ & $m$ & $x$ & $y$ \\ \hline
+        $0$   & $0$   & $0$   & $0$   \\
+        $3$   & $3$   & $0$   & $1$   \\
+        $2$   & $2$   & $0$   & $2$   \\
+        $1$   & $1$   & $0$   & $3$   \\
+        $2$   & $1$   & $1$   & $0$   \\
+        $1$   & $2$   & $1$   & $1$   \\
+        $4$   & $1$   & $1$   & $2$   \\
+        $7$   & $0$   & $1$   & $3$  
+        \end{tabular}
+        \caption{Multiples of the generators of $\mathbb{Z}_2 \times \mathbb{Z}_4$}
+        \label{tab:multiples-gen-z2z4}
+        \end{table}
+
+    \item If $ab = ba$ then $a^{-1}b^{-1} = b^{-1}a^{-1}$ and $ab^{-1} = b^{-1}a$ and $a^{-1}b = ba^{-1}$. Given any $x, y \in G$, $xy$ can be written as a sequence of elements from $\{a, a^{-1}, b, b^{-1}\}$. $yx$ can also be written as a sequence of the same elements, only possibly in a different order. But since all these elements commute, we can rearrange them (let's say $a^mb^n$, with $m, n \in \mathbb{Z}$) so that $xy = yx$.
+\end{enumerate}
+
+\subsection{Set F}
+\begin{enumerate}
+    \item See Table \ref{tab:op-generated}.
+        \begin{table}[H]
+            \centering
+            \begin{tabular}{l|llllll}
+                &$e$   &$a$   &$b$   &$b^2$ &$ab$  &$ab^2$\\ \hline
+            $e$    &$e$   &$a$   &$b$   &$b^2$ &$ab$  &$ab^2$\\
+            $a$    &$a$   &$e$   &$ab$  &$ab^2$&$b$   &$b^2$ \\
+            $b$    &$b$   &$ab^2$&$b^2$ &$e$   &$a$   &$ab$  \\
+            $b^2$  &$b^2$ &$ab$  &$e$   &$b$   &$ab^2$&$a$   \\
+            $ab$   &$ab$  &$b^2$ &$ab^2$&$a$   &$e$   &$b$   \\
+            $ab^2$ &$ab^2$&$b$   &$a$   &$ab$  &$b^2$ &$e$  
+            \end{tabular}
+            \caption{Operation table of $G$}
+            \label{tab:op-generated}
+        \end{table}
+
+    \item See Table \ref{tab:op-dihedral-d4}.
+        \begin{table}[!ht]
+            \centering
+            \begin{tabular}{c|cccccccc}
+                & $e$   & $a$   & $b$    & $b^2$ & $b^3$ & $ab$  & $ab^2$& $ab^3$\\ \hline
+            $e$   & $e$   & $a$   & $b$    & $b^2$ & $b^3$ & $ab$  & $ab^2$& $ab^3$\\
+            $a$   & $a$   & $e$   & $ab$   & $ab^2$& $ab^3$& $b$   & $b^2$ & $b^3$ \\
+            $b$   & $b$   & $ab^3$& $b^2$  & $b^3$ & $e$   & $a$   & $ab$  & $ab^2$\\
+            $b^2$ & $b^2$ & $ab^2$& $b^3$  & $e$   & $b$   & $ab^3$& $a$   & $ab$  \\
+            $b^3$ & $b^3$ & $ab$  & $e$    & $b$   & $b^2$ & $ab^2$& $ab^3$& $a$   \\
+            $ab$  & $ab$  & $b^3$ & $ab^2$ & $ab^3$& $a$   & $e$   & $b$   & $b^2$ \\
+            $ab^2$& $ab^2$& $b^2$ & $ab^3$ & $a$   & $ab$  & $b^3$ & $e$   & $b$   \\
+            $ab^3$& $ab^3$& $b$   & $a$    & $ab$  & $ab^2$& $b^2$ & $b^3$ & $e$  
+            \end{tabular}
+            \caption{Operation table of the dihedral group $D_4$}
+            \label{tab:op-dihedral-d4}
+        \end{table}
+    
+        \item See Table \ref{tab:op-quaternion}.
+            \begin{table}[]
+                \centering
+                \begin{tabular}{c|cccccccc}
+                    & $e$    & $a$                       & $b$    & $b^2$  & $b^3$  & $ab$   & $ab^2$ & $ab^3$ \\ \hline
+                $e$    & $e$    & $a$                       & $b$    & $b^2$  & $b^3$  & $ab$   & $ab^2$ & $ab^3$ \\
+                $a$    & $a$    & $b^2$                     & $ab$   & $ab^2$ & $ab^3$ & $b^3$  & $e$    & $b$    \\
+                $b$    & $b$    & $ab^3$                    & $b^2$  & $b^3$  & $e$    & $a$    & $ab$   & $ab^2$ \\
+                $b^2$  & $b^2$  & $ab^2$                    & $b^3$  & $e$    & $b$    & $ab^3$ & $a$    & $ab$   \\
+                $b^3$  & $b^3$  & $ab$                      & $e$    & $b$    & $b^2$  & $ab^2$ & $ab^3$ & $a$    \\
+                $ab$   & $ab$   & $b$                       & $ab^2$ & $ab^3$ & $a$    & $b^2$  & $b^3$  & $e$    \\
+                $ab^2$ & $ab^2$ & $e$                       & $ab^3$ & $a$    & $ab$   & $b$    & $b^2$  & $b^3$  \\
+                $ab^3$ & $ab^3$ & $b^3$                     & $a$    & $ab$   & $ab^2$ & $e$    & $b$    & $b^2$ 
+                \end{tabular}
+                \caption{Operation table for the quaternion group}
+                \label{tab:op-quaternion}
+            \end{table}
+        
+        \item See Table \ref{tab:op-table-commutative}.
+            \begin{table}[]
+                \centering
+                \begin{tabular}{c|cccccccc}
+                    & $e$   & $a$   & $b$   & $c$   & $ab$  & $bc$  & $ac$  & $abc$ \\ \hline
+                $e$   & $e$   & $a$   & $b$   & $c$   & $ab$  & $bc$  & $ac$  & $abc$ \\
+                $a$   & $a$   & $e$   & $ab$  & $ac$  & $b$   & $abc$ & $c$   & $bc$  \\
+                $b$   & $b$   & $ab$  & $e$   & $bc$  & $a$   & $c$   & $abc$ & $ac$  \\
+                $c$   & $c$   & $ac$  & $bc$  & $e$   & $abc$ & $b$   & $a$   & $ab$  \\
+                $ab$  & $ab$  & $b$   & $a$   & $abc$ & $e$   & $ac$  & $bc$  & $c$   \\
+                $bc$  & $bc$  & $abc$ & $c$   & $b$   & $ac$  & $e$   & $ab$  & $a$   \\
+                $ac$  & $ac$  & $c$   & $abc$ & $a$   & $bc$  & $ab$  & $e$   & $b$   \\
+                $abc$ & $abc$ & $bc$  & $ac$  & $ab$  & $c$   & $a$   & $b$   & $e$  
+                \end{tabular}
+                \caption{Operation table for the commutative group}
+                \label{tab:op-table-commutative}
+            \end{table}
+    \end{enumerate}
+
+\subsection{Set G}
+\begin{enumerate}
+    \item See Table \ref{tab:op-exercise-5G1}.
+        \begin{table}[]
+            \centering
+            \begin{tabular}{l|llll}
+            & $e$ & $a$ & $b$ & $ab$\\ \hline
+            $e$ & $e$ & $a$ & $b$ & $ab$\\
+            $a$ & $a$ & $e$ & $ab$& $b$ \\
+            $b$ & $b$ & $ab$& $e$ & $a$ \\
+            $ab$& $ab$& $b$ & $a$ & $e$
+            \end{tabular}
+            \caption{Operation table for item 1}
+            \label{tab:op-exercise-5G1}
+        \end{table}
+
+    \item See Table \ref{tab:op-exercise-5G2}.
+        \begin{table}[]
+            \centering
+            \begin{tabular}{l|llllll}
+                & $e$  & $a$  & $b$  & $ab$ & $ba$ & $aba$ \\ \hline
+            $e$  & $e$  & $a$  & $b$  & $ab$ & $ba$ & $aba$ \\
+            $a$  & $a$  & $e$  & $ab$ & $b$  & $aba$ & $ba$ \\
+            $b$  & $b$  & $ba$ & $e$  & $aba$ & $a$  & $ab$ \\
+            $ab$ & $ab$ & $aba$ & $a$  & $ba$ & $e$  & $b$  \\
+            $ba$ & $ba$ & $b$  & $aba$ & $e$  & $ab$ & $a$  \\
+            $aba$ & $aba$ & $ab$ & $ba$ & $a$  & $b$  & $e$ 
+            \end{tabular}
+            \caption{Table operation for item 2}
+            \label{tab:op-exercise-5G2}
+        \end{table}
+
+    \item See Table \ref{tab:op-exercise-5G3}.
+        \begin{table}[]
+            \centering
+            \begin{tabular}{l|llllllll}
+                & $e$   & $a$   & $b$   & $ab$  & $ba$   & $bab$ & $aba$ & $abab$\\ \hline
+            $e$   & $e$   & $a$   & $b$   & $ab$  & $ba$   & $bab$ & $aba$ & $abab$\\
+            $a$   & $a$   & $e$   & $ab$  & $b$   & $aba$  & $abab$& $ba$  & $bab$ \\
+            $b$   & $b$   & $ba$  & $e$   & $bab$ & $abab$ & $ab$  & $abab$& $aba$ \\
+            $ab$  & $ab$  & $aba$ & $a$   & $abab$& $e$    & $b$   & $bab$ & $ba$  \\
+            $ba$  & $ba$  & $b$   & $bab$ & $e$   & $ababa$ & $aba$ & $a$   & $ab$  \\
+            $bab$ & $bab$ & $abab$& $ba$  & $aba$ & $b$    & $e$   & $ab$  & $a$   \\
+            $aba$ & $aba$ & $ab$  & $abab$& $a$   & $bab$  & $ba$  & $e$   & $b$   \\
+            $abab$& $abab$& $bab$ & $aba$ & $ba$  & $ab$   & $a$   & $b$   & $e$  
+            \end{tabular}
+            \caption{Operation table for item 3}
+            \label{tab:op-exercise-5G3}
+        \end{table}    
+
+    \item This is the dihedral group $D_4$. See Table \ref{tab:op-dihedral-d4}.
+
+    \item See Table \ref{tab:op-exercise-5G5}.
+        \begin{table}[]
+            \centering
+            \begin{tabular}{l|llllllll}
+                & $e$   & $a$   & $b$   & $b^2$ & $b^3$ & $ab$  & $ab^2$& $ab^3$\\ \hline
+            $e$   & $e$   & $a$   & $b$   & $b^2$ & $b^3$ & $ab$  & $ab^2$& $ab^3$\\
+            $a$   & $a$   & $e$   & $ab$  & $ab^2$& $ab^3$& $b$   & $b^2$ & $b^3$ \\
+            $b$   & $b$   & $ab$  & $b^2$ & $b^3$ & $e$   & $ab^2$& $ab^3$& $a$   \\
+            $b^2$ & $b^2$ & $ab^2$& $b^3$ & $e$   & $b$   & $ab^3$& $a$   & $ab$  \\
+            $b^3$ & $b^3$ & $ab^3$& $e$   & $b$   & $b^2$ & $a$   & $ab$  & $ab^2$\\
+            $ab$  & $ab$  & $b$   & $ab^2$& $ab^3$& $a$   & $b^2$ & $b^3$ & $e$   \\
+            $ab^2$& $ab^2$& $b^2$ & $ab^3$& $a$   & $ab$  & $b^3$ & $e$   & $b$   \\
+            $ab^3$& $ab^3$& $b^3$ & $a$   & $ab$  & $ab^2$& $e$   & $b$   & $b^2$
+            \end{tabular}
+            \caption{Operation table for item 5}.
+            \label{tab:op-exercise-5G5}
+        \end{table}
+        
+    \item See Table \ref{tab:op-exercise-5G6}.
+        \begin{table}[]
+            \centering
+            \begin{tabular}{l|llllllllllll}
+                & $e$    & $a$    & $b$    & $b^2$  & $ab$   & $ab^2$ & $ba$   & $bab$  & $bab^2$& $b^2a$ & $b^2ab$& $aba$  \\ \hline
+            $e$    & $e$    & $a$    & $b$    & $b^2$  & $ab$   & $ab^2$ & $ba$   & $bab$  & $bab^2$& $b^2a$ & $b^2ab$& $aba$  \\
+            $a$    & $e$    & $e$    & $ab$   & $ab^2$ & $b$    & $b^2$  & $aba$  & $b^2a$ & $b^2ab$& $bab$  & $bab^2$& $ba$   \\
+            $b$    & $b$    & $ba$   & $b^2$  & $e$    & $bab$  & $bab^2$& $b^2a$ & $b^2ab$& $aba$  & $a$    & $ab$   & $ab^2$ \\
+            $b^2$  & $b^2$  & $b^2a$ & $e$    & $b$    & $b^2ab$& $aba$  & $a$    & $ab$   & $ab^2$ & $ba$   & $bab$  & $bab^2$\\
+            $ab$   & $ab$   & $aba$  & $ab^2$ & $a$    & $b^2a$ & $b^2ab$& $bab$  & $bab^2$& $ba$   & $e$    & $b$    & $b^2$  \\
+            $ab^2$ & $ab^2$ & $bab$  & $a$    & $ab$   & $bab^2$& $ba$   & $e$    & $b$    & $b^2$  & $aba$  & $b^2a$ & $b^2ab$\\
+            $ba$   & $ba$   & $b$    & $bab$  & $bab^2$& $b^2$  & $e$    & $ab^2$ & $a$    & $ab$   & $b^2ab$& $aba$  & $b^2a$ \\
+            $bab$  & $bab$  & $ab^2$ & $bab^2$& $ba$   & $a$    & $ab$   & $b^2ab$& $aba$  & $b^2a$ & $b$    & $b^2$  & $e$    \\
+            $bab^2$& $bab^2$& $b^2ab$& $ba$   & $bab$  & $aba$  & $b^2a$ & $b$    & $b^2$  & $e$    & $ab^2$ & $a$    & $ab$   \\
+            $b^2a$ & $b^2a$ & $b^2$  & $b^2ab$& $aba$  & $e$    & $b$    & $bab^2$& $ba$   & $bab$  & $ab$   & $ab^2$ & $a$    \\
+            $b^2ab$& $b^2ab$& $bab^2$& $aba$  & $b^2a$ & $ba$   & $bab$  & $ab$   & $ab^2$ & $a$    & $b^2$  & $e$    & $b$    \\
+            $aba$  & $aba$  & $ab$   & $b^2a$ & $b^2ab$& $ab^2$ & $a$    & $b^2$  & $e$    & $b$    & $bab^2$& $ba$   & $bab$ 
+            \end{tabular}
+            \caption{Operation table for item 6}
+            \label{tab:op-exercise-5G6}
+        \end{table}
+\end{enumerate}
+
+\subsection{Set H}
+\begin{enumerate}
+    \item $\mathbf{G}_2 = \begin{bmatrix}
+        1 & 0 & 0 & 0 & 1 & 1 \\
+        0 & 1 & 0 & 1 & 1 & 1 \\
+        0 & 0 & 1 & 0 & 0 & 1 \\
+    \end{bmatrix}$, 
+    $\mathbf{H}_2 = \begin{bmatrix}
+        0 & 1 & 0 & 1 & 0 & 0 \\
+        1 & 1 & 0 & 0 & 1 & 0 \\
+        1 & 1 & 1 & 0 & 0 & 1 \\
+    \end{bmatrix}$.
+
+    \item $\mathbf{G}_3 = \begin{bmatrix}
+        1 & 0 & 0 & 0 & 0 & 1 & 1\\
+        0 & 1 & 0 & 0 & 1 & 0 & 1 \\
+        0 & 0 & 1 & 0 & 1 & 1 & 0 \\
+        0 & 0 & 0 & 1 & 1 & 1 & 1 \\
+    \end{bmatrix}$,
+    $\mathbf{H}_3 = \begin{bmatrix}
+        0 & 1 & 1 & 1 & 1 & 0 & 0 \\
+        1 & 0 & 1 & 1 & 0 & 1 & 0\\
+        1 & 1 & 0 & 1 & 0 & 0 & 1 \\
+    \end{bmatrix}$.
+
+    \item By the definition of the addition operation for this group, $\mathbf{x} + \mathbf{y}$ has $1$ in the positions where $\mathbf{x}$ and $\mathbf{y}$ differ, and $0$ in the positions where they equal. So, the number of $1$s in $\mathbf{x} + \mathbf{y}$ is the same as the distance between $\mathbf{x}$ and $\mathbf{y}$.
+
+    \item From the previous item, $d(\mathbf{x}, \mathbf{0}) = w(\mathbf{x} + \mathbf{0}) = w(\mathbf{x})$.
+
+    \item Let $\mathbf{x}, \mathbf{y} \in C$ such that $d(\mathbf{x}, \mathbf{y})$ is the minimum distance in $C$. Now let us assume that there is some $\mathbf{z} \in C$ such that $w(\mathbf{z}) < d(\mathbf{x}, \mathbf{y})$. Now, $\mathbf{z}$ can be written as the sum of two other elements, say $\mathbf{z} = \mathbf{x'} + \mathbf{y'}$; then $w(\mathbf{z}) = w(\mathbf{x'} + \mathbf{y'}) = d(\mathbf{x'}, \mathbf{y'}) < d(\mathbf{x}, \mathbf{y})$, which is a contradiction, since $d(\mathbf{x}, \mathbf{y})$ is the minimum distance. Therefore, the minimum distance in $C$ is equal to the minimum weight in $C$, namely $w(\mathbf{x} + \mathbf{y})$.
+
+    \item For the items below, let $p$ be the number of positions in which $\mathbf{x}$ and $\mathbf{y}$ are both $1$ .
+        \begin{enumerate}[label=(\alph*)]
+            \item Let us say that $w(\mathbf{x}) = 2m$ and $w(\mathbf{y}) = 2n$. Then $w(\mathbf{x} + \mathbf{y}) = 2m + 2n - 2p = 2(m + n - p)$, which is even.
+
+            \item Let us say that $w(\mathbf{x}) = 2m + 1$ and $w(\mathbf{y}) = 2n + 1$. Then $w(\mathbf{x} + \mathbf{y}) = 2m + 1 + 2n + 1 - 2p = 2(m + n - p + 1)$, which is even.
+
+            \item Let us say that $w(\mathbf{x}) = 2m + 1$ and $w(\mathbf{y}) = 2n$. Then $w(\mathbf{x} + \mathbf{y}) = 2m + 1 + 2n - 2p = 2(m + n - p) + 1$, which is odd.1$3x_1 + 4 = 3x_2 + 4 \Rightarrow x_1 = x_2$1$3x_1 + 4 = 3x_2 + 4 \Rightarrow x_1 = x_2$. $f$ is surjective: for every $y \in \mathbb{R}$, $f()$. $f$ is surjective: for every $y \in \mathbb{R}$, $f()$
+        \end{enumerate}
+
+    \item Let us say a group code $C$ of order $m$ has $n$ elements with odd weight (and consequently $m - n$ elements with even weight), with $0 < n \leqslant m$. Then, let us take one of these elements with odd weight and multiply by each element of the group, obtaining the whole group: $\{xa_1, xa_2, \ldots, xa_m\}$, $a_i \in C$. In all the instances in which $a_i$ has even weight, $xa_i$ has odd weight. Since there are $m - n$ such instances, there are $m - n$ elements with odd weight, which means that $m - n = n$ and, therefore, $n = \frac{m}{2}$. In the case in which all elements have even weight, this property is trivially satisfied, since the weight of the product of any two elements with even weight is even.
+
+    \item $\mathbf{H}(\mathbf{x} + \mathbf{y}) = \mathbf{H}\mathbf{x} + \mathbf{H}\mathbf{y} = 0 \Leftrightarrow \mathbf{H}\mathbf{x} = \mathbf{H}\mathbf{y}$.
+\end{enumerate}

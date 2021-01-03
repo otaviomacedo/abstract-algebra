@@ -15,6 +15,13 @@
             a \sim b &\ \text{iff $\angled{a} = \angled{b}$ and $a \ne e$ and $b \ne e$}
         \end{align*}
         Take any $g, h \in G$ such that $g \nsim h$. Because equivalence relations define partitions, $\angled{g} \cap \angled{h} = \{e\}$, which means that $g^i \ne h^j$ for any $0 < i, j < p$. Now, consider that $g^ih^j = g^kh^l$ for some $0 \leqslant i, j, k, l < p$. Then $g^{i - k} = h^{l - j}$. The only way to satisfy this equation is making $i - k = 0$ and $l - j = 0$. So $i = k$ and $l = j$. Equivalently, $i \ne k$ or $l \ne j \Rightarrow g^ih^j \ne g^kh^l$. Also, there are $p^2$ different pairs $(i, j)$ such that $0 \leqslant i, j < p$. From these two facts, we can conclude that there are $p^2$ different products $g^ih^j$  and, therefore,  any $x \in G$ can be uniquely written as $x = g^ih^j$ for some $0 \leqslant i, j < p$. So the map $G \to \mathbb{Z}_p \times \mathbb{Z}_p$, given by $g^ih^j \mapsto (i, j)$ is an isomorphism.
-
     \end{enumerate}
 \end{enumerate}
+
+\subsection{Set H}
+\begin{enumerate}
+    \item $\ord(a) = tp \Rightarrow (a^t)^p = e$. Assume that there is an integer $q < p$ such that $(a^t)^q = e$. Then $p$ is a multiple of $q$, which is a contradiction, since $p$ is prime. Therefore, $\ord(a^t) = p$.
+    \item $k = pm$ for some integer $m$. Then $|G/\angled{a}| = |G|/|\angled{a}| = pm/\ord(a)$. Since $\ord(a)$ is not a multiple of $p$, it must be a divisor of $m$. So $|G/\angled{a}| = p\frac{m}{\ord(a)} < k$.
+    \item $G/\angled{a}$ is an abelian group and $|G/\angled{a}| < k$. Given that $p$ is a prime factor of $|G/\angled{a}|$, by the induction hypothesis $G/\angled{a}$ has an element of order $p$.
+    \item Let $c \in G/\angled{a}$. Then $\ord(c) = p$ and $\ord(c)m = \ord(a)$ for some positive integer $m$. Therefore, $\ord(a) = pm \Rightarrow (a^m)^p = e \Rightarrow \ord(a^m) = p$.
+\end{enumerate}    

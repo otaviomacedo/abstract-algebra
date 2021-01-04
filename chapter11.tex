@@ -37,11 +37,22 @@
 
 \subsection{Set C}
 \begin{enumerate}
-    \item Proving each direction separately:
-        \begin{enumerate}
-            \item [($\Rightarrow$)] $a^r$ is a generator of $\angled{a}$. Then $\ord{a^r} = n$. Then $r$ and $n$ are relatively prime. (see 10.G.2).
-            \item [($\Leftarrow$)] $r$ and $n$ are relatively prime. Then $\ord(a^r) = n$ (see 10.G.1). Then $a^r$ is a generator of $\angled{a}$
-        \end{enumerate}
+    \item
+    \begin{enumerate}
+        \item [($\Rightarrow$)] $a^r$ is a generator of $\angled{a}$. Then $\ord{a^r} = n$. Then $r$ and $n$ are relatively prime. (see 10.G.2).
+        \item [($\Leftarrow$)] $r$ and $n$ are relatively prime. Then $\ord(a^r) = n$ (see 10.G.1). Then $a^r$ is a generator of $\angled{a}$
+    \end{enumerate}
+
     \item Every $a^i$, such that $i < n$ and $i$ is relatively prime to $n$, is a  generator of $\angled{a}$ by 11.C.1. By definition, there are $\phi(n)$ such powers of $a$. 
+    
     \item $a, b \in C_m \Rightarrow (ab)^m = a^mb^m = e$ (closed under multiplication). $x \in C_m \Rightarrow (x^{-1})^m = (x^m)^{-1} = e^{-1} = e$ (closed under inverses).
+    
+    \item Since $m$ divides $n$, by 11.B.4, there is an element $b \in \angled{a}$ with order $m$. So $b^1, b^2, \ldots, b^m \in C_m$. 
+    
+    \item 
+    \begin{enumerate}
+        \item [($\Rightarrow$)] $\ord(x) = m \Rightarrow x^m = e \Rightarrow x \in C_m$. So, for every integer $i$, $x^{im} = e$, which means that $x^i \in C_m$. $|\angled{x}| = m$ and $C_m$ has $m$ elements. So $\angled{x} = C_m$.
+        \item [($\Leftarrow$)] $x$ is a generator of $C_m$, which has $m$ elements. So $x^1, x^2, \ldots, x^{m}$ are all different. The smallest positive $i$ such that $x^i = e$ is $i = m$. In other words, $\ord(x) = m$.
+    \end{enumerate}
+
 \end{enumerate}

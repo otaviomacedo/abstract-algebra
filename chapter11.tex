@@ -55,4 +55,23 @@
         \item [($\Leftarrow$)] $x$ is a generator of $C_m$, which has $m$ elements. So $x^1, x^2, \ldots, x^{m}$ are all different. The smallest positive $i$ such that $x^i = e$ is $i = m$. In other words, $\ord(x) = m$.
     \end{enumerate}
 
+    \item Take a generator $x$ of $C_m$. Then $\ord(x) = m$. By 11.C.2 there are $\phi(m)$ different generators of $C_m$. All of them have order $m$. Therefore there are $\phi(m)$ elements of order $m$ in $\angled{a}$.
+
+    \item 
+    \begin{enumerate}
+        \item [($\Rightarrow$)] $m = \ord(a^r) = \frac{mk}{\gcd(r, mk)} \Rightarrow \gcd(r, mk) = k \Rightarrow r = kl$.
+        \item [($\Leftarrow$)] $a^r = a^{kl} \Rightarrow \ord(a^r) = \frac{n}{\gcd(r, n)} = \frac{mk}{\gcd(kl, mk)} = \frac{mk}{k} = m$.
+    \end{enumerate}
+
+    \item This is essentially a restatement of 11.C.1.
+
 \end{enumerate}
+
+\subsection{Set D}
+\begin{enumerate}
+    \item $\angled{a}$ contains all powers of $b$ including $b^k = a$. Since $\angled{b}$ is a subgroup if $G$, any power of $a$ is also in $\angled{b}$. So $\angled{a} \subseteq \angled{b}$.
+    \item
+    \begin{enumerate}
+        \item [($\Rightarrow$)] By 11.D.1, if $a$ is a power of $b$ then $\angled{a} \subseteq \angled{b}$. Likewise, if $\angled{b}$ is a power of $\angled{a}$, then $\angled{b} \subseteq \angled{a}$. Therefore $\angled{a} = \angled{b}$.
+        \item [($\Leftarrow$)] $\angled{a} = \angled{b}$, so they have the same elements. Thus, $a \in \angled{b}$ and, since $\angled{b}$ is cyclic, $a = b^k$. Likewise for $b$.
+    \end{enumerate} \end{enumerate}

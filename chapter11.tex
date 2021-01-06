@@ -74,4 +74,41 @@
     \begin{enumerate}
         \item [($\Rightarrow$)] By 11.D.1, if $a$ is a power of $b$ then $\angled{a} \subseteq \angled{b}$. Likewise, if $\angled{b}$ is a power of $\angled{a}$, then $\angled{b} \subseteq \angled{a}$. Therefore $\angled{a} = \angled{b}$.
         \item [($\Leftarrow$)] $\angled{a} = \angled{b}$, so they have the same elements. Thus, $a \in \angled{b}$ and, since $\angled{b}$ is cyclic, $a = b^k$. Likewise for $b$.
-    \end{enumerate} \end{enumerate}
+    \end{enumerate}
+
+    \item 
+    \begin{enumerate}
+        \item [($\Rightarrow$)] $\angled{a} = \angled{b}$. Then $|\angled{a}| = |\angled{b}| \Rightarrow \ord(a) = \ord(b)$.
+        \item [($\Leftarrow$)] $\ord(a) = \ord(b) \Rightarrow |\angled{a}| = |\angled{b}|$. Since all cyclic groups of the same order are isomorphic, $\angled{a} = \angled{b}$.
+    \end{enumerate}
+
+    \item 
+    \begin{enumerate}
+        \item $\ord(b) = \ord(a^k) = \frac{n}{\gcd(n, k)} = n \Rightarrow \gcd(k, n) = 1$. Therefore $k$ and $n$ are relatively prime. Apply the deduction above in the reverse order as well.
+    \end{enumerate}
+
+    \item Same reasoning as the previous exercise.
+    
+    \item By 11.B.4, there is an element in the group, call it $a$, such that $\ord(a) = n$. The cyclic group $\angled{a}$ is a subgroup of order $n$.
+\end{enumerate}
+
+\subsection{Set E}
+\begin{enumerate}
+    \item If $(a, b)$ is a generator of $G \times H$, then every element of $G \times H$ can be written as $(a, b)^k = (a^k, b^k)$ for some integer $k$. Now suppose there is an element $c \in G$ such that $c = a^k$ for every integer $k$. Then there is an element $(c, x) \in G$ that is not of the form $(a^k, b^k)$, which is a contradiction. Likewise for $b$.
+    
+    \item Same reasoning as above. If $G \times H = \angled{(a, b)}$, then $G = \angled{a}$ and $H = \angled{b}$.
+    
+    \item $\mathbb{Z}_2$ and $\mathbb{Z}_4$ are cyclic but $\mathbb{Z}_2 \times \mathbb{Z}_4$ is not.
+    
+    \item $a^{mp} = e$ and $b^{nq} = e$ for any positive integers $p, q$. To find the order of $(a, b)$ we need to find the smallest $k$ such that $(a^k, b^k) = (e, e)$. So $k$ is the smallest integer such that $k = mp = nq$. In other words, $k = \lcm(m, n)$.
+    
+    \item $k = \lcm(m, n) = \frac{mn}{\gcd(m, n)} = mn$.
+    
+    \item $\ord(c, d) = \lcm(m, n) = \frac{mn}{\gcd(m, n)} < mn$ (because $\gcd(m, n) > 1$).
+    
+    \item 
+    \begin{enumerate}
+        \item [(i)] $\ord(a)$ and $\ord(b)$ are relatively prime. Then $\ord(a, b) = mn$. So $(a, b)$ generates $G \times H$, since $|G \times H| = mn$.
+        \item [(ii)] $G \times H$ is cyclic. Then $|G \times H| = mn$ and $\ord(a) = m$ and $\ord(b) = n$. So $m$ and $n$ are relatively prime.
+    \end{enumerate}
+\end{enumerate}

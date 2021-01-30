@@ -1,7 +1,14 @@
 \section{Chapter 16}
 \subsection{Set L}
 \begin{enumerate}
-    \item $C$ is a normal subgroup of $G$. So $|C| = p^j$ for some $j \leqslant k$. By definition, $C$ is abelian. By 15.H, $C$ must contain at least one element of order $p$ (because $p$ is a prime factor of $p^j$).
+    \item $C$ is a normal subgroup of $G$. So $|C| = mp$ for some positive integer $m$. By definition, $C$ is abelian. By 15.H, $C$ must contain at least one element of order $p$ (because $p$ is a prime factor of $mp$).
     \item Being cyclic, $\angled{a}$ is a subgroup of $G$. Furthermore, $a$ is in the center of $G$. So, for all $x \in \angled{a}$ and all $g \in G$, $gx = xg$, which means that all elements $gxg^{-1}$ are in $\angled{a}$.  Therefore $\angled{a}$ is a normal subgroup of $G$.
     \item $|G/\angled{a}| = p^{k - 1}$. Applying steps 1 and 2 again, we get another subgroup of order $p^{k - 2}$ and so on down to order $p^1$.
+\end{enumerate}
+
+\subsection{Set M}
+\begin{enumerate}
+    \item For all $g \in G$, $\ord(g) = p^k$ for some positive integer $k$ and, thus, $|\angled{g}| = p^k$. By Cauchy's theorem, there is an $a \in \angled{g}$ such that $\ord(a) = p$. And, because $p$ is prime, it is the only possible prime order that can exist for any element in $G$. Applying Cauchy's theorem now in reverse, since we have excluded all possible prime orders of elements, except $p$, the order of $G$ is a power of $p$ (by the fundamental theorem of arithmetic).
+    
+    \item 
 \end{enumerate}

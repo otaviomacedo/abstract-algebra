@@ -10,5 +10,6 @@
 \begin{enumerate}
     \item For all $g \in G$, $\ord(g) = p^k$ for some positive integer $k$ and, thus, $|\angled{g}| = p^k$. By Cauchy's theorem, there is an $a \in \angled{g}$ such that $\ord(a) = p$. And, because $p$ is prime, it is the only possible prime order that can exist for any element in $G$. Applying Cauchy's theorem now in reverse, since we have excluded all possible prime orders of elements, except $p$, the order of $G$ is a power of $p$ (by the fundamental theorem of arithmetic).
     
-    \item 
+    \item Let $K$ be a $p$-Sylow subgroup of $G$ and let $f : K \to aKa^{-1}$ with $f(x) = axa^{-1}$. We can show that $f$ is an isomorphism. Now assume that there exists a $p$-subgroup of $G$, $L$, such that $aKa^{-1}$ is a proper subgroup of $L$. Let $g : L \to aLa^{-1}$ with $g(x) = axa^{-1}$. If $x \in aKa^{-1}$, then $g(x) = f^{-1}(x)$. This means that there is some $y \in L$ such that $y \notin aKa^{-1}$. So, $K$ is a proper subgroup of $aL a^{-1}$, which is a contradiction. Therefore $aKa^{-1}$ is a $p$-Sylow subgroup of $G$.
+    \item Let $f : N \twoheadrightarrow N / K$ with $f(x) = Kx$. Since $f$ is a homomorphism, by 14.J.4, $S^* / K$ is isomorphic to $S$, which is a $p$-group.
 \end{enumerate}
